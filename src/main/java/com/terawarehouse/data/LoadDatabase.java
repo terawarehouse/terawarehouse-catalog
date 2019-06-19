@@ -24,15 +24,15 @@ public class LoadDatabase {
 	CommandLineRunner initDatabase(final CategoryRepository categoryRepository, final ProductRepository productRepository) {
 
 		return args -> {
-			Category cat = categoryRepository.save(new Category("Aircon", "Aircon"));
-			categoryRepository.save(new Category("ElectricStove", "ElectricStove"));
-			categoryRepository.save(new Category("Refrigerator", "Refrigerator"));
-			categoryRepository.save(new Category("TV", "TV"));
-			categoryRepository.save(new Category("WashingMachine", "WashingMachine"));
-
-			log.info("Preloading " + cat);
-			log.info("Preloading " + productRepository.save(new Product(cat, "Inverter", "Inverter", new BigDecimal(25000))));
-			log.info("Preloading " + productRepository.save(new Product(cat, "Window", "Window", new BigDecimal(80000))));
+//			Category cat = categoryRepository.save(new Category("Aircon", "Aircon"));
+//			categoryRepository.save(new Category("ElectricStove", "ElectricStove"));
+//			categoryRepository.save(new Category("Refrigerator", "Refrigerator"));
+//			categoryRepository.save(new Category("TV", "TV"));
+//			categoryRepository.save(new Category("WashingMachine", "WashingMachine"));
+//
+//			log.info("Preloading " + cat);
+//			log.info("Preloading " + productRepository.save(new Product(cat, "Inverter", "Inverter", new BigDecimal(25000))));
+//			log.info("Preloading " + productRepository.save(new Product(cat, "Window", "Window", new BigDecimal(80000))));
 		};
 	}
 }
