@@ -1,0 +1,97 @@
+CREATE TABLE cat_category
+(
+    id uuid NOT NULL,
+    created timestamp without time zone NOT NULL,
+    creator_ref character varying(255),
+    updated timestamp without time zone,
+    updater_ref character varying(255),
+    disabled boolean NOT NULL,
+    code character varying(255),
+    description character varying(255),
+    category_id uuid,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE cat_product
+(
+    id uuid NOT NULL,
+    created timestamp without time zone NOT NULL,
+    creator_ref character varying(255),
+    updated timestamp without time zone,
+    updater_ref character varying(255),
+    disabled boolean NOT NULL,
+    code character varying(255),
+    description character varying(255),
+    release_date date,
+    srp numeric(35,12) NOT NULL,
+    brand_id uuid,
+    category_id uuid NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE cat_serial
+(
+    id uuid NOT NULL,
+    branch_id uuid,
+    product_id uuid NOT NULL,
+    dealer_id uuid,
+    serial_no character varying(100),
+    status character varying(100),
+    warranty_card_no character varying(100),
+    created timestamp without time zone NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE cat_brand
+(
+    id uuid NOT NULL,
+    created timestamp without time zone NOT NULL,
+    creator_ref character varying(255),
+    updated timestamp without time zone,
+    updater_ref character varying(255),
+    disabled boolean NOT NULL,
+    code character varying(255),
+    description character varying(255),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE trading_branch
+(
+    id uuid NOT NULL,
+    created timestamp without time zone NOT NULL,
+    creator_ref character varying(255),
+    updated timestamp without time zone,
+    updater_ref character varying(255),
+    disabled boolean NOT NULL,
+    code character varying(255),
+    description character varying(255),
+    dealer_id uuid NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE trading_dealer_group
+(
+    id uuid NOT NULL,
+    created timestamp without time zone NOT NULL,
+    creator_ref character varying(255),
+    updated timestamp without time zone,
+    updater_ref character varying(255),
+    disabled boolean NOT NULL,
+    code character varying(255),
+    description character varying(255),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE trading_dealer
+(
+    id uuid NOT NULL,
+    created timestamp without time zone NOT NULL,
+    creator_ref character varying(255),
+    updated timestamp without time zone,
+    updater_ref character varying(255),
+    disabled boolean NOT NULL,
+    code character varying(255),
+    description character varying(255),
+    dealer_group_id uuid,
+	PRIMARY KEY (id)
+);

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+	<changeSet author="czetsuya" id="1560830490022-1">
+		<insert tableName="cat_category">
+			<column name="id" value="8f86116a-e5ad-4f2b-bb1e-a69dabedd787" />
+			<column name="created" valueDate="2019-06-18 11:56:45.297" />
+			<column name="creator_ref" value="Edward" />
+			<column name="updated" />
+			<column name="updater_ref" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="code" value="Aircon" />
+			<column name="description" value="Aircon" />
+			<column name="category_id" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830490022-2">
+		<insert tableName="cat_category">
+			<column name="id" value="5d139d82-9ebf-4e4d-bf8b-71c4b47f9c74" />
+			<column name="created" valueDate="2019-06-18 11:56:45.355" />
+			<column name="creator_ref" value="Edward" />
+			<column name="updated" />
+			<column name="updater_ref" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="code" value="ElectricStove" />
+			<column name="description" value="ElectricStove" />
+			<column name="category_id" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830490022-3">
+		<insert tableName="cat_category">
+			<column name="id" value="4c789824-537a-4cae-b172-8767a50b6692" />
+			<column name="created" valueDate="2019-06-18 11:56:45.357" />
+			<column name="creator_ref" value="Edward" />
+			<column name="updated" />
+			<column name="updater_ref" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="code" value="Refrigerator" />
+			<column name="description" value="Refrigerator" />
+			<column name="category_id" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830490022-4">
+		<insert tableName="cat_category">
+			<column name="id" value="7cfe67c0-fcc3-42f0-8262-ec1717f8e1ba" />
+			<column name="created" valueDate="2019-06-18 11:56:45.36" />
+			<column name="creator_ref" value="Edward" />
+			<column name="updated" />
+			<column name="updater_ref" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="code" value="TV" />
+			<column name="description" value="TV" />
+			<column name="category_id" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830490022-5">
+		<insert tableName="cat_category">
+			<column name="id" value="5ff10de3-48d4-400d-8ff5-c275ff5e821f" />
+			<column name="created" valueDate="2019-06-18 11:56:45.362" />
+			<column name="creator_ref" value="Edward" />
+			<column name="updated" />
+			<column name="updater_ref" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="code" value="WashingMachine" />
+			<column name="description" value="WashingMachine" />
+			<column name="category_id" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830490022-6">
+		<insert tableName="cat_product">
+			<column name="id" value="3869bb87-6901-4efb-b5a6-42be84677e6f" />
+			<column name="created" valueDate="2019-06-18 11:56:45.367" />
+			<column name="creator_ref" value="Edward" />
+			<column name="updated" />
+			<column name="updater_ref" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="code" value="Inverter" />
+			<column name="description" value="Inverter" />
+			<column name="release_date" />
+			<column name="srp" valueNumeric="25000.000000000000" />
+			<column name="brand_id" />
+			<column name="category_id"
+				value="8f86116a-e5ad-4f2b-bb1e-a69dabedd787" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830490022-7">
+		<insert tableName="cat_product">
+			<column name="id" value="d0916bd4-ad97-4726-ac7c-c2d436a0a063" />
+			<column name="created" valueDate="2019-06-18 11:56:45.404" />
+			<column name="creator_ref" value="Edward" />
+			<column name="updated" />
+			<column name="updater_ref" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="code" value="Window" />
+			<column name="description" value="Window" />
+			<column name="release_date" />
+			<column name="srp" valueNumeric="80000.000000000000" />
+			<column name="brand_id" />
+			<column name="category_id"
+				value="8f86116a-e5ad-4f2b-bb1e-a69dabedd787" />
+		</insert>
+	</changeSet>
+</databaseChangeLog>

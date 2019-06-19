@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+	<changeSet author="czetsuya" id="1560830410825-1">
+		<createTable tableName="cat_brand">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-2">
+		<createTable tableName="cat_category">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="category_id" type="UUID" />
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-3">
+		<createTable tableName="cat_product">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="release_date" type="date" />
+			<column name="srp" type="numeric">
+				<constraints nullable="false" />
+			</column>
+			<column name="brand_id" type="UUID" />
+			<column name="category_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-4">
+		<createTable tableName="cat_serial">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="serial_no" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)" />
+			<column name="warranty_card_no" type="VARCHAR(100)" />
+			<column name="dealer_id" type="UUID" />
+			<column name="product_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="branch_id" type="UUID" />
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-5">
+		<createTable tableName="trading_branch">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="dealer_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-6">
+		<createTable tableName="trading_dealer">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="dealer_group_id" type="UUID" />
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-7">
+		<createTable tableName="trading_dealer_group">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-8">
+		<addPrimaryKey columnNames="id"
+			constraintName="cat_brand_pkey" tableName="cat_brand" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-9">
+		<addPrimaryKey columnNames="id"
+			constraintName="cat_category_pkey" tableName="cat_category" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-10">
+		<addPrimaryKey columnNames="id"
+			constraintName="cat_product_pkey" tableName="cat_product" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-11">
+		<addPrimaryKey columnNames="id"
+			constraintName="cat_serial_pkey" tableName="cat_serial" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-12">
+		<addPrimaryKey columnNames="id"
+			constraintName="trading_branch_pkey" tableName="trading_branch" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-13">
+		<addPrimaryKey columnNames="id"
+			constraintName="trading_dealer_group_pkey"
+			tableName="trading_dealer_group" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-14">
+		<addPrimaryKey columnNames="id"
+			constraintName="trading_dealer_pkey" tableName="trading_dealer" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-15">
+		<addForeignKeyConstraint
+			baseColumnNames="category_id" baseTableName="cat_category"
+			constraintName="fk5v2pgvsta3xef8oulp9ryw6ro" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="cat_category" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-16">
+		<addForeignKeyConstraint
+			baseColumnNames="category_id" baseTableName="cat_product"
+			constraintName="fkbbw8bbathw7mktdpievof8huk" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="cat_category" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-17">
+		<addForeignKeyConstraint
+			baseColumnNames="brand_id" baseTableName="cat_product"
+			constraintName="fkcteca00w87p6qvf12dm83irlp" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="cat_brand" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-18">
+		<addForeignKeyConstraint
+			baseColumnNames="dealer_id" baseTableName="cat_serial"
+			constraintName="fke8hw7b46alu49nsk1ggqa80wi" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="trading_dealer" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-19">
+		<addForeignKeyConstraint
+			baseColumnNames="dealer_group_id" baseTableName="trading_dealer"
+			constraintName="fkean8hl43a42t96p05pg1vhnft" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="trading_dealer_group" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-20">
+		<addForeignKeyConstraint
+			baseColumnNames="product_id" baseTableName="cat_serial"
+			constraintName="fkqsqlqqwi53lkxc0lldv9ayrxx" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="cat_product" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-21">
+		<addForeignKeyConstraint
+			baseColumnNames="branch_id" baseTableName="cat_serial"
+			constraintName="fkrxkihikvsrxv7b9ihc4fg23mq" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="trading_branch" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-22">
+		<addForeignKeyConstraint
+			baseColumnNames="dealer_id" baseTableName="trading_branch"
+			constraintName="fksuhx9m18tvkipt7mtgdfsrbyl" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="trading_dealer" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-23">
+		<addUniqueConstraint columnNames="code"
+			constraintName="uk246fb2m52gws4rp5qmnrfbarr" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="trading_dealer" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-24">
+		<addUniqueConstraint columnNames="dealer_id, code"
+			constraintName="uk7m28t785aaarwuhi0oce8miyu" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="trading_branch" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-25">
+		<addUniqueConstraint
+			columnNames="category_id, code"
+			constraintName="ukahjk76nqus46253u2qncalqys" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="cat_product" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-26">
+		<addUniqueConstraint columnNames="code"
+			constraintName="ukbv5qsn4ukq8ksj7b6l75dqqwa" deferrable="false"
+			disabled="false" initiallyDeferred="false"
+			tableName="trading_dealer_group" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-27">
+		<addUniqueConstraint
+			columnNames="product_id, branch_id, serial_no"
+			constraintName="ukljhxtm56ajy3svke7wgutoids" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="cat_serial" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-28">
+		<addUniqueConstraint columnNames="code"
+			constraintName="ukn2o6i3t3f01jniafekb7vq7vv" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="cat_category" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-29">
+		<addUniqueConstraint columnNames="code"
+			constraintName="ukt8a8bslkpl1kl22kl9fpa5ad2" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="cat_brand" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-30">
+		<createIndex indexName="idxbnp2pkqxk5hajr1g5gk0cfiey"
+			tableName="cat_serial" unique="false">
+			<column name="warranty_card_no" />
+		</createIndex>
+	</changeSet>
+	<changeSet author="czetsuya" id="1560830410825-31">
+		<createIndex indexName="idxltmu68abyw818far42d6m8pe"
+			tableName="cat_serial" unique="false">
+			<column name="serial_no" />
+		</createIndex>
+	</changeSet>
+</databaseChangeLog>
