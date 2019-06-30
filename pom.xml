@@ -51,19 +51,6 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>com.h2database</groupId> -->
-		<!-- <artifactId>h2</artifactId> -->
-		<!-- <scope>runtime</scope> -->
-		<!-- </dependency> -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.liquibase</groupId>
-			<artifactId>liquibase-core</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -89,27 +76,6 @@
 	</dependencies>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.liquibase</groupId>
-					<artifactId>liquibase-maven-plugin</artifactId>
-					<version>3.5.3</version>
-					<configuration>
-						<changeLogFile>${liquibase.changeLogFile}</changeLogFile>
-						<driver>${db.driver}</driver>
-						<url>${db.url}</url>
-						<defaultSchemaName>${db.schema}</defaultSchemaName>
-						<username>${db.username}</username>
-						<password>${db.password}</password>
-						<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-						<expressionVariables>
-							<db.schema>${db.schema}</db.schema>
-						</expressionVariables>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -125,14 +91,45 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-                <liquibase.changeLogFile>db/changelog/db.changelog-current.xml</liquibase.changeLogFile>
-                <db.driver>org.postgresql.Driver </db.driver>
-                <db.url>jdbc:postgresql://localhost/terawarehouse</db.url>
-                <db.schema>public</db.schema>
-                <db.username>kerri</db.username>
-                <db.password>kerri</db.password>
-            </properties>
+				<liquibase.changeLogFile>db/changelog/db.changelog-current.xml</liquibase.changeLogFile>
+				<db.driver>org.postgresql.Driver </db.driver>
+				<db.url>jdbc:postgresql://localhost/terawarehouse</db.url>
+				<db.schema>public</db.schema>
+				<db.username>kerri</db.username>
+				<db.password>kerri</db.password>
+			</properties>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.liquibase</groupId>
+							<artifactId>liquibase-maven-plugin</artifactId>
+							<version>3.5.3</version>
+							<configuration>
+								<changeLogFile>${liquibase.changeLogFile}</changeLogFile>
+								<driver>${db.driver}</driver>
+								<url>${db.url}</url>
+								<defaultSchemaName>${db.schema}</defaultSchemaName>
+								<username>${db.username}</username>
+								<password>${db.password}</password>
+								<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+								<expressionVariables>
+									<db.schema>${db.schema}</db.schema>
+								</expressionVariables>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
 			<dependencies>
+				<dependency>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.liquibase</groupId>
+					<artifactId>liquibase-core</artifactId>
+				</dependency>
 				<dependency>
 					<groupId>org.liquibase.ext</groupId>
 					<artifactId>liquibase-postgresql</artifactId>
@@ -152,6 +149,16 @@
 					<artifactId>liquibase-postgresql</artifactId>
 					<version>3.0</version>
 					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>development-test</id>
+			<dependencies>
+				<dependency>
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+					<scope>runtime</scope>
 				</dependency>
 			</dependencies>
 		</profile>

@@ -16,6 +16,6 @@ public class StartupApplicationListener {
 
 	@EventListener
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		log.info("Welcome to TeraWHARS");
+		log.info("Welcome to Terawarehouse");
 	}
 }
