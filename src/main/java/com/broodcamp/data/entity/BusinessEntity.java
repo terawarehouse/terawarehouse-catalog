@@ -1,6 +1,7 @@
 package com.broodcamp.data.entity;
 
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public abstract class BusinessEntity extends EnableEntity {
 
 	private static final long serialVersionUID = 6694541298135798276L;
 
+	@NotNull
 	private String code;
 	private String description;
 

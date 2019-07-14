@@ -6,6 +6,7 @@ import javax.persistence.MappedSuperclass;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * @author Edward P. Legaspi
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
+@ToString(callSuper = true)
 public abstract class AuditableEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 2522072952461930125L;

@@ -7,6 +7,9 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @MappedSuperclass
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 3986494663579679129L;
@@ -29,5 +33,18 @@ public abstract class BaseEntity implements Serializable {
 	@GeneratedValue
 	@Column(columnDefinition = "uuid", updatable = false)
 	private UUID id;
+
+	@Transient
+	private UUID entityId;
+
+	/**
+	 * The entity.id. Unfortunately, the field "id" is already reserved/use by
+	 * Spring Data JPA.
+	 * 
+	 * @return entity.id
+	 */
+	public UUID getEntityId() {
+		return id;
+	}
 
 }

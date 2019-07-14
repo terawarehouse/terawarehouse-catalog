@@ -21,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 /**
  * @author Edward P. Legaspi
@@ -31,7 +30,6 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-@ToString(callSuper = true)
 public class Product extends BusinessEntity {
 
 	private static final long serialVersionUID = 28353879194705314L;
@@ -59,6 +57,11 @@ public class Product extends BusinessEntity {
 		super(code, description);
 		this.category = category;
 		this.srp = srp;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [category=" + category.getCode() + ", brand=" + brand + ", srp=" + srp + ", releaseDate=" + releaseDate + "]";
 	}
 
 }

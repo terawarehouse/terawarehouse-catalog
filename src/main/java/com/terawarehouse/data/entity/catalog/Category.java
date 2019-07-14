@@ -36,7 +36,7 @@ public class Category extends BusinessEntity {
 	@JoinColumn(name = "category_id")
 	private Category parentCategory;
 
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
 	private List<Product> models;
 
 	public Category(String code, String description) {
