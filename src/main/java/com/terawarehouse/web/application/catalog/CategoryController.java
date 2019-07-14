@@ -65,7 +65,8 @@ public class CategoryController {
 	@GetMapping
 	public Resources<Resource<Category>> all() {
 
-		List<Resource<Category>> entities = categoryRepository.findAll().stream().map(categoryResourceAssembler::toResource).collect(Collectors.toList());
+		List<Resource<Category>> entities = categoryRepository.findAll().stream()
+				.map(categoryResourceAssembler::toResource).collect(Collectors.toList());
 
 		return new Resources<>(entities, linkTo(methodOn(CategoryController.class).all()).withSelfRel());
 	}
@@ -90,7 +91,8 @@ public class CategoryController {
 
 	@ApiModelProperty(notes = "Create a new category")
 	@PostMapping
-	public ResponseEntity<Resource<Category>> newCategory(@Valid @RequestBody Category entity) throws URISyntaxException {
+	public ResponseEntity<Resource<Category>> newCategory(@Valid @RequestBody Category entity)
+			throws URISyntaxException {
 
 		Resource<Category> resource = categoryResourceAssembler.toResource(categoryRepository.save(entity));
 		return ResponseEntity.created(new URI(resource.getId().expand().getHref())).body(resource);
@@ -98,7 +100,8 @@ public class CategoryController {
 
 	@ApiModelProperty(notes = "Update an category")
 	@PutMapping(path = "/{id}")
-	public ResponseEntity<?> replaceCategory(@Valid @RequestBody Category newCategory, @PathVariable UUID id) throws URISyntaxException {
+	public ResponseEntity<?> replaceCategory(@Valid @RequestBody Category newCategory, @PathVariable UUID id)
+			throws URISyntaxException {
 
 		categoryRepository.findById(id).map(category -> {
 			category.setDescription(newCategory.getDescription());

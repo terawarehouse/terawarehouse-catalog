@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -34,9 +33,6 @@ public abstract class BaseEntity implements Serializable {
 	@Column(columnDefinition = "uuid", updatable = false)
 	private UUID id;
 
-	@Transient
-	private UUID entityId;
-
 	/**
 	 * The entity.id. Unfortunately, the field "id" is already reserved/use by
 	 * Spring Data JPA.
@@ -45,6 +41,11 @@ public abstract class BaseEntity implements Serializable {
 	 */
 	public UUID getEntityId() {
 		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "BaseEntity [entityId=" + id + "]";
 	}
 
 }

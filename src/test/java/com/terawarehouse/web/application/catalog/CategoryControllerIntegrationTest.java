@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.terawarehouse.data.entity.catalog.Category;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
+import com.terawarehouse.web.application.AbstractControllerTest;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -106,43 +107,27 @@ public class CategoryControllerIntegrationTest extends AbstractControllerTest {
 	@Test
 	public void update_category_Ok() throws JSONException, JsonProcessingException {
 
+		Category c1 = categoryRepository.findByCode(categories.get(0).getCode()).get();
+
 		Map<String, String> request = new HashMap<>();
 		request.put("code", "COMPUTER");
-		request.put("description", "Computer");
+		request.put("description", "Computer - Updated");
 
-		Category c1 = RestAssured.given() //
+		final ExtractableResponse<Response> extractable = RestAssured.given() //
 				.contentType(ContentType.JSON) //
 				.body(request) //
 				.when() //
-				.post(CATEGORY_URL) //
+				.put(CATEGORY_URL + c1.getEntityId()) //
 				.then() //
 				.assertThat() //
-				.statusCode(HttpStatus.CREATED.value()) //
+				.statusCode(HttpStatus.NO_CONTENT.value()) //
 				.and() //
-				.extract() //
-				.as(Category.class);
+				.extract();
 
-		log.debug("update.uid={}", c1);
-
-//		request = new HashMap<>();
-//		request.put("code", "COMPUTER");
-//		request.put("description", "Computer - Updated");
-//
-//		final ExtractableResponse<Response> extractable = RestAssured.given() //
-//				.contentType(ContentType.JSON) //
-//				.body(request) //
-//				.when() //
-//				.put(CATEGORY_URL + "/" + uid) //
-//				.then() //
-//				.assertThat() //
-//				.statusCode(HttpStatus.NO_CONTENT.value()) //
-//				.and() //
-//				.extract();
-//
-//		assertThat(extractable.body().asString()).isNotNull();
+		assertThat(extractable.body().asString()).isNotNull();
 	}
 
-//	@Test
+	@Test
 	public void list_category_Ok() throws JSONException, JsonProcessingException {
 
 		RestAssured.given() //
@@ -153,7 +138,6 @@ public class CategoryControllerIntegrationTest extends AbstractControllerTest {
 				.assertThat() //
 				.statusCode(HttpStatus.OK.value()) //
 				.and() //
-				.body("_embedded.categories", Matchers.hasSize(6));
+				.body("_embedded.categories", Matchers.hasSize(5));
 	}
-
 }

@@ -1,4 +1,4 @@
-package com.terawarehouse.web.application.catalog;
+package com.terawarehouse.web.application;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;
