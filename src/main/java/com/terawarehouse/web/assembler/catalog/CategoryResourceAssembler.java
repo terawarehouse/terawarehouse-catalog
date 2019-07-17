@@ -8,6 +8,7 @@ import org.springframework.hateoas.ResourceAssembler;
 import org.springframework.stereotype.Component;
 
 import com.terawarehouse.data.entity.catalog.Category;
+import com.terawarehouse.web.application.AbstractController;
 import com.terawarehouse.web.application.catalog.CategoryController;
 
 /**
@@ -20,7 +21,7 @@ public class CategoryResourceAssembler implements ResourceAssembler<Category, Re
 	public Resource<Category> toResource(Category entity) {
 		return new Resource<>(entity, //
 				linkTo(methodOn(CategoryController.class).one(entity.getEntityId())).withSelfRel(), //
-				linkTo(methodOn(CategoryController.class).all()).withRel("categories"), //
+				linkTo(methodOn(CategoryController.class).all(AbstractController.DEFAULT_PAGE_SIZE, 0)).withRel("categories"), //
 				linkTo(methodOn(CategoryController.class).oneCode(entity.getCode())).withRel("oneCode"));
 	}
 

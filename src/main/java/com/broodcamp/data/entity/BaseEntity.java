@@ -10,6 +10,7 @@ import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
+@ApiModel
 public abstract class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 3986494663579679129L;
@@ -28,7 +30,6 @@ public abstract class BaseEntity implements Serializable {
 	public static final int NB_DECIMALS = 12;
 
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GeneratedValue
 	@Column(columnDefinition = "uuid", updatable = false)
 	private UUID id;

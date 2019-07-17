@@ -21,7 +21,8 @@ The following guides illustrate how to use some features concretely:
  * http://localhost:8080/swagger-ui.html
  * https://github.com/nicusX/spring-hateoas-sample/blob/master/src/test/java/com/opencredo/demo/hateoas/api/BookControllerTest.java
  * https://github.com/eugenp/tutorials/blob/master/testing-modules/rest-assured/src/test/java/com/baeldung/restassured/controller/AppControllerIntegrationTest.java
-
+ * https://github.com/hendisantika/spring-boot-rest-swagger-example/blob/master/src/main/java/com/hendisantika/springbootrestswaggerexample/
+ * https://stackabuse.com/exception-handling-in-spring/
 liquibase.bat --driver=org.postgresql.Driver --classpath=C:/java/jar/postgresql-42.2.4.jar --changeLogFile=d:/temp/terawarehouse/sql/schema.xml --url="jdbc:postgresql://localhost/terawarehouse" --username=kerri --password=kerri --changeSetAuthor=czetsuya generateChangeLog
 liquibase.bat --driver=org.postgresql.Driver --classpath=C:/java/jar/postgresql-42.2.4.jar --changeLogFile=d:/temp/terawarehouse/sql/data.xml --url="jdbc:postgresql://localhost/terawarehouse" --username=kerri --password=kerri --diffTypes="data" --changeSetAuthor=czetsuya generateChangeLog
 

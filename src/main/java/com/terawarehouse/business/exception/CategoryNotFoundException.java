@@ -2,18 +2,24 @@ package com.terawarehouse.business.exception;
 
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.terawarehouse.data.entity.catalog.Category;
+
 /**
  * @author Edward P. Legaspi
  */
-public class CategoryNotFoundException extends EntityNotFoundException {
+@ResponseStatus(value = HttpStatus.NOT_FOUND)
+public class CategoryNotFoundException extends AbstractResourceNotFoundException {
 
 	private static final long serialVersionUID = -2577283996806163977L;
 
-	public CategoryNotFoundException(UUID id) {
-		super(CategoryNotFoundException.class.getSimpleName(), id);
+	public CategoryNotFoundException(UUID uid) {
+		super(Category.class.getSimpleName(), uid);
 	}
 
 	public CategoryNotFoundException(String code) {
-		super(CategoryNotFoundException.class.getSimpleName(), code);
+		super(Category.class.getSimpleName(), code);
 	}
 }

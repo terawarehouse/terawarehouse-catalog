@@ -6,6 +6,7 @@ import javax.persistence.UniqueConstraint;
 
 import com.broodcamp.data.entity.BusinessEntity;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
+@ApiModel
 public class Brand extends BusinessEntity {
 
 	private static final long serialVersionUID = 8264597326662589889L;

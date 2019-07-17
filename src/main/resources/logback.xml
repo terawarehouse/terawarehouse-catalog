@@ -10,4 +10,7 @@
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE" />
 	</logger>
+	<logger
+		name="io.swagger.models.parameters.AbstractSerializableParameter"
+		level="ERROR" />
 </configuration>

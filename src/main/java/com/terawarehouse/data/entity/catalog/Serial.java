@@ -20,6 +20,7 @@ import com.broodcamp.data.entity.BaseEntity;
 import com.terawarehouse.data.entity.trading.Dealer;
 import com.terawarehouse.data.entity.trading.TradingBranch;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -37,6 +38,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
+@ApiModel
 public class Serial extends BaseEntity {
 
 	private static final long serialVersionUID = 7901377279454273062L;

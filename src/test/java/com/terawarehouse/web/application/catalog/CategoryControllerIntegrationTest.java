@@ -52,7 +52,7 @@ public class CategoryControllerIntegrationTest extends AbstractControllerTest {
 	}
 
 	@Test
-	public void contextLoads() {
+	public void whenSpringContextIsBootstrapped_thenNoExceptions() {
 	}
 
 	@Test

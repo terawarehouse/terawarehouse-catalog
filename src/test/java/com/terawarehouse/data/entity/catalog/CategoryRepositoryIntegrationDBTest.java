@@ -39,7 +39,7 @@ public class CategoryRepositoryIntegrationDBTest {
 	private CategoryRepository categoryRepository;
 	
 	@Test
-	public void contextLoads() {
+	public void whenSpringContextIsBootstrapped_thenNoExceptions() {
 	}
 	
 //	@Before

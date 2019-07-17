@@ -13,6 +13,7 @@ import javax.persistence.UniqueConstraint;
 import com.broodcamp.data.entity.BusinessEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
+@ApiModel
 public class Category extends BusinessEntity {
 
 	private static final long serialVersionUID = -5720318999765569672L;

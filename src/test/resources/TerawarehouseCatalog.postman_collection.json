@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "7fdd9303-dac8-4bb3-b1bd-6429eb534740",
+		"name": "TerawarehouseCatalog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"COMPUTER\",\n\t\"description\": \"Computers\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"COMPUTER\",\n\t\"description\": \"Physical computers\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/categories/01e7574f-f732-4e96-870b-6231180b1f85",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"categories",
+								"01e7574f-f732-4e96-870b-6231180b1f85"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/categories/01e7574f-f732-4e96-870b-6231180b1f85",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"categories",
+								"01e7574f-f732-4e96-870b-6231180b1f85"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/categories/code/COMPUTER",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"categories",
+								"code",
+								"COMPUTER"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/categories/01e7574f-f732-4e96-870b-6231180b1f85",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"categories",
+								"01e7574f-f732-4e96-870b-6231180b1f85"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find category - No result",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/categories/01e7574f-f732-4e96-870b-6231180b1f85",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"categories",
+								"01e7574f-f732-4e96-870b-6231180b1f85"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
