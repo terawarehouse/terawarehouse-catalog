@@ -8,7 +8,7 @@ import com.terawarehouse.business.domain.trading.DealerV1;
 import com.terawarehouse.business.domain.trading.DealerV2;
 
 /**
- * Using version in parameter is useful for bookmarking.
+ * Using version in parameter is useful for book marking.
  * 
  * @author Edward P. Chan
  */
@@ -45,12 +45,12 @@ public class DealerVersionController {
 		return new DealerV2(new Name("Kerri", "Chan"));
 	}
 
-	@GetMapping(value = "/dealers/produces", produces = "application/vnd.company.app-v1+json")
+	@GetMapping(value = "/dealers/produces", produces = "application/vnd.czetsuya.app-v1+json")
 	public DealerV1 producesV1() {
 		return new DealerV1("Kerri Chan");
 	}
 
-	@GetMapping(value = "/dealers/produces", produces = "application/vnd.company.app-v2+json")
+	@GetMapping(value = "/dealers/produces", produces = "application/vnd.czetsuya.app-v2+json")
 	public DealerV2 producesV2() {
 		return new DealerV2(new Name("Kerri", "Chan"));
 	}
