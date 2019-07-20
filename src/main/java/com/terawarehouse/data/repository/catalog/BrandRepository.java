@@ -18,6 +18,6 @@ import com.terawarehouse.data.entity.catalog.Brand;
 public interface BrandRepository extends BusinessRepository<Brand, UUID> {
 
 	@Override
-	@RestResource(exported = false)
+//	@RestResource(exported = false)
 	List<Brand> findAll();
 }
