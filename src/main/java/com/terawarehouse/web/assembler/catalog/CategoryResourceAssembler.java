@@ -24,5 +24,4 @@ public class CategoryResourceAssembler implements ResourceAssembler<Category, Re
 				linkTo(methodOn(CategoryController.class).all(AbstractController.DEFAULT_PAGE_SIZE, 0)).withRel("categories"), //
 				linkTo(methodOn(CategoryController.class).oneCode(entity.getCode())).withRel("oneCode"));
 	}
-
 }
