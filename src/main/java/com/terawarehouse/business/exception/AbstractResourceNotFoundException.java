@@ -7,7 +7,7 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 /**
  * @author Edward P. Legaspi
  */
-public class AbstractResourceNotFoundException extends ResourceNotFoundException {
+public abstract class AbstractResourceNotFoundException extends ResourceNotFoundException {
 
 	private static final long serialVersionUID = -3959094123571588527L;
 
