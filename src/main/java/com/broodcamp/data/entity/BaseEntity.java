@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ApiModel
-public abstract class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable, IEntity {
 
 	private static final long serialVersionUID = 3986494663579679129L;
 
@@ -42,6 +42,11 @@ public abstract class BaseEntity implements Serializable {
 	 */
 	public UUID getEntityId() {
 		return id;
+	}
+
+	@Override
+	public boolean isTransient() {
+		return id == null;
 	}
 
 	@Override
