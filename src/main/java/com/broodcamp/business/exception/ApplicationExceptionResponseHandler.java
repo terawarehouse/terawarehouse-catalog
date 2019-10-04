@@ -1,4 +1,4 @@
-package com.terawarehouse.business.exception;
+package com.broodcamp.business.exception;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 @RestControllerAdvice
 public class ApplicationExceptionResponseHandler extends ResponseEntityExceptionHandler {

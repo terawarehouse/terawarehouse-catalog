@@ -8,7 +8,7 @@ import com.broodcamp.data.repository.BusinessRepository;
 import com.terawarehouse.data.entity.trading.DealerGroup;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 @Repository
 public interface DealerGroupRepository extends BusinessRepository<DealerGroup, UUID> {

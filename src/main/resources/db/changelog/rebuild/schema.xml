@@ -279,4 +279,170 @@
 			<column name="serial_no" />
 		</createIndex>
 	</changeSet>
+
+	<changeSet author="czetsuya" id="1529658643316-49">
+		<createTable tableName="adm_country">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT4" />
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(250)">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-103">
+		<addPrimaryKey columnNames="id"
+			constraintName="adm_country_pkey" tableName="adm_country" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-277">
+		<addUniqueConstraint columnNames="code"
+			constraintName="ukc9alfma6oolv53un5swxeryc9" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="adm_country" />
+	</changeSet>
+
+	<changeSet author="czetsuya" id="1529658643316-59">
+		<createTable tableName="adm_region">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT4" />
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(250)">
+				<constraints nullable="false" />
+			</column>
+			<column name="country_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-111">
+		<addPrimaryKey columnNames="id"
+			constraintName="adm_region_pkey" tableName="adm_region" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-281">
+		<addUniqueConstraint
+			columnNames="country_id, name"
+			constraintName="ukg99tfqpahhfmywpwfp06n2syd" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="adm_region" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-255">
+		<addForeignKeyConstraint
+			baseColumnNames="country_id" baseTableName="adm_region"
+			constraintName="fkpdifmqn98f0iwkd0kauf00x1r" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="adm_country" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-61">
+		<createTable tableName="adm_state">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT4" />
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(250)">
+				<constraints nullable="false" />
+			</column>
+			<column name="country_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="region_id" type="UUID" />
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-113">
+		<addPrimaryKey columnNames="id"
+			constraintName="adm_state_pkey" tableName="adm_state" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-276">
+		<addUniqueConstraint
+			columnNames="country_id, name"
+			constraintName="ukbsnulg4csff6lkubvp1bajd79" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="adm_state" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-239">
+		<addForeignKeyConstraint
+			baseColumnNames="country_id" baseTableName="adm_state"
+			constraintName="fkmnxexbybcblpjfcc69u8w1arx" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="adm_country" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-188">
+		<addForeignKeyConstraint
+			baseColumnNames="region_id" baseTableName="adm_state"
+			constraintName="fkawlpkh2cgawl3xgse1l1e74hb" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="adm_region" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-48">
+		<createTable tableName="adm_city">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT4" />
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(250)">
+				<constraints nullable="false" />
+			</column>
+			<column name="district" type="VARCHAR(100)" />
+			<column name="is_city" type="BOOL" />
+			<column name="latitude" type="FLOAT8" />
+			<column name="longitude" type="FLOAT8" />
+			<column name="state_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-102">
+		<addPrimaryKey columnNames="id"
+			constraintName="adm_city_pkey" tableName="adm_city" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-246">
+		<addForeignKeyConstraint
+			baseColumnNames="state_id" baseTableName="adm_city"
+			constraintName="fko0o8n39tge5aet4bey5qk3cwh" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="adm_state" />
+	</changeSet>
+	<changeSet author="czetsuya" id="1529658643316-280">
+		<addUniqueConstraint
+			columnNames="state_id, name, district"
+			constraintName="ukf8qof7l043btnq41lm6abpsxk" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="adm_city" />
+	</changeSet>
 </databaseChangeLog>

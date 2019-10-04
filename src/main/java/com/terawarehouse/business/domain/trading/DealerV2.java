@@ -3,7 +3,7 @@ package com.terawarehouse.business.domain.trading;
 import com.broodcamp.data.entity.Name;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 public class DealerV2 {
 

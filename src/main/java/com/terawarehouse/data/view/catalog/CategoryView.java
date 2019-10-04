@@ -1,7 +1,7 @@
 package com.terawarehouse.data.view.catalog;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 public class CategoryView {
 

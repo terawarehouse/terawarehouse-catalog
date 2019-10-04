@@ -1,6 +1,6 @@
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S0YXPX)
 
-# Catalog and Sellout Management System using Spring
+# Catalog and Sellout Management System using Spring - Catalog Module
 
 A catalog and sales order management system is commonly used by companies to manage their catalog and capture their sales data into a centralized database so that a real-time accurate report can be generated instantly. This application can trigger notification such as low on stock which allows the company to act as needed.
 
@@ -67,6 +67,9 @@ Keywords: catalog and sales order management system, spring, microservice, rest 
 ## Repositories
 
  * https://github.com/terawarehouse/terawarehouse-catalog
+ * https://github.com/terawarehouse/terawarehouse-inventory
+ * https://github.com/terawarehouse/terawarehouse-sales
+ * https://github.com/terawarehouse/terawarehouse-reporting
  * https://github.com/terawarehouse/terawarehouse-react
 
 ## Liquibase Commands
@@ -75,3 +78,7 @@ Keywords: catalog and sales order management system, spring, microservice, rest 
 liquibase.bat --driver=org.postgresql.Driver --classpath=C:/java/jar/postgresql-42.2.4.jar --changeLogFile=d:/temp/terawarehouse/sql/schema.xml --url="jdbc:postgresql://localhost/terawarehouse" --username=kerri --password=kerri --changeSetAuthor=czetsuya generateChangeLog
 liquibase.bat --driver=org.postgresql.Driver --classpath=C:/java/jar/postgresql-42.2.4.jar --changeLogFile=d:/temp/terawarehouse/sql/data.xml --url="jdbc:postgresql://localhost/terawarehouse" --username=kerri --password=kerri --diffTypes="data" --changeSetAuthor=czetsuya generateChangeLog
 ```
+
+## Authors
+
+* **Edward P. Legaspi** - *Java Architect* - [czetsuya](https://github.com/czetsuya)

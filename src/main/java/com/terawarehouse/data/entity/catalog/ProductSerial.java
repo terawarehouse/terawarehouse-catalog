@@ -20,14 +20,13 @@ import com.broodcamp.data.entity.BaseEntity;
 import com.terawarehouse.data.entity.trading.Dealer;
 import com.terawarehouse.data.entity.trading.TradingBranch;
 
-import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 @Entity
 @Table(name = "cat_serial" //
@@ -38,8 +37,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
-@ApiModel
-public class Serial extends BaseEntity {
+public class ProductSerial extends BaseEntity {
 
 	private static final long serialVersionUID = 7901377279454273062L;
 
@@ -58,7 +56,7 @@ public class Serial extends BaseEntity {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status")
-	private SerialStatusEnum status = SerialStatusEnum.CREATED;
+	private ProductSerialStatusEnum status = ProductSerialStatusEnum.CREATED;
 
 	@Column(name = "warranty_card_no", length = 100)
 	private String warrantyCardNo;

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7fdd9303-dac8-4bb3-b1bd-6429eb534740",
+		"_postman_id": "65ba9e05-095b-4e01-af74-8abf6c08792e",
 		"name": "TerawarehouseCatalog",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -10,6 +10,31 @@
 			"item": [
 				{
 					"name": "Create category",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+								"exec": [
+									"pm.environment.set(\"uid\", pm.response.json().id);",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -25,13 +50,14 @@
 							"raw": "{\n\t\"code\": \"COMPUTER\",\n\t\"description\": \"Computers\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/categories",
+							"raw": "http://localhost:8080/api/v1/categories",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
 								"categories"
 							]
@@ -41,6 +67,20 @@
 				},
 				{
 					"name": "Update category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c7ae7f96-b5f0-4ee4-b0c3-745072921f05",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -56,16 +96,17 @@
 							"raw": "{\n\t\"code\": \"COMPUTER\",\n\t\"description\": \"Physical computers\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/categories/01e7574f-f732-4e96-870b-6231180b1f85",
+							"raw": "http://localhost:8080/api/v1/categories/{{uid}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
 								"categories",
-								"01e7574f-f732-4e96-870b-6231180b1f85"
+								"{{uid}}"
 							]
 						}
 					},
@@ -73,20 +114,39 @@
 				},
 				{
 					"name": "Find category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5297edfb-9bde-4a18-9097-e80f3dfe849c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Has COMPUTER\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(\"COMPUTER\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/categories/01e7574f-f732-4e96-870b-6231180b1f85",
+							"raw": "http://localhost:8080/api/v1/categories/{{uid}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
 								"categories",
-								"01e7574f-f732-4e96-870b-6231180b1f85"
+								"{{uid}}"
 							]
 						}
 					},
@@ -94,17 +154,36 @@
 				},
 				{
 					"name": "Find by code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a8faa6b2-68d6-4092-8ff7-050854ba096e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Has COMPUTER\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(\"COMPUTER\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/categories/code/COMPUTER",
+							"raw": "http://localhost:8080/api/v1/categories/code/COMPUTER",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
 								"categories",
 								"code",
@@ -116,17 +195,35 @@
 				},
 				{
 					"name": "List categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c8f027a-2639-4839-b52c-708eba5c2940",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Has COMPUTER\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"COMPUTER\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/categories",
+							"raw": "http://localhost:8080/api/v1/categories",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
 								"categories"
 							]
@@ -136,20 +233,35 @@
 				},
 				{
 					"name": "Delete category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d6ce904-0bc1-45c6-aedb-0c0eb3172326",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/categories/01e7574f-f732-4e96-870b-6231180b1f85",
+							"raw": "http://localhost:8080/api/v1/categories/{{uid}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
 								"categories",
-								"01e7574f-f732-4e96-870b-6231180b1f85"
+								"{{uid}}"
 							]
 						}
 					},
@@ -157,20 +269,35 @@
 				},
 				{
 					"name": "Find category - No result",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "05546c83-da80-4046-a1ae-2d23d7ebabce",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/categories/01e7574f-f732-4e96-870b-6231180b1f85",
+							"raw": "http://localhost:8080/api/v1/categories/{{uid}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
 								"categories",
-								"01e7574f-f732-4e96-870b-6231180b1f85"
+								"{{uid}}"
 							]
 						}
 					},
@@ -182,15 +309,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/categories/filtered",
+							"raw": "http://localhost:8080/api/v1/test/filtered",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
-								"categories",
+								"test",
 								"filtered"
 							]
 						}
@@ -203,15 +331,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/categories/filtered-list",
+							"raw": "http://localhost:8080/api/v1/test/filtered-list",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
-								"categories",
+								"test",
 								"filtered-list"
 							]
 						}
@@ -224,22 +353,24 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/categories/filtered-view",
+							"raw": "http://localhost:8080/api/v1/test/filtered-view",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"v1",
-								"categories",
+								"test",
 								"filtered-view"
 							]
 						}
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Versioning",
@@ -250,13 +381,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/dealers",
+							"raw": "http://localhost:8080/api/v1/v1/dealers",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"v1",
 								"dealers"
 							]
@@ -270,13 +403,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/dealers",
+							"raw": "http://localhost:8080/api/v1/v1/dealers",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"v1",
 								"dealers"
 							]
@@ -290,13 +425,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/dealers/param?version=1",
+							"raw": "http://localhost:8080/api/v1/dealers/param?version=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"dealers",
 								"param"
 							],
@@ -316,13 +453,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/dealers/param?version=2",
+							"raw": "http://localhost:8080/api/v1/dealers/param?version=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"dealers",
 								"param"
 							],
@@ -348,13 +487,15 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/dealers/header",
+							"raw": "http://localhost:8080/api/v1/dealers/header",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"dealers",
 								"header"
 							]
@@ -374,13 +515,15 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/dealers/header",
+							"raw": "http://localhost:8080/api/v1/dealers/header",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"dealers",
 								"header"
 							]
@@ -412,13 +555,15 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/dealers/produces",
+							"raw": "http://localhost:8080/api/v1/dealers/produces",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"dealers",
 								"produces"
 							]
@@ -450,13 +595,15 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/dealers/produces",
+							"raw": "http://localhost:8080/api/v1/dealers/produces",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"dealers",
 								"produces"
 							]
@@ -464,7 +611,9 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

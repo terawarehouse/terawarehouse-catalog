@@ -4,18 +4,4 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-	<changeSet author="czetsuya" id="1560830490022-1">
-		<insert tableName="cat_category">
-			<column name="id" value="c6b84f92-50a0-4a7a-996d-c3a6db4b7d27" />
-			<column name="created" valueDate="2019-06-18 11:56:45.297" />
-			<column name="creator_ref" value="Edward" />
-			<column name="updated" />
-			<column name="updater_ref" />
-			<column name="disabled" valueBoolean="false" />
-			<column name="code" value="DB" />
-			<column name="description" value="Double Burner" />
-			<column name="category_id" />
-		</insert>
-	</changeSet>
-
 </databaseChangeLog>

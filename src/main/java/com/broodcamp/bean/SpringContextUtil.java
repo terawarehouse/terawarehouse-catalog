@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * This class is use to enable auto wiring of beans on a custom jpa repository
  * factory bean.
  * 
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  * @see ExtendedJPARepositoryFactoryBean
  */
 @Component

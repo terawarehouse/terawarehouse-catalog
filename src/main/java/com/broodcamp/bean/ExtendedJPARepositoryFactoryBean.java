@@ -18,7 +18,7 @@ import com.broodcamp.data.repository.BaseRepositoryImpl;
  * Extend {@link JpaRepositoryFactoryBean} so that we can add custom features
  * and enable auto wiring of beans.
  * 
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  * @see JpaRepositoryFactoryBean
  */
 public class ExtendedJPARepositoryFactoryBean<R extends JpaRepository<T, ID>, T, ID extends Serializable> extends JpaRepositoryFactoryBean<R, T, ID> {

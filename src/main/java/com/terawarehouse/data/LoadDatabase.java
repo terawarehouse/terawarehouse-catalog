@@ -14,7 +14,7 @@ import com.terawarehouse.data.repository.catalog.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 @Configuration
 @Slf4j

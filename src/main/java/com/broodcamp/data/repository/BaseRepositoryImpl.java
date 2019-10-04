@@ -20,7 +20,7 @@ import com.broodcamp.data.entity.BaseEntity;
 /**
  * Overriden base repository. Must not be abstract.
  * 
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 public class BaseRepositoryImpl<T extends BaseEntity, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID> {
 

@@ -1,33 +1,12 @@
 package com.terawarehouse.data.entity.catalog;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.annotation.DirtiesContext.ClassMode;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 //@RunWith(SpringRunner.class)
 //@DataJpaTest
@@ -35,13 +14,13 @@ import com.terawarehouse.data.repository.catalog.CategoryRepository;
 //@ActiveProfiles("development-test")
 public class CategoryRepositoryIntegrationDBTest {
 
-	@Autowired
-	private CategoryRepository categoryRepository;
-	
-	@Test
-	public void whenSpringContextIsBootstrapped_thenNoExceptions() {
-	}
-	
+//	@Autowired
+//	private CategoryRepository categoryRepository;
+//
+//	@Test
+//	public void whenSpringContextIsBootstrapped_thenNoExceptions() {
+//	}
+
 //	@Before
 //	public void setUp() {
 //

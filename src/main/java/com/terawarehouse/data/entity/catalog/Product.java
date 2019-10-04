@@ -18,20 +18,18 @@ import javax.validation.constraints.NotNull;
 import com.broodcamp.data.entity.BusinessEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 @Entity
 @Table(name = "cat_product", uniqueConstraints = @UniqueConstraint(columnNames = { "category_id", "code" }))
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-@ApiModel
 public class Product extends BusinessEntity {
 
 	private static final long serialVersionUID = 28353879194705314L;

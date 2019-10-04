@@ -1,7 +1,7 @@
 package com.terawarehouse.business.domain.trading;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 public class DealerV1 {
 

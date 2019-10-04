@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
+import com.broodcamp.business.exception.ExceptionResponse;
 import com.terawarehouse.business.exception.CategoryNotFoundException;
-import com.terawarehouse.business.exception.ExceptionResponse;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 @RestControllerAdvice
 public class CategoryNotFoundAdvice {

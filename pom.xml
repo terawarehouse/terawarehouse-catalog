@@ -6,19 +6,20 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.7.RELEASE</version>
+		<version>2.2.0.BUILD-SNAPSHOT</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.broodcamp</groupId>
 	<artifactId>terawarehouse-catalog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<url>https://github.com/czetsuya</url>
 	<name>Tera Warehouse Catalog</name>
 	<description>Catalog Manager API</description>
 
 	<properties>
 		<java.version>11</java.version>
-		<springfox.version>3.0.0-SNAPSHOT</springfox.version>
-		<spring-boot-admin.version>2.1.6</spring-boot-admin.version>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
 	<repositories>
@@ -27,19 +28,36 @@
 			<name>jcenter</name>
 			<url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
 		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-dependencies</artifactId>
-				<version>${spring-boot-admin.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<build>
 		<plugins>
@@ -57,7 +75,23 @@
 		</plugins>
 	</build>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.broodcamp</groupId>
+				<artifactId>terawarehouse-bom</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -94,6 +128,19 @@
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.broodcamp</groupId>
+			<artifactId>broodcamp-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -105,22 +152,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>${springfox.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${springfox.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-data-rest</artifactId>
-			<version>${springfox.version}</version>
 		</dependency>
 
 		<dependency>
@@ -137,6 +168,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
@@ -152,17 +189,17 @@
 
 	<profiles>
 		<profile>
-			<id>development-postgresql</id>
+			<id>development</id>
 			<activation>
 				<property>
 					<name>spring.profiles.active</name>
-					<value>development-postgresql</value>
+					<value>development</value>
 				</property>
 			</activation>
 			<properties>
 				<liquibase.changeLogFile>db/changelog/db.changelog-current.xml</liquibase.changeLogFile>
 				<db.driver>org.postgresql.Driver </db.driver>
-				<db.url>jdbc:postgresql://localhost/terawarehouse</db.url>
+				<db.url>jdbc:postgresql://localhost/tw_catalog</db.url>
 				<db.schema>public</db.schema>
 				<db.username>kerri</db.username>
 				<db.password>kerri</db.password>
@@ -173,7 +210,7 @@
 						<plugin>
 							<groupId>org.liquibase</groupId>
 							<artifactId>liquibase-maven-plugin</artifactId>
-							<version>3.5.3</version>
+							<version>3.8.0</version>
 							<configuration>
 								<changeLogFile>${liquibase.changeLogFile}</changeLogFile>
 								<driver>${db.driver}</driver>
@@ -185,6 +222,14 @@
 								<expressionVariables>
 									<db.schema>${db.schema}</db.schema>
 								</expressionVariables>
+								<executions>
+									<execution>
+										<phase>process-resources</phase>
+										<goals>
+											<goal>update</goal>
+										</goals>
+									</execution>
+								</executions>
 							</configuration>
 						</plugin>
 					</plugins>
@@ -198,12 +243,6 @@
 				<dependency>
 					<groupId>org.liquibase</groupId>
 					<artifactId>liquibase-core</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.liquibase.ext</groupId>
-					<artifactId>liquibase-postgresql</artifactId>
-					<version>3.0</version>
-					<scope>provided</scope>
 				</dependency>
 			</dependencies>
 		</profile>
@@ -232,5 +271,4 @@
 			</dependencies>
 		</profile>
 	</profiles>
-
 </project>

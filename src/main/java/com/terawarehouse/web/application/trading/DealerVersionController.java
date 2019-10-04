@@ -10,7 +10,7 @@ import com.terawarehouse.business.domain.trading.DealerV2;
 /**
  * Using version in parameter is useful for book marking.
  * 
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 @RestController
 public class DealerVersionController {

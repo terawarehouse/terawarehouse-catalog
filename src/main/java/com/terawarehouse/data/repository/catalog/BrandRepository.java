@@ -9,7 +9,7 @@ import com.broodcamp.data.repository.BusinessRepository;
 import com.terawarehouse.data.entity.catalog.Brand;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
 @Repository
 //if we don't want to expose an entity via REST API uncomment the line below

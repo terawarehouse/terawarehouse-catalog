@@ -1,25 +1,22 @@
 package com.terawarehouse.web.application;
 
-import org.junit.Before;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.event.annotation.BeforeTestClass;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.restassured.RestAssured;
 
 /**
- * @author Edward P. Legaspi
+ * @author Edward P. Legaspi <czetsuya@gmail.com>
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource("classpath:application-integration.properties")
-@ActiveProfiles("development-test")
+@ActiveProfiles("development")
 public abstract class AbstractControllerTest {
 
 	protected static final ObjectMapper om = new ObjectMapper();
@@ -27,7 +24,7 @@ public abstract class AbstractControllerTest {
 	@LocalServerPort
 	int port;
 
-	@Before
+	@BeforeTestClass
 	public void setup() {
 
 		RestAssured.port = port;
