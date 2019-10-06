@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
 
 /**
- * @author Edward P. Legaspi <czetsuya@gmail.com>
+ * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 //@RunWith(SpringRunner.class)
 //@DataJpaTest

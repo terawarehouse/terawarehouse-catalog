@@ -1,3 +1,19 @@
+/**
+ * (C) Copyright 2019 Edward P. Legaspi (https://github.com/czetsuya).
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 package com.broodcamp.data.repository;
 
 import java.io.Serializable;
@@ -20,145 +36,144 @@ import com.broodcamp.data.entity.BaseEntity;
 /**
  * Overriden base repository. Must not be abstract.
  * 
- * @author Edward P. Legaspi <czetsuya@gmail.com>
+ * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 public class BaseRepositoryImpl<T extends BaseEntity, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID> {
 
-	private EntityManager entityManager;
+    private EntityManager entityManager;
 
-	@Autowired
-	private CurrentUser currentUser;
+    @Autowired
+    private CurrentUser currentUser;
 
-	public BaseRepositoryImpl(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager) {
-		super(entityInformation, entityManager);
-		this.entityManager = entityManager;
-	}
+    public BaseRepositoryImpl(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager) {
+        super(entityInformation, entityManager);
+        this.entityManager = entityManager;
+    }
 
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
 
-	@Override
-	public <S extends T> S save(S entity) {
+    @Override
+    public <S extends T> S save(S entity) {
 
-		if (entity instanceof AuditableEntity) {
-			((AuditableEntity) entity).updateAudit(currentUser.getName());
-		}
+        if (entity instanceof AuditableEntity) {
+            ((AuditableEntity) entity).updateAudit(currentUser.getName());
+        }
 
-		return super.save(entity);
-	}
+        return super.save(entity);
+    }
 
-	@Override
-	public void detach(T entity) {
-		getEntityManager().detach(entity);
-	}
+    @Override
+    public void detach(T entity) {
+        getEntityManager().detach(entity);
+    }
 
-	@Override
-	public void refresh(T entity) {
+    @Override
+    public void refresh(T entity) {
 
-		if (getEntityManager().contains(entity)) {
-			getEntityManager().refresh(entity);
-		}
-	}
+        if (getEntityManager().contains(entity)) {
+            getEntityManager().refresh(entity);
+        }
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public Optional<T> retrieveIfNotManaged(T entity) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public Optional<T> retrieveIfNotManaged(T entity) {
 
-		Optional<T> optEntity = Optional.empty();
+        Optional<T> optEntity;
 
-		if (entity.getId() == null) {
-			optEntity = Optional.of(entity);
-		}
+        if (getEntityManager().contains(entity)) {
+            optEntity = Optional.of(entity);
 
-		if (getEntityManager().contains(entity)) {
-			optEntity = Optional.of(entity);
+        } else {
+            optEntity = findById((ID) entity.getId());
+        }
 
-		} else {
-			optEntity = findById((ID) entity.getId());
-		}
+        return optEntity;
+    }
 
-		return optEntity;
-	}
+    @Override
+    public List<T> retrieveIfNotManaged(List<T> entities) {
 
-	@Override
-	public List<T> retrieveIfNotManaged(List<T> entities) {
+        if (entities == null) {
+            return new ArrayList<>();
+        }
 
-		if (entities == null) {
-			return null;
-		}
+        List<T> refreshedEntities = new ArrayList<>();
+        for (T entity : entities) {
+            Optional<T> optT = retrieveIfNotManaged(entity);
+            if (optT.isPresent()) {
+                refreshedEntities.add(optT.get());
+            }
+        }
 
-		List<T> refreshedEntities = new ArrayList<>();
-		for (T entity : entities) {
-			refreshedEntities.add(retrieveIfNotManaged(entity).get());
-		}
+        return refreshedEntities;
+    }
 
-		return refreshedEntities;
-	}
+    @Override
+    public Set<T> retrieveIfNotManaged(Set<T> entities) {
 
-	@Override
-	public Set<T> retrieveIfNotManaged(Set<T> entities) {
+        if (entities == null) {
+            return null;
+        }
 
-		if (entities == null) {
-			return null;
-		}
+        Set<T> refreshedEntities = new HashSet<>();
+        for (T entity : entities) {
+            refreshedEntities.add(retrieveIfNotManaged(entity).get());
+        }
 
-		Set<T> refreshedEntities = new HashSet<>();
-		for (T entity : entities) {
-			refreshedEntities.add(retrieveIfNotManaged(entity).get());
-		}
+        return refreshedEntities;
+    }
 
-		return refreshedEntities;
-	}
+    @SuppressWarnings("unchecked")
+    @Override
+    public Optional<T> refreshOrRetrieve(T entity) {
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public Optional<T> refreshOrRetrieve(T entity) {
+        Optional<T> optEntity = Optional.empty();
 
-		Optional<T> optEntity = Optional.empty();
+        if (entity == null) {
+            optEntity = Optional.of(entity);
+        }
 
-		if (entity == null) {
-			optEntity = Optional.of(entity);
-		}
+        if (getEntityManager().contains(entity)) {
+            getEntityManager().refresh(entity);
+            optEntity = Optional.of(entity);
 
-		if (getEntityManager().contains(entity)) {
-			getEntityManager().refresh(entity);
-			optEntity = Optional.of(entity);
+        } else {
+            return findById((ID) entity.getId());
+        }
 
-		} else {
-			return findById((ID) entity.getId());
-		}
+        return optEntity;
+    }
 
-		return optEntity;
-	}
+    @Override
+    public List<T> refreshOrRetrieve(List<T> entities) {
 
-	@Override
-	public List<T> refreshOrRetrieve(List<T> entities) {
+        if (entities == null) {
+            return null;
+        }
 
-		if (entities == null) {
-			return null;
-		}
+        List<T> refreshedEntities = new ArrayList<>();
+        for (T entity : entities) {
+            refreshedEntities.add(refreshOrRetrieve(entity).get());
+        }
 
-		List<T> refreshedEntities = new ArrayList<>();
-		for (T entity : entities) {
-			refreshedEntities.add(refreshOrRetrieve(entity).get());
-		}
+        return refreshedEntities;
+    }
 
-		return refreshedEntities;
-	}
+    @Override
+    public Set<T> refreshOrRetrieve(Set<T> entities) {
 
-	@Override
-	public Set<T> refreshOrRetrieve(Set<T> entities) {
+        if (entities == null) {
+            return null;
+        }
 
-		if (entities == null) {
-			return null;
-		}
+        Set<T> refreshedEntities = new HashSet<>();
+        for (T entity : entities) {
+            refreshedEntities.add(refreshOrRetrieve(entity).get());
+        }
 
-		Set<T> refreshedEntities = new HashSet<>();
-		for (T entity : entities) {
-			refreshedEntities.add(refreshOrRetrieve(entity).get());
-		}
-
-		return refreshedEntities;
-	}
+        return refreshedEntities;
+    }
 }

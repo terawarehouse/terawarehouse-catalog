@@ -6,7 +6,7 @@ import com.terawarehouse.data.entity.catalog.Category;
 import com.terawarehouse.web.application.AbstractControllerTest;
 
 /**
- * @author Edward P. Legaspi <czetsuya@gmail.com>
+ * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 public class CategoryControllerIntegrationTest extends AbstractControllerTest {
 
