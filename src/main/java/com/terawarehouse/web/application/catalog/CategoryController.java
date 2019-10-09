@@ -47,33 +47,6 @@ public class CategoryController extends AbstractBusinessController<Category, UUI
 
         super(categoryRepository, categoryResourceAssembler, validator, IController.class);
     }
-
-    public int sum1(int a, int b) {
-        return a + b;
-    }
-
-    public int sum2(int a, int b) {
-        return a + b;
-    }
-
-//	@PostMapping
-//	@ApiOperation(value = "Create new entity" //
-//			, notes = "Creates new entity. Returns the created entity with uid.")
-//	public ResponseEntity<Resource<Category>> create(@RequestBody @Valid Category entity) throws URISyntaxException {
-//
-//		Resource<Category> resource = resourceAssembler.toResource(categoryRepository.save(entity));
-//		return ResponseEntity.created(new URI(resource.getId().expand().getHref())).body(resource);
-//	}
-
-//	@ApiOperation(value = "Get entity by uid" //
-//			, notes = "Returns entity for uid specified.")
-//	@ApiResponses(value = { @ApiResponse(code = 404, message = "Entity not found") })
-//	@GetMapping(path = "/{uid}")
-//	public EntityModel<Category> findById(@PathVariable /* @ApiParam(value = "entity identifier", required = true) */ UUID uid) {
-//
-//		Category entity = categoryRepository.findById(uid).orElseThrow(() -> createNewNotFoundException(uid));
-//
-//		return categoryResourceAssembler.toModel(entity);
-//	}
+    
 
 }
