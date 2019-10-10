@@ -121,9 +121,13 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-browser</artifactId>
 		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.cloud</groupId> -->
+<!-- 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>de.codecentric</groupId>
@@ -132,10 +136,6 @@
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
 		</dependency>
 
 		<dependency>
@@ -166,7 +166,6 @@
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
 			<artifactId>jaxb-runtime</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -196,10 +195,7 @@
 		<profile>
 			<id>development</id>
 			<activation>
-				<property>
-					<name>spring.profiles.active</name>
-					<value>development</value>
-				</property>
+				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
 				<liquibase.changeLogFile>db/changelog/db.changelog-current.xml</liquibase.changeLogFile>
@@ -262,10 +258,7 @@
 		<profile>
 			<id>development-h2</id>
 			<activation>
-				<property>
-					<name>spring.profiles.active</name>
-					<value>development-h2</value>
-				</property>
+				<activeByDefault>false</activeByDefault>
 			</activation>
 			<dependencies>
 				<dependency>
