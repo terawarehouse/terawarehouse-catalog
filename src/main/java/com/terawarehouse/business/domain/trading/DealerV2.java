@@ -17,7 +17,7 @@
  */
 package com.terawarehouse.business.domain.trading;
 
-import com.broodcamp.data.entity.Name;
+import com.broodcamp.data.entity.shared.Name;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com

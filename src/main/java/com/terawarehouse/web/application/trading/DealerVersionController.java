@@ -20,7 +20,7 @@ package com.terawarehouse.web.application.trading;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.broodcamp.data.entity.Name;
+import com.broodcamp.data.entity.shared.Name;
 import com.terawarehouse.business.domain.trading.DealerV1;
 import com.terawarehouse.business.domain.trading.DealerV2;
 

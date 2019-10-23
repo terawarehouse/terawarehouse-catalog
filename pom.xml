@@ -9,7 +9,7 @@
 		<version>2.2.0.RC1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.broodcamp</groupId>
+	<groupId>com.terawarehouse</groupId>
 	<artifactId>terawarehouse-catalog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<url>https://github.com/czetsuya</url>
@@ -60,6 +60,21 @@
 				<configuration>
 					<source>${maven.compiler.source}</source>
 					<target>${maven.compiler.target}</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>1.3.1.Final</version>
+						</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.10</version>
+						</path>
+					</annotationProcessorPaths>
+					<compilerArgs>
+						<arg>-Amapstruct.defaultComponentModel=spring</arg>
+					</compilerArgs>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -79,7 +94,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>com.broodcamp</groupId>
+				<groupId>com.terawarehouse</groupId>
 				<artifactId>terawarehouse-bom</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<type>pom</type>

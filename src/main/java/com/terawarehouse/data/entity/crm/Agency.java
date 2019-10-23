@@ -15,35 +15,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.trading;
+package com.terawarehouse.data.entity.crm;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.broodcamp.data.entity.BusinessEntity;
 
-import com.broodcamp.data.dto.BaseEntityDto;
-import com.broodcamp.data.dto.mapper.GenericMapper;
-import com.broodcamp.web.application.AbstractBaseController;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@RestController
-@RequestMapping(path = "trading/regions")
-public class TradingRegionController extends AbstractBaseController {
+@Entity
+@Table(name = "crm_agency", uniqueConstraints = @UniqueConstraint(columnNames = { "code" }))
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@ToString(callSuper = true)
+public class Agency extends BusinessEntity {
 
-    @Override
-    public ResponseEntity update(BaseEntityDto newDto, Serializable uid) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public GenericMapper getGenericMapper() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    private static final long serialVersionUID = 2970804979059019165L;
 
 }

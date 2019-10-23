@@ -33,9 +33,9 @@ public class StartupApplicationListener {
 
     @EventListener
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        log.info("   <Terawarehouse Open-source Inventory and Management System>\r\n" + //
+        log.info("   \r\n<Terawarehouse Open-source Inventory and Management System>\r\n" + //
                 "    Copyright (C) 2019 Edward P. Legaspi (https://github.com/czetsuya)\r\n" + //
-                "    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\r\n" + //
+                "    This program comes with ABSOLUTELY NO WARRANTY.\r\n" + //
                 "    This is free software, and you are welcome to redistribute it\r\n" + //
                 "    under certain conditions.");
     }

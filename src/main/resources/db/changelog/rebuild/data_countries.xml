@@ -1,0 +1,2888 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- An Open Source Inventory and Sales Management System Copyright (C) 2019 
+	Edward P. Legaspi (https://github.com/czetsuya) This program is free software: 
+	you can redistribute it and/or modify it under the terms of the GNU General 
+	Public License as published by the Free Software Foundation, either version 
+	3 of the License, or (at your option) any later version. This program is 
+	distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+	PURPOSE. See the GNU General Public License for more details. You should 
+	have received a copy of the GNU General Public License along with this program. 
+	If not, see <https://www.gnu.org/licenses/>. -->
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="czetsuya" id="1571622513191-1603">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bouvet Island" />
+			<column name="code" value="BV" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b10d43bd-df34-4cd5-9e0c-a78c153d6062" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1604">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Botswana" />
+			<column name="code" value="BW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1fc3b1ac-d203-4b4c-a2d3-349b5ef4cd13" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1605">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Central African Republic" />
+			<column name="code" value="CF" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="725525c4-a645-4857-a8d3-5507e8f009d0" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1606">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Canada" />
+			<column name="code" value="CA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1bcb621b-9c99-4d3a-9da4-6a71e38a85ac" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1607">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cocos (Keeling) Islands" />
+			<column name="code" value="CC" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="47719edc-69c4-453d-8a4f-c040bc35f7cc" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1608">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Switzerland" />
+			<column name="code" value="CH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="9e20245c-1924-445b-845b-e07f29246098" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1609">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Chile" />
+			<column name="code" value="CL" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="9ed343b6-8bc6-4e46-92d0-156e41b07af4" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1610">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="China" />
+			<column name="code" value="CN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2d70cd73-8a27-48ec-867b-4ed834f82a3a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1611">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="CÃ´te dÂ’Ivoire" />
+			<column name="code" value="CI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2150bb3a-f27d-4ff5-b2fa-3b595e6370ca" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1612">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cameroon" />
+			<column name="code" value="CM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="d7482a8a-d4cf-40a8-a49c-4410493026ae" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1613">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name"
+				value="Congo, The Democratic Republic of the" />
+			<column name="code" value="CD" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="a1d299ee-cd94-4d7c-ac58-c076c5eb5d79" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1614">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Congo" />
+			<column name="code" value="CG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="86237069-e048-495f-9c4b-a8e8ed50e10f" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1615">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cook Islands" />
+			<column name="code" value="CK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e37e3658-66d9-408e-95fa-5ae140fca2b2" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1616">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Colombia" />
+			<column name="code" value="CO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6b4cf528-ec69-40e0-b2cf-2f97343dbaa3" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1617">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Comoros" />
+			<column name="code" value="KM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e2e525c7-9b66-4488-a4dd-251a983337e4" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1618">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cape Verde" />
+			<column name="code" value="CV" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="8a0acbc6-6a71-4569-97ee-f07650391a1b" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1619">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Costa Rica" />
+			<column name="code" value="CR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="c6ed84a1-f920-48c3-8a5d-5ca3e19867dd" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1620">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cuba" />
+			<column name="code" value="CU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="9cad7481-66dd-479e-8f36-93a732ecab36" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1621">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Christmas Island" />
+			<column name="code" value="CX" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="14e48b90-f45e-4dd0-a380-0e9feeecf2a8" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1622">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cayman Islands" />
+			<column name="code" value="KY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="c7b1e0e4-8cc0-4372-9403-8b23176d81fd" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1623">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cyprus" />
+			<column name="code" value="CY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e87bade2-abc5-4f38-a628-ca3af7e95125" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1624">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Czech Republic" />
+			<column name="code" value="CZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="3c72a791-8552-44f2-a2d0-2ff8d5baaead" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1625">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Germany" />
+			<column name="code" value="DE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="25e3a2f3-d61d-4c8f-835c-1edda7692d87" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1626">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Djibouti" />
+			<column name="code" value="DJ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="627ec4a8-36ea-441c-a540-a2d9378e94ac" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1627">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Dominica" />
+			<column name="code" value="DM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="34dcd4ad-f083-4f20-894f-7d9ed7312db5" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1628">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Denmark" />
+			<column name="code" value="DK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="fe06cbea-c2d4-477e-8d47-54c96bbc1646" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1629">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Dominican Republic" />
+			<column name="code" value="DO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="bf8e7e4b-5e0e-4d8c-a3a2-ce7ccf7dc808" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1630">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Algeria" />
+			<column name="code" value="DZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7005258b-1458-4ba1-ab11-781bbf8be015" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1631">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Ecuador" />
+			<column name="code" value="EC" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1cc12776-fb61-4507-b729-833ff06df4ea" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1632">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Egypt" />
+			<column name="code" value="EG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7c739c17-bfb6-4664-a53b-ff784054dc29" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1633">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Eritrea" />
+			<column name="code" value="ER" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7f4540c3-80a3-4eb6-a11e-2f5cac23aefc" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1634">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Western Sahara" />
+			<column name="code" value="EH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="094f85ef-bfa2-41ce-8c8d-83041b6e559e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1635">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Spain" />
+			<column name="code" value="ES" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="abb31815-da14-4385-a89e-ad3ba5a4db17" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1636">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Estonia" />
+			<column name="code" value="EE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="90019d1c-85c4-4768-93d2-edb74ef63b1e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1637">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Ethiopia" />
+			<column name="code" value="ET" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="506dd9b0-5054-47e7-a82e-24e45eecc07e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1638">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Finland" />
+			<column name="code" value="FI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="cd743af7-97d7-4474-9ad7-aeb0316facdc" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1639">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Fiji Islands" />
+			<column name="code" value="FJ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b1c5a2a7-4320-41d2-b992-9ad15ddbe8bd" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1640">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Falkland Islands" />
+			<column name="code" value="FK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="bc8d46f9-6f65-4137-b6f5-6e15b4883dd0" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1641">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="France" />
+			<column name="code" value="FR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="a29db7fe-6056-47a0-9084-1c18ad52c8d8" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1642">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Faroe Islands" />
+			<column name="code" value="FO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="513de589-bd8c-4304-bcd0-b4d9ecc5d8ea" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1643">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Micronesia, Federated States of" />
+			<column name="code" value="FM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f4ebe930-35c9-45f4-9145-d1eccd11f60a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1644">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Gabon" />
+			<column name="code" value="GA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6ac7bfe7-5d07-4a90-bc8a-4472e1cbf3ba" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1645">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="United Kingdom" />
+			<column name="code" value="GB" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="27d812de-bc34-44ab-818c-b8d54ed63edb" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1646">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Georgia" />
+			<column name="code" value="GE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="c66e7301-56ea-4046-a003-f7dc008a0b2c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1647">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Ghana" />
+			<column name="code" value="GH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="cb18635c-62ce-477e-b711-f31262dbd65c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1648">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Gibraltar" />
+			<column name="code" value="GI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b4de6b41-aa90-44d5-a9f1-0863fd2b011e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1649">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Guinea" />
+			<column name="code" value="GN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="12dc19aa-99b8-444b-811e-1146b091cb93" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1650">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Guadeloupe" />
+			<column name="code" value="GP" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e747dfeb-c95b-49bb-a4d6-b3fbdb3fecc9" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1651">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Gambia" />
+			<column name="code" value="GM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="be47a1ca-a450-4531-b349-205929b24a60" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1652">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Guinea-Bissau" />
+			<column name="code" value="GW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="07734ca5-1f61-4486-b706-601e380417e0" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1653">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Equatorial Guinea" />
+			<column name="code" value="GQ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="8e1dd5a1-4cec-4a30-9ec9-90753316628c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1654">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Greece" />
+			<column name="code" value="GR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7f651096-ddad-47d3-8255-7b3788111d14" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1655">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Grenada" />
+			<column name="code" value="GD" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="4e31f4cf-68ec-43e5-8bf9-ff3e19272387" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1656">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Greenland" />
+			<column name="code" value="GL" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="310bc694-e5dd-4d8f-a103-a5d7fe051db1" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1657">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Guatemala" />
+			<column name="code" value="GT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2a2e691e-9038-4219-9eab-d95575d1178d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1658">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="French Guiana" />
+			<column name="code" value="GF" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="8ee461df-aca4-4d0f-b971-daab6940e9ad" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1659">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Guam" />
+			<column name="code" value="GU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="8deb4365-f6d5-4b0f-8496-05cde9ccbd90" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1660">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Guyana" />
+			<column name="code" value="GY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0d6426e3-6146-43ed-aed3-604ebb1848b9" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1661">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Hong Kong" />
+			<column name="code" value="HK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="db91c4f3-83d3-4c66-bdd4-8511dea86843" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1662">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Heard Island and McDonald Islands" />
+			<column name="code" value="HM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="279a9cc4-b220-4d9f-9fa3-b45dfe549557" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1663">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Croatia" />
+			<column name="code" value="HR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f43c3d8d-90f5-41e6-8d46-a11e72581bf2" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1664">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Haiti" />
+			<column name="code" value="HT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="67456653-05ba-41cf-a83f-88779549e23f" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1665">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Hungary" />
+			<column name="code" value="HU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1ce99d44-a7b3-43cc-b71b-d1a3d478a123" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1666">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Indonesia" />
+			<column name="code" value="ID" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="37b55cf7-aa11-494a-ac2b-3e1e6c48fdea" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1667">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="India" />
+			<column name="code" value="IN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b8c785fd-7ec4-4bfd-8955-33657ada371c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1668">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="British Indian Ocean Territory" />
+			<column name="code" value="IO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6f14d8b9-6115-407a-b638-e35196df9db8" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1669">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Ireland" />
+			<column name="code" value="IE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="68ef62e2-f550-4bcc-afaa-14908eaceaf6" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1670">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Honduras" />
+			<column name="code" value="HN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="da5f753f-b180-4cfd-9495-e4c24b682604" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1671">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Iran" />
+			<column name="code" value="IR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2ada4fd3-d710-4de8-9112-a5e22c0656ea" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1672">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Iraq" />
+			<column name="code" value="IQ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="cafe00a8-402c-4024-87b5-676243375749" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1673">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Iceland" />
+			<column name="code" value="IS" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ec8b845f-39ad-4db4-b55c-6d235068fcd4" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1674">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Israel" />
+			<column name="code" value="IL" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="09d350ab-58d5-4b76-8f40-d1ca55c439be" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1675">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Italy" />
+			<column name="code" value="IT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="660aac48-7b8d-4c87-843d-81664344db53" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1676">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Jamaica" />
+			<column name="code" value="JM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f7895ae4-820a-4698-ab7c-632c81edb392" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1677">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Jordan" />
+			<column name="code" value="JO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="9066ee83-60d3-4a90-9d94-730fcc9a5dc1" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1678">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Japan" />
+			<column name="code" value="JP" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b72a1188-b5b5-46b0-a767-bec213ddcd8e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1679">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Kazakstan" />
+			<column name="code" value="KZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="47a41c57-0745-4eb4-81be-060e255ac678" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1680">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Kenya" />
+			<column name="code" value="KE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="74481fee-f7da-43dd-8687-ad439fe17bc3" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1681">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Kyrgyzstan" />
+			<column name="code" value="KG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7b2e4787-d2be-4e5d-83d4-6c2debb5c374" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1682">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cambodia" />
+			<column name="code" value="KH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e5891eaa-8e3f-41fa-87ad-f955cefa62c0" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1683">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Kiribati" />
+			<column name="code" value="KI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="031940d1-795c-4c55-845d-cd3fa69761b1" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1684">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Saint Kitts and Nevis" />
+			<column name="code" value="KN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="8c5df158-f6a7-4a96-ac55-b78f57628cb7" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1685">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="South Korea" />
+			<column name="code" value="KR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e471cffc-6aa3-4c2d-ae30-da4caf1b0c56" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1686">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Kuwait" />
+			<column name="code" value="KW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="9af8d75e-aff9-4133-bcb8-62d6e3fa46e4" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1687">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Laos" />
+			<column name="code" value="LA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ac44596d-db80-4d50-b16d-35d9ace9b5ab" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1688">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Lebanon" />
+			<column name="code" value="LB" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ddfc7999-3e2b-4757-88c1-529f27ad8428" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1689">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Liberia" />
+			<column name="code" value="LR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="3c05722f-36b7-4531-86ff-ec732cbd1d4a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1690">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Libyan Arab Jamahiriya" />
+			<column name="code" value="LY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ea265d35-95a8-4a31-b9c8-9ac152c79e1f" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1691">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Saint Lucia" />
+			<column name="code" value="LC" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="556bd26b-ffd2-473d-b9ac-1635e5a6b2ba" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1692">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Liechtenstein" />
+			<column name="code" value="LI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b4c1ab10-4341-4dd9-8fac-431083f18e78" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1693">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Sri Lanka" />
+			<column name="code" value="LK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2217fff1-409f-46d2-a481-7b632205b9e1" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1694">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Lesotho" />
+			<column name="code" value="LS" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="383f0274-d339-4811-a825-818db347ca4b" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1695">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Lithuania" />
+			<column name="code" value="LT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="77f13d0f-1ff4-45a8-b1b7-f714613dd4bd" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1696">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Luxembourg" />
+			<column name="code" value="LU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f837ab72-a419-47de-b099-0fec529f5714" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1697">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Latvia" />
+			<column name="code" value="LV" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e236ff6b-84a0-44fc-914d-d3f3c37a0a77" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1698">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Macao" />
+			<column name="code" value="MO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7e36c444-8353-4bf8-9ad7-a30391df0934" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1699">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Morocco" />
+			<column name="code" value="MA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="4d48eca2-2c27-44ea-8bc3-76d962de044a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1700">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Monaco" />
+			<column name="code" value="MC" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="23d4a9a8-970e-44bb-9fe8-a70cda3a143d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1701">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Moldova" />
+			<column name="code" value="MD" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="44df9a97-d4d5-4d6e-bd76-f728bfce3fb1" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1702">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Madagascar" />
+			<column name="code" value="MG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="72f366c8-edbc-496a-b50c-cc6e83e75ecf" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1703">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Maldives" />
+			<column name="code" value="MV" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="5b5195e4-8f5a-4be8-b41b-04c11565d49f" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1704">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Mexico" />
+			<column name="code" value="MX" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f90170fa-76a8-4f36-a66f-bc040968b539" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1705">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Marshall Islands" />
+			<column name="code" value="MH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="8359fa70-537c-4c2d-94a1-79f3d31ccb28" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1706">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Macedonia" />
+			<column name="code" value="MK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="bea18279-4e9a-4061-be44-95775ddccc9e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1707">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Mali" />
+			<column name="code" value="ML" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="af7501e2-9782-4146-b43e-05f5dd454f11" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1708">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Malta" />
+			<column name="code" value="MT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="317c0346-0797-440c-8889-647a769b9c83" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1709">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Myanmar" />
+			<column name="code" value="MM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0c9ed707-c43e-4053-933d-d86363152023" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1710">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Mongolia" />
+			<column name="code" value="MN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="793b9763-26f3-4584-9044-b780a78e6d81" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1711">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Northern Mariana Islands" />
+			<column name="code" value="MP" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="faf564cb-6698-43d6-89b9-0a001a9052c8" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1712">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Mozambique" />
+			<column name="code" value="MZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="47e06b77-c2af-4bcf-8719-3e6443795d97" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1713">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Mauritania" />
+			<column name="code" value="MR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="431e096f-ca3d-486c-b0be-2baf042432a3" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1714">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Montserrat" />
+			<column name="code" value="MS" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="da20815c-fd08-4e41-b213-9d68445b41e3" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1715">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Martinique" />
+			<column name="code" value="MQ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="091086a2-6808-4a61-8201-df73d2084d20" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1716">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Mauritius" />
+			<column name="code" value="MU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="afbeea24-705c-4a33-9bf6-f2cd7f897234" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1717">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Malawi" />
+			<column name="code" value="MW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="be913b64-329d-4890-ae48-4fa669dc5d87" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1718">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Malaysia" />
+			<column name="code" value="MY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="fc2bf108-44a5-425f-a5a7-8811850fbd4f" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1719">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Mayotte" />
+			<column name="code" value="YT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="fcba637b-451a-4005-80f4-10b36ad4877d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1720">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Namibia" />
+			<column name="code" value="NA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="af6d3cea-5bda-47da-b30c-91dfd368a9fc" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1721">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="New Caledonia" />
+			<column name="code" value="NC" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="5d3ae75a-c2bd-4c00-822a-c35174bfcb28" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1722">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Niger" />
+			<column name="code" value="NE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6089488f-e01f-4363-b653-a1ad01a67fff" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1723">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Norfolk Island" />
+			<column name="code" value="NF" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1c018a0e-7433-4cb2-8baa-49dd0c76f0e0" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1724">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Nigeria" />
+			<column name="code" value="NG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="872324d5-7139-40db-9434-0ba4f48ced5b" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1725">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Nicaragua" />
+			<column name="code" value="NI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ba83f223-6eed-4515-8d31-e60cf208c1ea" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1726">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Niue" />
+			<column name="code" value="NU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ab5306cd-7dd9-4511-9240-4611fd2fcbae" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1727">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Netherlands" />
+			<column name="code" value="NL" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="639869ae-b7b7-4b50-beac-ec9d5d97bcae" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1728">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Norway" />
+			<column name="code" value="NO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="23c20fbb-a0c8-43cf-bebf-1b149b8f8b3e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1729">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Nepal" />
+			<column name="code" value="NP" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="096d66bc-1d52-4214-a06d-055f848e1059" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1730">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Nauru" />
+			<column name="code" value="NR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="edfbec3d-ed84-4f07-9463-ed880d4f86be" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1731">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="New Zealand" />
+			<column name="code" value="NZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7338c9e6-eb09-4625-baca-3b143594d2dd" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1732">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Oman" />
+			<column name="code" value="OM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2a4d940f-ad22-4ba6-b657-c83f450da0e2" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1733">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Pakistan" />
+			<column name="code" value="PK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="3a3d06d6-aafe-44ce-87b0-11f57766d7af" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1734">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Panama" />
+			<column name="code" value="PA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="86221ff9-84c0-48f6-b52c-3ffcac35c3f0" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1735">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Pitcairn" />
+			<column name="code" value="PN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="a8953e9b-f335-4a03-8f8c-2d9daabec312" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1736">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Peru" />
+			<column name="code" value="PE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="26c80f18-c098-41e5-acb7-b641de5f9f84" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1737">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Aruba" />
+			<column name="code" value="AW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7b612c2e-9fcf-41ee-91a4-d76305d40fc9" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1738">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Afghanistan" />
+			<column name="code" value="AF" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7534de40-ebfd-4691-bf27-17f8918470b6" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1739">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Angola" />
+			<column name="code" value="AO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="450c1013-036b-4eb7-9b5e-72c959bf916b" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1740">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Anguilla" />
+			<column name="code" value="AI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="91ca7042-0a3a-4e78-8fe9-8f53ffe3f47f" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1741">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Albania" />
+			<column name="code" value="AL" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b548d1e7-2a1d-4c89-9342-349bc2159fdf" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1742">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Andorra" />
+			<column name="code" value="AD" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1ae7e493-4ad0-4918-8506-b0b032ec58ac" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1743">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Netherlands Antilles" />
+			<column name="code" value="AN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="cf3ae9be-2164-4c29-8729-e8aa6b0cb293" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1744">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="United Arab Emirates" />
+			<column name="code" value="AE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="971c2e2c-2981-4cb2-a1ea-62d11bb74f0c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1745">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Argentina" />
+			<column name="code" value="AR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="173d7103-9800-4660-8071-4a990ddb3960" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1746">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Armenia" />
+			<column name="code" value="AM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="cf79a0be-d673-4ae0-970a-de10a30571a4" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1747">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="American Samoa" />
+			<column name="code" value="AS" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="25835284-425d-4563-931a-34c43c8bf649" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1748">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Antarctica" />
+			<column name="code" value="AQ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="26ab1370-5f07-4f76-abde-5787bfaaa710" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1749">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="French Southern territories" />
+			<column name="code" value="TF" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="acba1623-8851-4dac-b4e8-26f4713e92a5" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1750">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Antigua and Barbuda" />
+			<column name="code" value="AG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="4b3a66fe-2fe5-4849-bce1-d0e97a79b2ae" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1751">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Australia" />
+			<column name="code" value="AU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="53826a9f-4d62-4d1e-9d60-922dbd9372eb" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1752">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Austria" />
+			<column name="code" value="AT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="d8698cad-89d2-48f8-a45e-9ef9299174f1" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1753">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Azerbaijan" />
+			<column name="code" value="AZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="14d9425a-7483-41bf-838c-038b318ab008" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1754">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Burundi" />
+			<column name="code" value="BI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6ff3c7a1-55ca-45bc-b971-989b1dcc8784" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1755">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Belgium" />
+			<column name="code" value="BE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="125633cc-66d0-41d2-bf71-22d5767f9d3d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1756">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Benin" />
+			<column name="code" value="BJ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="69e90dce-a730-46d7-b163-0fef7f723517" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1757">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Burkina Faso" />
+			<column name="code" value="BF" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="189bd32a-f837-436e-af57-e282b0d34ff5" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1758">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bangladesh" />
+			<column name="code" value="BD" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="c9d542a4-a825-4673-bb15-4d3c59baf5f3" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1759">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bulgaria" />
+			<column name="code" value="BG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="bdcb27be-5fe1-4629-bda4-01aa920ea145" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1760">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bahrain" />
+			<column name="code" value="BH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e60ce371-977d-4b22-8c83-13e804eacb7c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1761">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bahamas" />
+			<column name="code" value="BS" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="77e9f78b-c5c8-46e7-a69e-04b2255f99e4" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1762">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bosnia and Herzegovina" />
+			<column name="code" value="BA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="478651e2-a9dd-430c-83fd-5d991724bcb1" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1763">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Belarus" />
+			<column name="code" value="BY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="fb9763c7-866b-4a74-8a04-36d9bd5311bf" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1764">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Belize" />
+			<column name="code" value="BZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6a0df7ce-c541-4421-b8b5-9e57055eb6b2" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1765">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bermuda" />
+			<column name="code" value="BM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f53ce0c3-a2c3-44b4-b370-e30c5b681be8" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1766">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bolivia" />
+			<column name="code" value="BO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="a4d0c013-4760-4947-8c22-dfef27bb2c1a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1767">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Brazil" />
+			<column name="code" value="BR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6adc353f-4c58-49f5-8c04-587afd3bb276" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1768">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Barbados" />
+			<column name="code" value="BB" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0cc2a29b-f2d6-4142-90d3-62e843f8ee42" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1769">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Brunei" />
+			<column name="code" value="BN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1014c9d8-f811-4b74-9ddc-2abdf7866c8a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1770">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bhutan" />
+			<column name="code" value="BT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e02f07f7-66c3-4ed8-9dab-4077d2e6a884" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1771">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Philippines" />
+			<column name="code" value="PH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1772">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Palau" />
+			<column name="code" value="PW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="87a2468c-3900-43c4-b16c-45f221ff8481" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1773">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Papua New Guinea" />
+			<column name="code" value="PG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="45fb3e3c-2721-4c37-b6ab-f9ba131212c3" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1774">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Poland" />
+			<column name="code" value="PL" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="d7be6f8e-4905-44a1-8026-488c3ed829f6" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1775">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Puerto Rico" />
+			<column name="code" value="PR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="c9dab9e1-7568-42ea-a774-4a0bc4396c1c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1776">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="North Korea" />
+			<column name="code" value="KP" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="5330de4e-0f51-4fa3-a8ff-3b79df83f1da" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1777">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Portugal" />
+			<column name="code" value="PT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="df2a5ab3-29c3-42c7-a997-c18d88e899fd" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1778">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Paraguay" />
+			<column name="code" value="PY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b24d410c-2cbd-4b83-873b-e4f9df784b1d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1779">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Palestine" />
+			<column name="code" value="PS" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="33149ee3-dcbe-4571-95e9-d96363069306" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1780">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="French Polynesia" />
+			<column name="code" value="PF" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0c000984-2e9d-4c71-b1ee-0c0fee3a7285" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1781">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Qatar" />
+			<column name="code" value="QA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="fa6caa47-8fd8-4a0f-a33e-7aa7ada1b66d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1782">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="RÃ©union" />
+			<column name="code" value="RE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f3df6c18-8c1c-4bcd-bc42-764fe972a895" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1783">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Romania" />
+			<column name="code" value="RO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2d707ca7-cc18-44ba-8791-48bd58100621" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1784">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Russian Federation" />
+			<column name="code" value="RU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b5bafefe-a59f-457e-a157-628f97067c76" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1785">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Rwanda" />
+			<column name="code" value="RW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f540a14c-d761-421b-b00d-1bc43a66fa07" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1786">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Saudi Arabia" />
+			<column name="code" value="SA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0695659d-e182-4489-aee3-8fdc36e01d4f" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1787">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Sudan" />
+			<column name="code" value="SD" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0d3ade6a-c1be-47c2-bf3b-7cfca83ddfb9" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1788">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Senegal" />
+			<column name="code" value="SN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="92c3769d-efea-436d-9e45-ee4e6bdb3502" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1789">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Singapore" />
+			<column name="code" value="SG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="30299db7-e0d8-4ffb-a7f6-ae147aa61d1a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1790">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name"
+				value="South Georgia and the South Sandwich Islands" />
+			<column name="code" value="GS" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="d3a08b7c-fe06-4c51-bab2-405a1552cd69" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1791">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Saint Helena" />
+			<column name="code" value="SH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="27d21bf6-b246-4ef0-b571-3ae59634d3aa" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1792">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Svalbard and Jan Mayen" />
+			<column name="code" value="SJ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6c81e73b-a4b2-4f1b-a324-cb238fe61e6e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1793">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Solomon Islands" />
+			<column name="code" value="SB" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1df704f7-7fb3-4185-9cda-cd60bffbec3a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1794">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Sierra Leone" />
+			<column name="code" value="SL" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="673eee2e-d464-4eae-8c1e-ec0796b8b51d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1795">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="El Salvador" />
+			<column name="code" value="SV" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b3caf4a0-8517-4479-bd9f-c2a8320ea78a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1796">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="San Marino" />
+			<column name="code" value="SM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="fda26e28-531c-44f4-b3e7-5f7fa4ad62c9" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1797">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Somalia" />
+			<column name="code" value="SO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ec24a475-e208-4900-9d97-cd593209e19b" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1798">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Saint Pierre and Miquelon" />
+			<column name="code" value="PM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="eb262cd3-bf69-4f04-9473-bc8364bfd74c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1799">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Sao Tome and Principe" />
+			<column name="code" value="ST" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="81eef6f4-bf5f-42d0-a37d-3a34f33ea5b9" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1800">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Suriname" />
+			<column name="code" value="SR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b3dba7fc-aeac-4efb-b97f-51050561a06c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1801">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Slovakia" />
+			<column name="code" value="SK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="84e2fd8a-433a-4d8b-8551-e63db6c5078a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1802">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Slovenia" />
+			<column name="code" value="SI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="01ee677d-761a-4ae0-b7b1-8328915ab3ef" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1803">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Sweden" />
+			<column name="code" value="SE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="13de0784-3b50-42ae-98f5-afb536ac05ed" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1804">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Swaziland" />
+			<column name="code" value="SZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="98303f91-5919-476b-855b-f2987582663b" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1805">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Seychelles" />
+			<column name="code" value="SC" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="039c8d92-d10e-4592-8430-3e156779f05a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1806">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Syria" />
+			<column name="code" value="SY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="bf749352-90b8-41bf-b453-d84bfb2adf3a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1807">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Turks and Caicos Islands" />
+			<column name="code" value="TC" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="626289f9-7bf8-4c62-9315-600b885b49e5" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1808">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Chad" />
+			<column name="code" value="TD" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2e1c86df-0489-4a65-8d14-c1a79111a6df" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1809">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Togo" />
+			<column name="code" value="TG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="7e7576e4-29cb-4853-998e-f13bc97ff2a6" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1810">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Thailand" />
+			<column name="code" value="TH" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="a861d977-32af-4394-ba83-5ef076cb54a9" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1811">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Tajikistan" />
+			<column name="code" value="TJ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="58f92577-4383-4052-bf9c-bee9e8e6bae6" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1812">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Tokelau" />
+			<column name="code" value="TK" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0b93e796-f5ac-441a-bfd8-17fd66ad0786" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1813">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Turkmenistan" />
+			<column name="code" value="TM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="27b12302-a248-4bf4-b3a1-875c5397228c" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1814">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="East Timor" />
+			<column name="code" value="TP" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="54a79e0f-1a3f-4af5-a826-f61267b13b5a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1815">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Tonga" />
+			<column name="code" value="TO" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b8332190-5e19-475a-9192-d783748af43d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1816">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Trinidad and Tobago" />
+			<column name="code" value="TT" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="bf157ace-412c-4f2f-889e-4a2715e7fe30" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1817">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Tunisia" />
+			<column name="code" value="TN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0bd54498-2f70-4641-9c76-8e266476fcd4" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1818">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Turkey" />
+			<column name="code" value="TR" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b6b14c41-ae9d-4da2-859f-ae2b6792446a" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1819">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Tuvalu" />
+			<column name="code" value="TV" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="5e1ab7e1-c4ed-4ae1-9757-48b9c6a7119d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1820">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Taiwan" />
+			<column name="code" value="TW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6893c72e-b6ad-4db2-addc-57de7fb99598" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1821">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Tanzania" />
+			<column name="code" value="TZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="249e39a0-b4f0-4927-b3c4-fc477c5aa6e0" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1822">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Uganda" />
+			<column name="code" value="UG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="fad6e0bb-5f07-4bbd-bfec-3d5dfc0d89fe" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1823">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Ukraine" />
+			<column name="code" value="UA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="0a94806d-afe4-463b-a1fe-9b65042a72b6" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1824">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name"
+				value="United States Minor Outlying Islands" />
+			<column name="code" value="UM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="825a3bea-8ddc-4bf1-ad04-78f87b3d96ab" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1825">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Uruguay" />
+			<column name="code" value="UY" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6d220be1-a555-4654-a080-ed53185c7a52" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1826">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="United States" />
+			<column name="code" value="US" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f969ae47-43dc-4a7d-9551-84e7c6cb6c48" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1827">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Uzbekistan" />
+			<column name="code" value="UZ" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b1a53530-1833-4cb8-a42f-d0e94b243fcd" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1828">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Holy See (Vatican City State)" />
+			<column name="code" value="VA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="f5903387-6933-4ebb-b433-1ff5ab47139e" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1829">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Saint Vincent and the Grenadines" />
+			<column name="code" value="VC" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="a6a24faf-6638-4db2-a01a-278d000ab63f" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1830">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Venezuela" />
+			<column name="code" value="VE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ce24b472-29c6-414d-9543-f0d4730505fd" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1831">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Virgin Islands, British" />
+			<column name="code" value="VG" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="968e93ed-e94b-417f-b2e3-17f650013606" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1832">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Virgin Islands, U.S." />
+			<column name="code" value="VI" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6f06452f-de97-4349-a0cd-57c75f086a34" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1833">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Vietnam" />
+			<column name="code" value="VN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="aa1cfc76-a8a0-461b-a648-287f63ffa3ef" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1834">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Vanuatu" />
+			<column name="code" value="VU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="522e86ef-d566-4d69-94b6-a6b10e198625" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1835">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Wallis and Futuna" />
+			<column name="code" value="WF" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="75ab8850-1edf-40b8-a3c8-8224015b22fc" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1836">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Samoa" />
+			<column name="code" value="WS" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="2efd9738-ea64-41da-9999-1306365dbf77" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1837">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Yemen" />
+			<column name="code" value="YE" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="79c20a4e-3af5-4743-bf60-8081c4a2799b" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1838">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Yugoslavia" />
+			<column name="code" value="YU" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="8f9f6085-8be4-4df5-b894-9c060fcfac60" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1839">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="South Africa" />
+			<column name="code" value="ZA" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="ab18d5e6-95c3-4244-8ad2-93b001ec7808" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1840">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Zambia" />
+			<column name="code" value="ZM" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b7372bad-cae4-4843-a0d7-fee330ded70d" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1841">
+		<insert tableName="adm_country">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Zimbabwe" />
+			<column name="code" value="ZW" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="04cbc520-21b4-4a44-9a85-40cb86728a50" />
+		</insert>
+	</changeSet>
+</databaseChangeLog>

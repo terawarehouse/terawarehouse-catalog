@@ -15,17 +15,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.data.entity.trading;
+package com.terawarehouse.data.entity.crm;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
 
-import com.broodcamp.data.entity.BusinessEntity;
+import com.broodcamp.data.entity.EnableEntity;
+import com.terawarehouse.data.entity.trading.TradingStaffBranch;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,22 +45,27 @@ import lombok.ToString;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Entity
-@Table(name = "trading_branch", uniqueConstraints = @UniqueConstraint(columnNames = { "dealer_id", "trading_town_id", "code" }))
+@Table(name = "crm_staff")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class TradingBranch extends BusinessEntity {
+public class Staff extends EnableEntity {
 
-    private static final long serialVersionUID = -4521000507491847268L;
+    private static final long serialVersionUID = 2672925780493559557L;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dealer_id", nullable = false)
-    private Dealer dealer;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staff")
+    private List<TradingStaffBranch> tradingStaffBranches;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "trading_town_id", nullable = false)
-    private TradingTown tradingTown;
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "agency_id", nullable = false)
+    private Agency agency;
+
+    @Column(name = "date_hired")
+    @Temporal(TemporalType.DATE)
+    private Date dateHired;
+
+    @Column(name = "quota", precision = NB_PRECISION, scale = NB_DECIMALS)
+    @Digits(integer = NB_PRECISION, fraction = NB_DECIMALS)
+    private BigDecimal quota;
 }

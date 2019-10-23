@@ -17,9 +17,28 @@
  */
 package com.terawarehouse.data.entity.catalog;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import com.broodcamp.data.entity.BusinessEntity;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-public enum ProductSerialStatusEnum {
-	CREATED, SOLD, TRANSFERRED
+@Entity
+@Table(name = "cat_manufacturer", uniqueConstraints = @UniqueConstraint(columnNames = { "code" }))
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@ToString(callSuper = true)
+public class Manufacturer extends BusinessEntity {
+
+    private static final long serialVersionUID = -6020836594102835074L;
+
 }

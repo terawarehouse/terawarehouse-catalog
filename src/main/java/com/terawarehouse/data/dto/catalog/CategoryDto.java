@@ -15,35 +15,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.trading;
+package com.terawarehouse.data.dto.catalog;
 
-import java.io.Serializable;
+import java.util.UUID;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.broodcamp.data.dto.BusinessEntityDto;
 
-import com.broodcamp.data.dto.BaseEntityDto;
-import com.broodcamp.data.dto.mapper.GenericMapper;
-import com.broodcamp.web.application.AbstractBaseController;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@RestController
-@RequestMapping(path = "trading/regions")
-public class TradingRegionController extends AbstractBaseController {
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class CategoryDto extends BusinessEntityDto {
 
-    @Override
-    public ResponseEntity update(BaseEntityDto newDto, Serializable uid) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public GenericMapper getGenericMapper() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    private UUID parentId;
 }

@@ -25,7 +25,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
-import com.broodcamp.data.entity.BusinessEntity;
+import com.broodcamp.data.entity.EnableEntity;
+import com.broodcamp.data.entity.adm.State;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,22 +37,22 @@ import lombok.ToString;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Entity
-@Table(name = "trading_branch", uniqueConstraints = @UniqueConstraint(columnNames = { "dealer_id", "trading_town_id", "code" }))
+@Table(name = "trading_province", uniqueConstraints = @UniqueConstraint(columnNames = { "trading_region_id", "state_id" }))
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class TradingBranch extends BusinessEntity {
+public class TradingProvince extends EnableEntity {
 
-    private static final long serialVersionUID = -4521000507491847268L;
-
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dealer_id", nullable = false)
-    private Dealer dealer;
+    private static final long serialVersionUID = 3015112822264828511L;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "trading_town_id", nullable = false)
-    private TradingTown tradingTown;
+    @JoinColumn(name = "state_id")
+    private State state;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "trading_region_id")
+    private TradingRegion tradingRegion;
 }

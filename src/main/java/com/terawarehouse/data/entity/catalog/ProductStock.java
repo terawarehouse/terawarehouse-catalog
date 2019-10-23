@@ -46,7 +46,7 @@ import lombok.ToString;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Entity
-@Table(name = "cat_serial" //
+@Table(name = "cat_stock" //
 		, uniqueConstraints = @UniqueConstraint(columnNames = { "product_id", "branch_id", "serial_no" }) //
 		, indexes = { @Index(columnList = "serial_no", unique = false), @Index(columnList = "warranty_card_no", unique = false) } //
 )
@@ -54,7 +54,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class ProductSerial extends BaseEntity {
+public class ProductStock extends BaseEntity {
 
 	private static final long serialVersionUID = 7901377279454273062L;
 
@@ -73,7 +73,7 @@ public class ProductSerial extends BaseEntity {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status")
-	private ProductSerialStatusEnum status = ProductSerialStatusEnum.CREATED;
+	private ProductStockStatusEnum status = ProductStockStatusEnum.CREATED;
 
 	@Column(name = "warranty_card_no", length = 100)
 	private String warrantyCardNo;

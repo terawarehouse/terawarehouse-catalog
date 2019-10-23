@@ -17,9 +17,37 @@
  */
 package com.terawarehouse.data.entity.trading;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
+
+import com.broodcamp.data.entity.EnableEntity;
+import com.broodcamp.data.entity.adm.Region;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-public class TradingRegion {
+@Entity
+@Table(name = "trading_region", uniqueConstraints = @UniqueConstraint(columnNames = { "region_id" }))
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@ToString(callSuper = true)
+public class TradingRegion extends EnableEntity {
 
+    private static final long serialVersionUID = 7237526425436248970L;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id")
+    private Region region;
 }

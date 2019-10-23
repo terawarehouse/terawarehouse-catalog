@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- An Open Source Inventory and Sales Management System Copyright (C) 2019 
+	Edward P. Legaspi (https://github.com/czetsuya) This program is free software: 
+	you can redistribute it and/or modify it under the terms of the GNU General 
+	Public License as published by the Free Software Foundation, either version 
+	3 of the License, or (at your option) any later version. This program is 
+	distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+	PURPOSE. See the GNU General Public License for more details. You should 
+	have received a copy of the GNU General Public License along with this program. 
+	If not, see <https://www.gnu.org/licenses/>. -->
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="czetsuya" id="1571622513191-1890">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="National Capital Region" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="b5152075-9eec-4904-b5cd-cc0012d3d5d3" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1891">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Ilocos Region" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="40a6a762-ecf5-4721-a834-25160af73a9e" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1892">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cordillera Administrative Region" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="499b09d1-6964-49d0-a7b5-2133cf2cab01" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1893">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Cagayan Valley" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="72ff704a-0f81-4310-9a88-341033cd592a" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1894">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Central Luzon" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="9164456d-810b-4727-8004-955e3abdc1e2" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1895">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="CALABARZON" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1a7edf8d-ed84-4121-b4d6-5dfd7d0daccb" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1896">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Southwestern Tagalog Region" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="05e5dd0b-b61e-4c23-a42f-4351518ccb1a" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1897">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Bicol Region" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="41cce359-0348-4b20-942b-3a518793e8b2" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1898">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Western Visayas" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="c4674991-919a-4d64-ad89-672528e4863a" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1899">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Central Visayas" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="6e9d71c9-a059-4249-affb-99655b7ead4a" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1900">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Eastern Visayas" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="113335c7-f3c5-4b88-9b93-a5083bfe6b4a" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1901">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Zamboanga Peninsula" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="e9828fa8-d951-4b9c-b8fa-03dbc050e5ba" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1902">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Northern Mindanao" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="aa95d0f6-c467-4818-b4ac-592839a6a266" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1903">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Davao Region" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="1c9305c4-9a00-404d-bef0-b94adf79121c" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1904">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="SOCCSKSARGEN" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="d58b866a-b9f7-41f9-a499-37a0728ac09d" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1905">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name" value="Caraga Region" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="a09923b5-54a5-435a-8f3e-c4ecb5e37e5b" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+	<changeSet author="czetsuya" id="1571622513191-1906">
+		<insert tableName="adm_region">
+			<column name="version" valueNumeric="0" />
+			<column name="created" valueDate="now()" />
+			<column name="updated" />
+			<column name="disabled" valueBoolean="false" />
+			<column name="name"
+				value="Autonomous Region in Muslim Mindanao" />
+			<column name="creator_ref" value="system.user" />
+			<column name="id" value="8a5f7ec8-8574-4ecb-9500-a8b6dd9b3bb3" />
+			<column name="country_id"
+				value="b6e52aab-51f4-4281-8f68-3ba39641f458" />
+		</insert>
+	</changeSet>
+</databaseChangeLog>
