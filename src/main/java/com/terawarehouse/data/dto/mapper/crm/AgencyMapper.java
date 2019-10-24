@@ -15,25 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.catalog;
+package com.terawarehouse.data.dto.mapper.crm;
 
-import java.util.UUID;
+import org.mapstruct.Mapper;
 
-import org.springframework.http.MediaType;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.broodcamp.web.application.AbstractBusinessController;
-import com.terawarehouse.data.dto.catalog.BrandDto;
-import com.terawarehouse.data.entity.catalog.Brand;
+import com.broodcamp.data.dto.mapper.GenericMapper;
+import com.terawarehouse.data.dto.crm.AgencyDto;
+import com.terawarehouse.data.entity.crm.Agency;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@RestController
-@RequestMapping(path = "/catalog/brands", produces = MediaType.APPLICATION_JSON_VALUE)
-@Validated
-public class BrandController extends AbstractBusinessController<Brand, BrandDto, UUID> {
+@Mapper
+public abstract class AgencyMapper implements GenericMapper<Agency, AgencyDto>{
 
 }

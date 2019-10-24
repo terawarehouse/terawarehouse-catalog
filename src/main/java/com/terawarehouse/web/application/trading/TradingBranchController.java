@@ -15,25 +15,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.catalog;
+package com.terawarehouse.web.application.trading;
 
 import java.util.UUID;
 
-import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.web.application.AbstractBusinessController;
-import com.terawarehouse.data.dto.catalog.BrandDto;
-import com.terawarehouse.data.entity.catalog.Brand;
+import com.terawarehouse.data.dto.trading.TradingBranchDto;
+import com.terawarehouse.data.entity.trading.TradingBranch;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "/catalog/brands", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "trading/branches")
 @Validated
-public class BrandController extends AbstractBusinessController<Brand, BrandDto, UUID> {
+public class TradingBranchController extends AbstractBusinessController<TradingBranch, TradingBranchDto, UUID> {
 
 }

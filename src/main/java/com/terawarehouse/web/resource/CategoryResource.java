@@ -24,7 +24,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.hateoas.RepresentationModel;
 
-import com.broodcamp.web.application.AbstractBaseController;
+import com.broodcamp.web.application.AbstractController;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.terawarehouse.data.entity.catalog.Category;
@@ -47,7 +47,7 @@ public class CategoryResource extends RepresentationModel {
 
         this.category = entity;
         this.add(linkTo(methodOn(CategoryController.class).findById(entity.getId())).withSelfRel());
-        this.add(linkTo(methodOn(CategoryController.class).findAll(AbstractBaseController.DEFAULT_PAGE_SIZE, 0)).withRel("categories"));
+        this.add(linkTo(methodOn(CategoryController.class).findAll(AbstractController.DEFAULT_PAGE_SIZE, 0)).withRel("categories"));
         this.add(linkTo(methodOn(CategoryController.class).findByCode(entity.getCode())).withRel("findByCode"));
     }
 

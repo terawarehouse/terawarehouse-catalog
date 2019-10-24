@@ -15,45 +15,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.catalog;
+package com.terawarehouse.web.application.crm;
 
 import java.util.UUID;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.broodcamp.util.StringUtils;
 import com.broodcamp.web.application.AbstractBusinessController;
-import com.broodcamp.web.application.IController;
-import com.terawarehouse.data.dto.catalog.CategoryDto;
-import com.terawarehouse.data.entity.catalog.Category;
+import com.terawarehouse.data.dto.crm.AgencyDto;
+import com.terawarehouse.data.entity.crm.Agency;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "/catalog/categories", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/crm/agencies", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-public class CategoryController extends AbstractBusinessController<Category, CategoryDto, UUID> implements IController<CategoryDto> {
-
-    @PostMapping(path = "/{pcid}")
-    public ResponseEntity<EntityModel<CategoryDto>> create(@PathVariable @NotNull UUID pcid, @RequestBody @Valid CategoryDto dto) {
-
-        if (!StringUtils.isBlank(pcid)) {
-            dto.setParentId(pcid);
-        }
-
-        return super.create(dto);
-    }
+public class AgencyController extends AbstractBusinessController<Agency, AgencyDto, UUID> {
 
 }

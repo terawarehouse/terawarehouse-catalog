@@ -19,41 +19,21 @@ package com.terawarehouse.web.application.catalog;
 
 import java.util.UUID;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.broodcamp.util.StringUtils;
 import com.broodcamp.web.application.AbstractBusinessController;
-import com.broodcamp.web.application.IController;
-import com.terawarehouse.data.dto.catalog.CategoryDto;
-import com.terawarehouse.data.entity.catalog.Category;
+import com.terawarehouse.data.dto.catalog.ManufacturerDto;
+import com.terawarehouse.data.entity.catalog.Manufacturer;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "/catalog/categories", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/catalog/manufacturers", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-public class CategoryController extends AbstractBusinessController<Category, CategoryDto, UUID> implements IController<CategoryDto> {
-
-    @PostMapping(path = "/{pcid}")
-    public ResponseEntity<EntityModel<CategoryDto>> create(@PathVariable @NotNull UUID pcid, @RequestBody @Valid CategoryDto dto) {
-
-        if (!StringUtils.isBlank(pcid)) {
-            dto.setParentId(pcid);
-        }
-
-        return super.create(dto);
-    }
+public class ManufacturerController extends AbstractBusinessController<Manufacturer, ManufacturerDto, UUID> {
 
 }
