@@ -22,7 +22,7 @@ import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
 
 import com.broodcamp.web.assembler.AbstractBusinessResourceAssembler;
-import com.terawarehouse.data.dto.catalog.BrandDto;
+import com.terawarehouse.business.domain.catalog.BrandDto;
 import com.terawarehouse.web.application.catalog.BrandController;
 
 /**

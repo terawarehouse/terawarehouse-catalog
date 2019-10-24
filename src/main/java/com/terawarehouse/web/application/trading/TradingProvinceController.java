@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.web.application.AbstractEnableController;
-import com.terawarehouse.data.dto.trading.TradingProvinceDto;
+import com.terawarehouse.business.domain.trading.TradingProvinceDto;
 import com.terawarehouse.data.entity.trading.TradingProvince;
 
 /**

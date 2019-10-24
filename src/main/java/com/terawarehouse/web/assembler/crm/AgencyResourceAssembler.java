@@ -20,7 +20,7 @@ package com.terawarehouse.web.assembler.crm;
 import org.springframework.stereotype.Component;
 
 import com.broodcamp.web.assembler.AbstractBusinessResourceAssembler;
-import com.terawarehouse.data.dto.crm.AgencyDto;
+import com.terawarehouse.business.domain.crm.AgencyDto;
 import com.terawarehouse.web.application.crm.AgencyController;
 
 /**

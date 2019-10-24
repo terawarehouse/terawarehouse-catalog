@@ -6,318 +6,1743 @@
 	},
 	"item": [
 		{
-			"name": "Category",
+			"name": "Setup",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Catalog",
 			"item": [
 				{
-					"name": "Create category",
+					"name": "Category",
+					"item": [
+						{
+							"name": "Create",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"uid\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"COMPUTER\",\n\t\"description\": \"Computers\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create with parent",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"uid2\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"LAPTOP\",\n\t\"description\": \"Laptops\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c7ae7f96-b5f0-4ee4-b0c3-745072921f05",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"COMPUTER\",\n\t\"description\": \"Physical computers\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5297edfb-9bde-4a18-9097-e80f3dfe849c",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has COMPUTER\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.code).to.eql(\"COMPUTER\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by code",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8faa6b2-68d6-4092-8ff7-050854ba096e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has COMPUTER\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.code).to.eql(\"COMPUTER\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/code/COMPUTER",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"code",
+										"COMPUTER"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6c8f027a-2639-4839-b52c-708eba5c2940",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has COMPUTER\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"COMPUTER\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6ce904-0bc1-45c6-aedb-0c0eb3172326",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{uid2}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{uid2}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6ce904-0bc1-45c6-aedb-0c0eb3172326",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find - No result",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05546c83-da80-4046-a1ae-2d23d7ebabce",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Brand",
+					"item": [
+						{
+							"name": "Create",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"uid\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"INARFLEX\",\n\t\"description\": \"Inarflex\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c7ae7f96-b5f0-4ee4-b0c3-745072921f05",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"INARFLEX\",\n\t\"description\": \"Appliances\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5297edfb-9bde-4a18-9097-e80f3dfe849c",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has INARFLEX\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.code).to.eql(\"INARFLEX\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by code",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8faa6b2-68d6-4092-8ff7-050854ba096e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has INARFLEX\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.code).to.eql(\"INARFLEX\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands/code/INARFLEX",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands",
+										"code",
+										"INARFLEX"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6c8f027a-2639-4839-b52c-708eba5c2940",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has INARFLEX\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"INARFLEX\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6ce904-0bc1-45c6-aedb-0c0eb3172326",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find - No result",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05546c83-da80-4046-a1ae-2d23d7ebabce",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
 					"event": [
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+								"id": "6dfe0aa6-ed65-4e44-ae7e-d1ceed09d33a",
+								"type": "text/javascript",
 								"exec": [
 									""
-								],
-								"type": "text/javascript"
+								]
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+								"id": "f44c8a54-819f-487f-911e-a9f3bba3a5b2",
+								"type": "text/javascript",
 								"exec": [
-									"pm.environment.set(\"uid\", pm.response.json().id);",
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"});"
-								],
-								"type": "text/javascript"
+									""
+								]
 							}
 						}
 					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"code\": \"COMPUTER\",\n\t\"description\": \"Computers\"\n}"
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Manufacturer",
+					"item": [
+						{
+							"name": "Create",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"uid\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"WHIRLWIND\",\n\t\"description\": \"Whirlwind\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers"
+									]
+								}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/categories",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update category",
-					"event": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "c7ae7f96-b5f0-4ee4-b0c3-745072921f05",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
+							"name": "Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c7ae7f96-b5f0-4ee4-b0c3-745072921f05",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
 								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"code\": \"COMPUTER\",\n\t\"description\": \"Physical computers\"\n}"
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"WHIRLWIND\",\n\t\"description\": \"Appliances\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/categories/{{uid}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
+						{
+							"name": "Find",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5297edfb-9bde-4a18-9097-e80f3dfe849c",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has WHIRLWIND\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.code).to.eql(\"WHIRLWIND\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
 							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"categories",
-								"{{uid}}"
-							]
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by code",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8faa6b2-68d6-4092-8ff7-050854ba096e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has WHIRLWIND\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.code).to.eql(\"WHIRLWIND\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers/code/WHIRLWIND",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers",
+										"code",
+										"WHIRLWIND"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6c8f027a-2639-4839-b52c-708eba5c2940",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has WHIRLWIND\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"WHIRLWIND\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6ce904-0bc1-45c6-aedb-0c0eb3172326",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find - No result",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05546c83-da80-4046-a1ae-2d23d7ebabce",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find category",
+					],
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6dfe0aa6-ed65-4e44-ae7e-d1ceed09d33a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "5297edfb-9bde-4a18-9097-e80f3dfe849c",
+								"id": "f44c8a54-819f-487f-911e-a9f3bba3a5b2",
+								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Has COMPUTER\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(\"COMPUTER\");",
-									"});"
-								],
-								"type": "text/javascript"
+									""
+								]
 							}
 						}
 					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/categories/{{uid}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"categories",
-								"{{uid}}"
-							]
-						}
-					},
-					"response": []
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Find by code",
+					"name": "Product",
+					"item": [
+						{
+							"name": "COMPUTER",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"cid\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AZUZ",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"uid\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\",\n\t\"srp\": 80000\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/create",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}",
+										"products",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c7ae7f96-b5f0-4ee4-b0c3-745072921f05",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}-Updated\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}",
+										"products",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AZUZ",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5297edfb-9bde-4a18-9097-e80f3dfe849c",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has AZUZ\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.code).to.eql(\"AZUZ\");",
+											"});",
+											"pm.test(\"Body matches Updated\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Updated\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}",
+										"products",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AZUZ",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8faa6b2-68d6-4092-8ff7-050854ba096e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has AZUZ\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.code).to.eql(\"AZUZ\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/code/{{request.label.0}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}",
+										"products",
+										"code",
+										"{{request.label.0}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6c8f027a-2639-4839-b52c-708eba5c2940",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Has AZUZ\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"AZUZ\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6ce904-0bc1-45c6-aedb-0c0eb3172326",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}",
+										"products",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find - No result",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05546c83-da80-4046-a1ae-2d23d7ebabce",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/{{uid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}",
+										"products",
+										"{{uid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "COMPUTER",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6ce904-0bc1-45c6-aedb-0c0eb3172326",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6dfe0aa6-ed65-4e44-ae7e-d1ceed09d33a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "a8faa6b2-68d6-4092-8ff7-050854ba096e",
+								"id": "f44c8a54-819f-487f-911e-a9f3bba3a5b2",
+								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Has COMPUTER\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(\"COMPUTER\");",
-									"});"
-								],
-								"type": "text/javascript"
+									""
+								]
 							}
 						}
 					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/categories/code/COMPUTER",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"categories",
-								"code",
-								"COMPUTER"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List categories",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "6c8f027a-2639-4839-b52c-708eba5c2940",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Has COMPUTER\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"COMPUTER\");",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/categories",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete category",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "6d6ce904-0bc1-45c6-aedb-0c0eb3172326",
-								"exec": [
-									"pm.test(\"Status code is 204\", function () {",
-									"    pm.response.to.have.status(204);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/categories/{{uid}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"categories",
-								"{{uid}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find category - No result",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "05546c83-da80-4046-a1ae-2d23d7ebabce",
-								"exec": [
-									"pm.test(\"Status code is 404\", function () {",
-									"    pm.response.to.have.status(404);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/categories/{{uid}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"categories",
-								"{{uid}}"
-							]
-						}
-					},
-					"response": []
-				},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Filter",
+			"item": [
 				{
 					"name": "Filtered",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/test/filtered",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/test/filtered",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"test",
 								"filtered"
 							]
@@ -328,18 +1753,24 @@
 				{
 					"name": "Filtered list",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/test/filtered-list",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/test/filtered-list",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"test",
 								"filtered-list"
 							]
@@ -350,18 +1781,24 @@
 				{
 					"name": "Filtered view",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/test/filtered-view",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/test/filtered-view",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"test",
 								"filtered-view"
 							]
@@ -381,15 +1818,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/v1/dealers",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/v1/dealers",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"v1",
 								"dealers"
 							]
@@ -403,15 +1836,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/v1/dealers",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/v1/dealers",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"v1",
 								"dealers"
 							]
@@ -425,15 +1854,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/dealers/param?version=1",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/dealers/param?version=1",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"dealers",
 								"param"
 							],
@@ -453,15 +1878,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/dealers/param?version=2",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/dealers/param?version=2",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"dealers",
 								"param"
 							],
@@ -487,15 +1908,11 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/dealers/header",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/dealers/header",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"dealers",
 								"header"
 							]
@@ -515,15 +1932,11 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/dealers/header",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/dealers/header",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"dealers",
 								"header"
 							]
@@ -555,15 +1968,11 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/dealers/produces",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/dealers/produces",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"dealers",
 								"produces"
 							]
@@ -595,15 +2004,11 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/dealers/produces",
-							"protocol": "http",
+							"raw": "{{catalogApiUrl}}/dealers/produces",
 							"host": [
-								"localhost"
+								"{{catalogApiUrl}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"dealers",
 								"produces"
 							]
@@ -613,6 +2018,36 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "45034288-7d94-4c25-99cd-a8fd4733cb36",
+				"type": "text/javascript",
+				"exec": [
+					"pm.environment.set(\"timestamp.iso\", (new Date()).toISOString());",
+					"pm.environment.set(\"request.label\", pm.info.requestName);",
+					"",
+					"var parts = pm.info.requestName.split(\"|\");",
+					"",
+					"for(let i=0; i<parts.length; i++) {",
+					"    pm.environment.set(\"request.label.\"+i, parts[i]);",
+					"}",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "650247de-2921-4ba9-9689-f87962db8ebd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}

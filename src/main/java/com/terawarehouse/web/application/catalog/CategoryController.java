@@ -19,6 +19,7 @@ package com.terawarehouse.web.application.catalog;
 
 import java.util.UUID;
 
+import javax.transaction.NotSupportedException;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -35,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.broodcamp.util.StringUtils;
 import com.broodcamp.web.application.AbstractBusinessController;
 import com.broodcamp.web.application.IController;
-import com.terawarehouse.data.dto.catalog.CategoryDto;
+import com.terawarehouse.business.domain.catalog.CategoryDto;
 import com.terawarehouse.data.entity.catalog.Category;
 
 /**
@@ -47,7 +48,7 @@ import com.terawarehouse.data.entity.catalog.Category;
 public class CategoryController extends AbstractBusinessController<Category, CategoryDto, UUID> implements IController<CategoryDto> {
 
     @PostMapping(path = "/{pcid}")
-    public ResponseEntity<EntityModel<CategoryDto>> create(@PathVariable @NotNull UUID pcid, @RequestBody @Valid CategoryDto dto) {
+    public ResponseEntity<EntityModel<CategoryDto>> create(@PathVariable @NotNull UUID pcid, @RequestBody @Valid CategoryDto dto) throws NotSupportedException {
 
         if (!StringUtils.isBlank(pcid)) {
             dto.setParentId(pcid);

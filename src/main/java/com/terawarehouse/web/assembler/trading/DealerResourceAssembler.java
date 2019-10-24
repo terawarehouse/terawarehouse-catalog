@@ -20,7 +20,7 @@ package com.terawarehouse.web.assembler.trading;
 import org.springframework.stereotype.Component;
 
 import com.broodcamp.web.assembler.AbstractBusinessResourceAssembler;
-import com.terawarehouse.data.dto.trading.DealerDto;
+import com.terawarehouse.business.domain.trading.DealerDto;
 import com.terawarehouse.web.application.trading.DealerController;
 
 /**

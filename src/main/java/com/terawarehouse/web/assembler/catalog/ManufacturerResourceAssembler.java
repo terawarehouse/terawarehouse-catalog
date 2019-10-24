@@ -20,7 +20,7 @@ package com.terawarehouse.web.assembler.catalog;
 import org.springframework.stereotype.Component;
 
 import com.broodcamp.web.assembler.AbstractBusinessResourceAssembler;
-import com.terawarehouse.data.dto.catalog.ManufacturerDto;
+import com.terawarehouse.business.domain.catalog.ManufacturerDto;
 import com.terawarehouse.web.application.catalog.ManufacturerController;
 
 /**

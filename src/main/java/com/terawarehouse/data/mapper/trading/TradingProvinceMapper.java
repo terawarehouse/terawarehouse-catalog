@@ -15,23 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.assembler.catalog;
+package com.terawarehouse.data.mapper.trading;
 
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
 
-import com.broodcamp.web.assembler.AbstractBusinessResourceAssembler;
-import com.terawarehouse.business.domain.catalog.ProductDto;
-import com.terawarehouse.web.application.catalog.ProductController;
+import com.broodcamp.data.dto.mapper.GenericMapper;
+import com.terawarehouse.business.domain.trading.TradingProvinceDto;
+import com.terawarehouse.data.entity.trading.TradingProvince;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@Component
-public class ProductResourceAssembler extends AbstractBusinessResourceAssembler<ProductDto> {
-
-    public ProductResourceAssembler() {
-
-        super(ProductController.class);
-    }
+@Mapper
+public abstract class TradingProvinceMapper implements GenericMapper<TradingProvince, TradingProvinceDto> {
 
 }

@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.web.application.AbstractEnableController;
-import com.terawarehouse.data.dto.crm.StaffDto;
+import com.terawarehouse.business.domain.crm.StaffDto;
 import com.terawarehouse.data.entity.crm.Staff;
 
 /**

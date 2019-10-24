@@ -114,33 +114,6 @@ public class ApplicationExceptionResponseHandler extends ResponseEntityException
         return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
-    //
-
-    @ExceptionHandler({ MethodArgumentTypeMismatchException.class })
-    public ResponseEntity<Object> handleMethodArgumentTypeMismatch(final MethodArgumentTypeMismatchException ex, final WebRequest request) {
-
-        logger.info(ex.getClass().getName());
-
-        final String error = ex.getName() + " should be of type " + ex.getRequiredType().getName();
-
-        final ExceptionResponse response = new ExceptionResponse(ex.getLocalizedMessage(), error);
-        return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler({ ConstraintViolationException.class })
-    public ResponseEntity<Object> handleConstraintViolation(final ConstraintViolationException ex, final WebRequest request) {
-
-        logger.info(ex.getClass().getName());
-
-        final List<String> errors = new ArrayList<>();
-        for (final ConstraintViolation<?> violation : ex.getConstraintViolations()) {
-            errors.add(violation.getRootBeanClass().getName() + " " + violation.getPropertyPath() + ": " + violation.getMessage());
-        }
-
-        final ExceptionResponse response = new ExceptionResponse(ex.getLocalizedMessage(), errors);
-        return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-    }
-
     // 404
 
     @Override
@@ -186,6 +159,42 @@ public class ApplicationExceptionResponseHandler extends ResponseEntityException
 
         final ExceptionResponse response = new ExceptionResponse(ex.getLocalizedMessage(), builder.substring(0, builder.length() - 2));
         return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+    }
+
+    @ExceptionHandler({ MethodArgumentTypeMismatchException.class })
+    public ResponseEntity<Object> handleMethodArgumentTypeMismatch(final MethodArgumentTypeMismatchException ex, final WebRequest request) {
+
+        logger.info(ex.getClass().getName());
+
+        final String error = ex.getName() + " should be of type " + ex.getRequiredType().getName();
+
+        final ExceptionResponse response = new ExceptionResponse(ex.getLocalizedMessage(), error);
+        return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({ ConstraintViolationException.class })
+    public ResponseEntity<Object> handleConstraintViolation(final ConstraintViolationException ex, final WebRequest request) {
+
+        logger.info(ex.getClass().getName());
+
+        final List<String> errors = new ArrayList<>();
+        for (final ConstraintViolation<?> violation : ex.getConstraintViolations()) {
+            errors.add(violation.getRootBeanClass().getName() + " " + violation.getPropertyPath() + ": " + violation.getMessage());
+        }
+
+        final ExceptionResponse response = new ExceptionResponse(ex.getLocalizedMessage(), errors);
+        return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({ ResourceNotFoundException.class })
+    public ResponseEntity<Object> handleMethodArgumentTypeMismatch(final ResourceNotFoundException ex, final WebRequest request) {
+
+        logger.info(ex.getClass().getName());
+
+        final String error = ex.getMessage();
+
+        final ExceptionResponse response = new ExceptionResponse(ex.getLocalizedMessage(), error);
+        return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
 
     // 500

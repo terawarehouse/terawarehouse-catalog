@@ -19,21 +19,44 @@ package com.terawarehouse.web.application.catalog;
 
 import java.util.UUID;
 
+import javax.transaction.NotSupportedException;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.web.application.AbstractBusinessController;
-import com.terawarehouse.data.dto.catalog.ProductDto;
+import com.terawarehouse.business.domain.catalog.ProductDto;
 import com.terawarehouse.data.entity.catalog.Product;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "/catalog/products", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/catalog/categories/{cid}/products", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
 public class ProductController extends AbstractBusinessController<Product, ProductDto, UUID> {
 
+    @Override
+    @PostMapping
+    public ResponseEntity<EntityModel<ProductDto>> create(@RequestBody @NotNull @Valid ProductDto dto) throws NotSupportedException {
+        
+        throw new NotSupportedException();
+    }
+
+    @PostMapping(path = "/create")
+    public ResponseEntity<EntityModel<ProductDto>> create(@PathVariable @NotNull UUID cid, @RequestBody @Valid ProductDto dto) throws NotSupportedException {
+
+        dto.setCategoryId(cid);
+
+        return super.create(dto);
+    }
 }

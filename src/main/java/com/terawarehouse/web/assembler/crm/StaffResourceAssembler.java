@@ -20,7 +20,7 @@ package com.terawarehouse.web.assembler.crm;
 import org.springframework.stereotype.Component;
 
 import com.broodcamp.web.assembler.AbstractEnableResourceAssember;
-import com.terawarehouse.data.dto.crm.StaffDto;
+import com.terawarehouse.business.domain.crm.StaffDto;
 import com.terawarehouse.web.application.crm.StaffController;
 
 /**
