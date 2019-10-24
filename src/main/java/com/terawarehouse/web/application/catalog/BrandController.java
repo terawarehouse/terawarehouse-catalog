@@ -15,24 +15,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.trading;
+package com.terawarehouse.web.application.catalog;
 
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.broodcamp.web.application.AbstractEnableController;
-import com.terawarehouse.data.dto.trading.TradingRegionDto;
-import com.terawarehouse.data.entity.trading.TradingRegion;
+import com.broodcamp.web.application.AbstractBusinessController;
+import com.terawarehouse.data.dto.catalog.BrandDto;
+import com.terawarehouse.data.entity.catalog.Brand;
+import com.terawarehouse.data.repository.catalog.BrandRepository;
+import com.terawarehouse.web.assembler.catalog.BrandResourceAssembler;
+
+import lombok.NoArgsConstructor;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "trading/regions")
+@RequestMapping(path = "/brands", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-public class TradingRegionController extends AbstractEnableController<TradingRegion, TradingRegionDto, UUID> {
+@NoArgsConstructor
+public class BrandController extends AbstractBusinessController<Brand, BrandDto, UUID> {
 
+//    @Autowired
+//    public BrandController(BrandRepository brandRepository, BrandResourceAssembler modelAssembler) {
+//
+//        super(brandRepository, modelAssembler);
+//    }
 }

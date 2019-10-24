@@ -15,24 +15,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.trading;
+package com.terawarehouse.web.assembler.catalog;
 
-import java.util.UUID;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.RepresentationModelAssembler;
+import org.springframework.stereotype.Component;
 
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.broodcamp.web.application.AbstractEnableController;
-import com.terawarehouse.data.dto.trading.TradingRegionDto;
-import com.terawarehouse.data.entity.trading.TradingRegion;
+import com.broodcamp.web.assembler.AbstractBusinessResourceAssembler;
+import com.terawarehouse.data.dto.catalog.BrandDto;
+import com.terawarehouse.web.application.catalog.BrandController;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@RestController
-@RequestMapping(path = "trading/regions")
-@Validated
-public class TradingRegionController extends AbstractEnableController<TradingRegion, TradingRegionDto, UUID> {
+@Component
+public class BrandResourceAssembler extends AbstractBusinessResourceAssembler<BrandDto> implements RepresentationModelAssembler<BrandDto, EntityModel<BrandDto>> {
 
+    public BrandResourceAssembler() {
+
+        super(BrandController.class);
+    }
 }

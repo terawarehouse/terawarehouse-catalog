@@ -15,24 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.trading;
+package com.terawarehouse.data.dto.catalog;
 
-import java.util.UUID;
+import com.broodcamp.data.dto.BusinessEntityDto;
 
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.broodcamp.web.application.AbstractEnableController;
-import com.terawarehouse.data.dto.trading.TradingRegionDto;
-import com.terawarehouse.data.entity.trading.TradingRegion;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@RestController
-@RequestMapping(path = "trading/regions")
-@Validated
-public class TradingRegionController extends AbstractEnableController<TradingRegion, TradingRegionDto, UUID> {
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class BrandDto extends BusinessEntityDto {
 
 }

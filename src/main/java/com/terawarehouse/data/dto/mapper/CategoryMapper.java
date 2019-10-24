@@ -21,6 +21,7 @@ import java.util.Optional;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,6 +38,10 @@ public abstract class CategoryMapper implements GenericMapper<Category, Category
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Mapping(source = "parentCategory.id", target = "parentId")
+    @Override
+    public abstract CategoryDto toDto(Category source);
 
     @AfterMapping
     public void fillParentCategory(CategoryDto source, @MappingTarget Category target) {
