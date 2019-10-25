@@ -17,17 +17,13 @@
  */
 package com.terawarehouse.business.domain.catalog;
 
-import java.util.Optional;
-
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.broodcamp.data.dto.mapper.GenericMapper;
-import com.terawarehouse.data.entity.catalog.Brand;
-import com.terawarehouse.data.entity.catalog.Category;
+import com.broodcamp.data.mapper.GenericMapper;
 import com.terawarehouse.data.entity.catalog.Product;
 import com.terawarehouse.data.repository.catalog.BrandRepository;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
@@ -49,20 +45,14 @@ public abstract class ProductMapper implements GenericMapper<Product, ProductDto
     public abstract ProductDto toDto(Product source);
 
     @AfterMapping
-    public void fillParentCategory(ProductDto source, @MappingTarget Product target) {
+    public void afterMapping(ProductDto source, @MappingTarget Product target) {
 
         if (source.getCategoryId() != null) {
-            Optional<Category> optParentCategory = categoryRepository.findById(source.getCategoryId());
-            if (optParentCategory.isPresent()) {
-                target.setCategory(optParentCategory.get());
-            }
+            categoryRepository.findById(source.getCategoryId()).ifPresent(target::setCategory);
         }
-        
-        if(source.getBrandId() != null) {
-            Optional<Brand> optBrand = brandRepository.findById(source.getBrandId());
-            if (optBrand.isPresent()) {
-                target.setBrand(optBrand.get());
-            }
+
+        if (source.getBrandId() != null) {
+            brandRepository.findById(source.getBrandId()).ifPresent(target::setBrand);
         }
     }
 }

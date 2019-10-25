@@ -19,7 +19,7 @@ package com.terawarehouse.data.mapper.crm;
 
 import org.mapstruct.Mapper;
 
-import com.broodcamp.data.dto.mapper.GenericMapper;
+import com.broodcamp.data.mapper.GenericMapper;
 import com.terawarehouse.business.domain.crm.AgencyDto;
 import com.terawarehouse.data.entity.crm.Agency;
 

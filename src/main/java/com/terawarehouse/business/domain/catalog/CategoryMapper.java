@@ -17,15 +17,13 @@
  */
 package com.terawarehouse.business.domain.catalog;
 
-import java.util.Optional;
-
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.broodcamp.data.dto.mapper.GenericMapper;
+import com.broodcamp.data.mapper.GenericMapper;
 import com.terawarehouse.data.entity.catalog.Category;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
 
@@ -43,13 +41,10 @@ public abstract class CategoryMapper implements GenericMapper<Category, Category
     public abstract CategoryDto toDto(Category source);
 
     @AfterMapping
-    public void fillParentCategory(CategoryDto source, @MappingTarget Category target) {
+    public void afterMapping(CategoryDto source, @MappingTarget Category target) {
 
         if (source.getParentId() != null) {
-            Optional<Category> optParentCategory = categoryRepository.findById(source.getParentId());
-            if (optParentCategory.isPresent()) {
-                target.setParentCategory(optParentCategory.get());
-            }
+            categoryRepository.findById(source.getParentId()).ifPresent(target::setParentCategory);
         }
     }
 }

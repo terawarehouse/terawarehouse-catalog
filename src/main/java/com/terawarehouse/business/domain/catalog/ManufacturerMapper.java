@@ -19,7 +19,7 @@ package com.terawarehouse.business.domain.catalog;
 
 import org.mapstruct.Mapper;
 
-import com.broodcamp.data.dto.mapper.GenericMapper;
+import com.broodcamp.data.mapper.GenericMapper;
 import com.terawarehouse.data.entity.catalog.Manufacturer;
 
 /**

@@ -47,5 +47,4 @@ public class Dealer extends BusinessEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "dealer_group_id", nullable = true)
 	private DealerGroup dealerGroup;
-
 }

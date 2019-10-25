@@ -19,7 +19,7 @@ package com.terawarehouse.data.mapper.trading;
 
 import org.mapstruct.Mapper;
 
-import com.broodcamp.data.dto.mapper.GenericMapper;
+import com.broodcamp.data.mapper.GenericMapper;
 import com.terawarehouse.business.domain.trading.TradingProvinceDto;
 import com.terawarehouse.data.entity.trading.TradingProvince;
 

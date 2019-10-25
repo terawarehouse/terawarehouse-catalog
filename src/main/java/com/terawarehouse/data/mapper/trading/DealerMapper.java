@@ -17,11 +17,16 @@
  */
 package com.terawarehouse.data.mapper.trading;
 
+import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.broodcamp.data.dto.mapper.GenericMapper;
+import com.broodcamp.data.mapper.GenericMapper;
 import com.terawarehouse.business.domain.trading.DealerDto;
 import com.terawarehouse.data.entity.trading.Dealer;
+import com.terawarehouse.data.repository.trading.DealerGroupRepository;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
@@ -29,4 +34,17 @@ import com.terawarehouse.data.entity.trading.Dealer;
 @Mapper
 public abstract class DealerMapper implements GenericMapper<Dealer, DealerDto> {
 
+    @Autowired
+    private DealerGroupRepository dealerGroupRepository;
+
+    @Mapping(target = "dealerGroupId", source = "dealerGroup.id")
+    public abstract DealerDto toDto(Dealer source);
+
+    @AfterMapping
+    public void afterMapping(DealerDto source, @MappingTarget Dealer target) {
+
+        if (source.getDealerGroupId() != null) {
+            dealerGroupRepository.findById(source.getDealerGroupId()).ifPresent(target::setDealerGroup);
+        }
+    }
 }

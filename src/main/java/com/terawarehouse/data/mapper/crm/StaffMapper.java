@@ -17,17 +17,14 @@
  */
 package com.terawarehouse.data.mapper.crm;
 
-import java.util.Optional;
-
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.broodcamp.data.dto.mapper.GenericMapper;
+import com.broodcamp.data.mapper.GenericMapper;
 import com.terawarehouse.business.domain.crm.StaffDto;
-import com.terawarehouse.data.entity.crm.Agency;
 import com.terawarehouse.data.entity.crm.Staff;
 import com.terawarehouse.data.repository.crm.AgencyRepository;
 
@@ -48,10 +45,7 @@ public abstract class StaffMapper implements GenericMapper<Staff, StaffDto> {
     public void fillAgency(StaffDto source, @MappingTarget Staff target) {
 
         if (source.getAgencyId() != null) {
-            Optional<Agency> optAgency = agencyRepository.findById(source.getAgencyId());
-            if (optAgency.isPresent()) {
-                target.setAgency(optAgency.get());
-            }
+            agencyRepository.findById(source.getAgencyId()).ifPresent(target::setAgency);
         }
     }
 }
