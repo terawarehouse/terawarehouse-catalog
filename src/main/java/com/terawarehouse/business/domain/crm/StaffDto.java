@@ -17,11 +17,26 @@
  */
 package com.terawarehouse.business.domain.crm;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
 import com.broodcamp.data.dto.EnableEntityDto;
+import com.terawarehouse.business.domain.trading.TradingStaffBranchDto;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class StaffDto extends EnableEntityDto {
 
+    private UUID agencyId;
+    private Date dateHired;
+    private BigDecimal quota;
+    private List<TradingStaffBranchDto> tradingStaffBraches;
 }

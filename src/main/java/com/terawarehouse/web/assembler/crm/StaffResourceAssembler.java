@@ -27,7 +27,7 @@ import com.terawarehouse.web.application.crm.StaffController;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Component
-public abstract class StaffResourceAssembler extends AbstractEnableResourceAssember<StaffDto> {
+public class StaffResourceAssembler extends AbstractEnableResourceAssember<StaffDto> {
 
     public StaffResourceAssembler() {
 

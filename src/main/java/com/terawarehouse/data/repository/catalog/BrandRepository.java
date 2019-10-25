@@ -17,7 +17,6 @@
  */
 package com.terawarehouse.data.repository.catalog;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
@@ -33,7 +32,4 @@ import com.terawarehouse.data.entity.catalog.Brand;
 //@RepositoryRestResource(exported = false)
 public interface BrandRepository extends BusinessRepository<Brand, UUID> {
 
-	@Override
-//	@RestResource(exported = false)
-	List<Brand> findAll();
 }
