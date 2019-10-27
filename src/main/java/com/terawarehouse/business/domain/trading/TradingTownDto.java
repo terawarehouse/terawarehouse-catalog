@@ -17,11 +17,20 @@
  */
 package com.terawarehouse.business.domain.trading;
 
+import java.util.UUID;
+
 import com.broodcamp.data.dto.EnableEntityDto;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class TradingTownDto extends EnableEntityDto {
 
+    private UUID tradingStateId;
+    private UUID cityId;
 }

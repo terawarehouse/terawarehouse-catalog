@@ -26,33 +26,26 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import com.broodcamp.data.entity.EnableEntity;
-import com.broodcamp.data.entity.adm.City;
+import com.broodcamp.data.entity.adm.Country;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Entity
-@Table(name = "trading_town", uniqueConstraints = @UniqueConstraint(columnNames = { "trading_state_id", "city_id" }))
+@Table(name = "trading_country", uniqueConstraints = @UniqueConstraint(columnNames = { "country_id" }))
 @Data
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-@ToString(callSuper = true)
-public class TradingTown extends EnableEntity {
+public class TradingCountry extends EnableEntity {
 
-    private static final long serialVersionUID = -3482376803882580575L;
-
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "city_id")
-    private City city;
+    private static final long serialVersionUID = -6892964067842617110L;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "trading_state_id")
-    private TradingState tradingState;
+    @JoinColumn(name = "country_id")
+    private Country country;
 }

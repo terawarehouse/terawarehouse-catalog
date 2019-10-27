@@ -37,12 +37,12 @@ import lombok.ToString;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Entity
-@Table(name = "trading_province", uniqueConstraints = @UniqueConstraint(columnNames = { "trading_region_id", "state_id" }))
+@Table(name = "trading_state", uniqueConstraints = @UniqueConstraint(columnNames = { "trading_region_id", "state_id" }))
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class TradingProvince extends EnableEntity {
+public class TradingState extends EnableEntity {
 
     private static final long serialVersionUID = 3015112822264828511L;
 

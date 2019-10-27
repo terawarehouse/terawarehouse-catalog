@@ -15,22 +15,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.business.domain.trading;
+package com.terawarehouse.data.repository.trading;
 
 import java.util.UUID;
 
-import com.broodcamp.data.dto.EnableEntityDto;
+import org.springframework.stereotype.Repository;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.broodcamp.data.repository.EnableRepository;
+import com.terawarehouse.data.entity.trading.TradingCountry;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-public class TradingRegionDto extends EnableEntityDto {
+@Repository
+public interface TradingCountryRepository extends EnableRepository<TradingCountry, UUID> {
 
-    private UUID tradingCountryId;
-    private UUID regionId;
 }

@@ -24,36 +24,36 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.broodcamp.data.mapper.GenericMapper;
-import com.broodcamp.data.repository.adm.CityRepository;
-import com.terawarehouse.business.domain.trading.TradingTownDto;
-import com.terawarehouse.data.entity.trading.TradingTown;
-import com.terawarehouse.data.repository.trading.TradingStateRepository;
+import com.broodcamp.data.repository.adm.StateRepository;
+import com.terawarehouse.business.domain.trading.TradingStateDto;
+import com.terawarehouse.data.entity.trading.TradingState;
+import com.terawarehouse.data.repository.trading.TradingRegionRepository;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Mapper
-public abstract class TradingTownMapper implements GenericMapper<TradingTown, TradingTownDto> {
+public abstract class TradingStateMapper implements GenericMapper<TradingState, TradingStateDto> {
 
     @Autowired
-    private TradingStateRepository tradingStateRepository;
+    private TradingRegionRepository tradingRegionRepository;
 
     @Autowired
-    private CityRepository cityRepository;
+    private StateRepository stateRepository;
 
     @Override
-    @Mapping(source = "city.id", target = "cityId")
-    @Mapping(source = "tradingState.id", target = "tradingStateId")
-    public abstract TradingTownDto toDto(TradingTown source);
+    @Mapping(source = "state.id", target = "stateId")
+    @Mapping(source = "tradingRegion.id", target = "tradingRegionId")
+    public abstract TradingStateDto toDto(TradingState source);
 
     @AfterMapping
-    public void afterMapping(TradingTownDto source, @MappingTarget TradingTown target) {
+    public void afterMapping(TradingStateDto source, @MappingTarget TradingState target) {
 
-        if (source.getTradingStateId() != null) {
-            tradingStateRepository.findById(source.getTradingStateId()).ifPresent(target::setTradingState);
+        if (source.getTradingRegionId() != null) {
+            tradingRegionRepository.findById(source.getTradingRegionId()).ifPresent(target::setTradingRegion);
         }
-        if (source.getCityId() != null) {
-            cityRepository.findById(source.getCityId()).ifPresent(target::setCity);
+        if (source.getStateId() != null) {
+            stateRepository.findById(source.getStateId()).ifPresent(target::setState);
         }
     }
 }

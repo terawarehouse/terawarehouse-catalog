@@ -29,8 +29,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TradingRegionDto extends EnableEntityDto {
+public class TradingStateDto extends EnableEntityDto {
 
-    private UUID tradingCountryId;
-    private UUID regionId;
+    private UUID tradingRegionId;
+    private UUID stateId;
 }

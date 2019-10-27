@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- An Open Source Inventory and Sales Management System Copyright (C) 2019 
-	Edward P. Legaspi (https://github.com/czetsuya) This program is free software: 
-	you can redistribute it and/or modify it under the terms of the GNU General 
-	Public License as published by the Free Software Foundation, either version 
-	3 of the License, or (at your option) any later version. This program is 
-	distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
-	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
-	PURPOSE. See the GNU General Public License for more details. You should 
-	have received a copy of the GNU General Public License along with this program. 
-	If not, see <https://www.gnu.org/licenses/>. -->
 <databaseChangeLog
 	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-
-	<changeSet author="czetsuya" id="1571623698124-1">
+	
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-1">
 		<createTable tableName="adm_city">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -41,7 +31,7 @@
 			</column>
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-2">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-2">
 		<createTable tableName="adm_country">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -64,7 +54,7 @@
 			</column>
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-3">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-3">
 		<createTable tableName="adm_region">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -87,7 +77,7 @@
 			</column>
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-4">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-4">
 		<createTable tableName="adm_social_account">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -103,7 +93,7 @@
 			<column name="youtube" type="VARCHAR(250)" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-5">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-5">
 		<createTable tableName="adm_state">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -127,7 +117,7 @@
 			<column name="region_id" type="UUID" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-6">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-6">
 		<createTable tableName="adm_user_account">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -166,7 +156,7 @@
 			<column name="social_account_id" type="UUID" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-7">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-7">
 		<createTable tableName="cat_brand">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -185,7 +175,7 @@
 			<column name="description" type="VARCHAR(255)" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-8">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-8">
 		<createTable tableName="cat_category">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -205,7 +195,7 @@
 			<column name="category_id" type="UUID" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-9">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-9">
 		<createTable tableName="cat_manufacturer">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -224,7 +214,7 @@
 			<column name="description" type="VARCHAR(255)" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-10">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-10">
 		<createTable tableName="cat_product">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -251,7 +241,7 @@
 			</column>
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-11">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-11">
 		<createTable tableName="cat_stock">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -272,7 +262,7 @@
 			<column name="branch_id" type="UUID" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-12">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-12">
 		<createTable tableName="crm_agency">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -291,7 +281,7 @@
 			<column name="description" type="VARCHAR(255)" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-13">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-13">
 		<createTable tableName="crm_staff">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -313,7 +303,7 @@
 			</column>
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-14">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-14">
 		<createTable tableName="trading_branch">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -338,7 +328,27 @@
 			</column>
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-15">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-15">
+		<createTable tableName="trading_country">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT4" />
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="country_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-16">
 		<createTable tableName="trading_dealer">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -358,7 +368,7 @@
 			<column name="dealer_group_id" type="UUID" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-16">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-17">
 		<createTable tableName="trading_dealer_group">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -377,8 +387,68 @@
 			<column name="description" type="VARCHAR(255)" />
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-17">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-18">
 		<createTable tableName="trading_province">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT4" />
+			<column name="created" type="TIMESTAMPTZ">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMPTZ" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="state_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="trading_region_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-19">
+		<createTable tableName="trading_region">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT4" />
+			<column name="created" type="TIMESTAMP WITH TIME ZONE">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator_ref" type="VARCHAR(255)" />
+			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updater_ref" type="VARCHAR(255)" />
+			<column name="disabled" type="BOOL">
+				<constraints nullable="false" />
+			</column>
+			<column name="region_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="trading_country_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-20">
+		<createTable tableName="trading_staff_branch">
+			<column name="id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT4" />
+			<column name="staff_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="trading_branch_id" type="UUID">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-21">
+		<createTable tableName="trading_state">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
 			</column>
@@ -400,41 +470,7 @@
 			</column>
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-18">
-		<createTable tableName="trading_region">
-			<column name="id" type="UUID">
-				<constraints nullable="false" />
-			</column>
-			<column name="version" type="INT4" />
-			<column name="created" type="TIMESTAMP WITH TIME ZONE">
-				<constraints nullable="false" />
-			</column>
-			<column name="creator_ref" type="VARCHAR(255)" />
-			<column name="updated" type="TIMESTAMP WITH TIME ZONE" />
-			<column name="updater_ref" type="VARCHAR(255)" />
-			<column name="disabled" type="BOOL">
-				<constraints nullable="false" />
-			</column>
-			<column name="region_id" type="UUID">
-				<constraints nullable="false" />
-			</column>
-		</createTable>
-	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-19">
-		<createTable tableName="trading_staff_branch">
-			<column name="id" type="UUID">
-				<constraints nullable="false" />
-			</column>
-			<column name="version" type="INT4" />
-			<column name="staff_id" type="UUID">
-				<constraints nullable="false" />
-			</column>
-			<column name="trading_branch_id" type="UUID">
-				<constraints nullable="false" />
-			</column>
-		</createTable>
-	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-20">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-22">
 		<createTable tableName="trading_town">
 			<column name="id" type="UUID">
 				<constraints nullable="false" />
@@ -452,95 +488,103 @@
 			<column name="city_id" type="UUID">
 				<constraints nullable="false" />
 			</column>
-			<column name="trading_province_id" type="UUID">
+			<column name="trading_state_id" type="UUID">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-21">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-23">
 		<addPrimaryKey columnNames="id"
 			constraintName="adm_city_pkey" tableName="adm_city" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-22">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-24">
 		<addPrimaryKey columnNames="id"
 			constraintName="adm_country_pkey" tableName="adm_country" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-23">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-25">
 		<addPrimaryKey columnNames="id"
 			constraintName="adm_region_pkey" tableName="adm_region" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-24">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-26">
 		<addPrimaryKey columnNames="id"
 			constraintName="adm_social_account_pkey"
 			tableName="adm_social_account" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-25">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-27">
 		<addPrimaryKey columnNames="id"
 			constraintName="adm_state_pkey" tableName="adm_state" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-26">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-28">
 		<addPrimaryKey columnNames="id"
 			constraintName="adm_user_account_pkey" tableName="adm_user_account" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-27">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-29">
 		<addPrimaryKey columnNames="id"
 			constraintName="cat_brand_pkey" tableName="cat_brand" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-28">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-30">
 		<addPrimaryKey columnNames="id"
 			constraintName="cat_category_pkey" tableName="cat_category" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-29">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-31">
 		<addPrimaryKey columnNames="id"
 			constraintName="cat_manufacturer_pkey" tableName="cat_manufacturer" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-30">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-32">
 		<addPrimaryKey columnNames="id"
 			constraintName="cat_product_pkey" tableName="cat_product" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-31">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-33">
 		<addPrimaryKey columnNames="id"
 			constraintName="cat_stock_pkey" tableName="cat_stock" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-32">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-34">
 		<addPrimaryKey columnNames="id"
 			constraintName="crm_agency_pkey" tableName="crm_agency" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-33">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-35">
 		<addPrimaryKey columnNames="id"
 			constraintName="crm_staff_pkey" tableName="crm_staff" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-34">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-36">
 		<addPrimaryKey columnNames="id"
 			constraintName="trading_branch_pkey" tableName="trading_branch" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-35">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-37">
+		<addPrimaryKey columnNames="id"
+			constraintName="trading_country_pkey" tableName="trading_country" />
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-38">
 		<addPrimaryKey columnNames="id"
 			constraintName="trading_dealer_group_pkey"
 			tableName="trading_dealer_group" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-36">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-39">
 		<addPrimaryKey columnNames="id"
 			constraintName="trading_dealer_pkey" tableName="trading_dealer" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-37">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-40">
 		<addPrimaryKey columnNames="id"
 			constraintName="trading_province_pkey" tableName="trading_province" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-38">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-41">
 		<addPrimaryKey columnNames="id"
 			constraintName="trading_region_pkey" tableName="trading_region" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-39">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-42">
 		<addPrimaryKey columnNames="id"
 			constraintName="trading_staff_branch_pkey"
 			tableName="trading_staff_branch" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-40">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-43">
+		<addPrimaryKey columnNames="id"
+			constraintName="trading_state_pkey" tableName="trading_state" />
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-44">
 		<addPrimaryKey columnNames="id"
 			constraintName="trading_town_pkey" tableName="trading_town" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-41">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-45">
 		<addForeignKeyConstraint
 			baseColumnNames="trading_branch_id"
 			baseTableName="trading_staff_branch"
@@ -548,257 +592,283 @@
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="trading_branch" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-42">
-		<addForeignKeyConstraint
-			baseColumnNames="trading_province_id" baseTableName="trading_town"
-			constraintName="fk4kng0yy9uifsiwad4lidj18t2" deferrable="false"
-			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
-			referencedColumnNames="id" referencedTableName="trading_province" />
-	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-43">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-46">
 		<addForeignKeyConstraint
 			baseColumnNames="category_id" baseTableName="cat_category"
 			constraintName="fk5v2pgvsta3xef8oulp9ryw6ro" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="cat_category" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-44">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-47">
+		<addForeignKeyConstraint
+			baseColumnNames="trading_state_id" baseTableName="trading_town"
+			constraintName="fk7gkrjl98ofypj2tdeokg0ft8h" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="trading_state" />
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-48">
 		<addForeignKeyConstraint
 			baseColumnNames="branch_id" baseTableName="cat_stock"
 			constraintName="fk7h8lf1y6b38d9i1h3v1881i6g" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="trading_branch" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-45">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-49">
 		<addForeignKeyConstraint
-			baseColumnNames="state_id" baseTableName="trading_province"
-			constraintName="fk7pifcwcasr9b970nwt0ml08ye" deferrable="false"
+			baseColumnNames="trading_country_id" baseTableName="trading_region"
+			constraintName="fk7vsn2t1i71pbec05pt4yakibv" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
-			referencedColumnNames="id" referencedTableName="adm_state" />
+			referencedColumnNames="id" referencedTableName="trading_country" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-46">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-50">
 		<addForeignKeyConstraint
 			baseColumnNames="social_account_id" baseTableName="adm_user_account"
 			constraintName="fk85k8d47ro7dm4f67cpjx0ddr8" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="adm_social_account" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-47">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-51">
 		<addForeignKeyConstraint
 			baseColumnNames="dealer_id" baseTableName="cat_stock"
 			constraintName="fk9thmnhitvcignpc3r94girpbi" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="trading_dealer" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-48">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-52">
 		<addForeignKeyConstraint
 			baseColumnNames="city_id" baseTableName="trading_town"
 			constraintName="fka51ydyeiixyia8g6vwuay2oq8" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="adm_city" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-49">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-53">
 		<addForeignKeyConstraint
 			baseColumnNames="region_id" baseTableName="adm_state"
 			constraintName="fkawlpkh2cgawl3xgse1l1e74hb" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="adm_region" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-50">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-54">
 		<addForeignKeyConstraint
 			baseColumnNames="category_id" baseTableName="cat_product"
 			constraintName="fkbbw8bbathw7mktdpievof8huk" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="cat_category" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-51">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-55">
 		<addForeignKeyConstraint
 			baseColumnNames="brand_id" baseTableName="cat_product"
 			constraintName="fkcteca00w87p6qvf12dm83irlp" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="cat_brand" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-52">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-56">
 		<addForeignKeyConstraint
 			baseColumnNames="dealer_group_id" baseTableName="trading_dealer"
 			constraintName="fkean8hl43a42t96p05pg1vhnft" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="trading_dealer_group" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-53">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-57">
 		<addForeignKeyConstraint
 			baseColumnNames="region_id" baseTableName="trading_region"
 			constraintName="fkegu14q4220bnugbvmpjmc31gn" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="adm_region" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-54">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-58">
 		<addForeignKeyConstraint
 			baseColumnNames="product_id" baseTableName="cat_stock"
 			constraintName="fkgyshpwilt34abf6mirsrv5swm" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="cat_product" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-55">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-59">
+		<addForeignKeyConstraint
+			baseColumnNames="country_id" baseTableName="trading_country"
+			constraintName="fkh1cf0mpc1g7cogn89eayh4wo7" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="adm_country" />
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-60">
 		<addForeignKeyConstraint
 			baseColumnNames="agency_id" baseTableName="crm_staff"
 			constraintName="fkjpsjnhk1gid8maybmyiih4yjf" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="crm_agency" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-56">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-61">
 		<addForeignKeyConstraint
 			baseColumnNames="country_id" baseTableName="adm_state"
 			constraintName="fkmnxexbybcblpjfcc69u8w1arx" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="adm_country" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-57">
-		<addForeignKeyConstraint
-			baseColumnNames="trading_region_id" baseTableName="trading_province"
-			constraintName="fkn7iu8nac7hqnkxmomb8qmn36n" deferrable="false"
-			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
-			referencedColumnNames="id" referencedTableName="trading_region" />
-	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-58">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-62">
 		<addForeignKeyConstraint
 			baseColumnNames="state_id" baseTableName="adm_city"
 			constraintName="fko0o8n39tge5aet4bey5qk3cwh" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="adm_state" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-59">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-63">
 		<addForeignKeyConstraint
 			baseColumnNames="trading_town_id" baseTableName="trading_branch"
 			constraintName="fkog65tj6ek2f0w13sl8akov3bj" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="trading_town" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-60">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-64">
 		<addForeignKeyConstraint
 			baseColumnNames="country_id" baseTableName="adm_region"
 			constraintName="fkpdifmqn98f0iwkd0kauf00x1r" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="adm_country" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-61">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-65">
+		<addForeignKeyConstraint
+			baseColumnNames="state_id" baseTableName="trading_state"
+			constraintName="fkpt22pufsbte473uondiw1kp7h" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="adm_state" />
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-66">
 		<addForeignKeyConstraint
 			baseColumnNames="staff_id" baseTableName="trading_staff_branch"
 			constraintName="fkqy9grg64iow3kwff3equ9yp38" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="crm_staff" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-62">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-67">
+		<addForeignKeyConstraint
+			baseColumnNames="trading_region_id" baseTableName="trading_state"
+			constraintName="fks19mhcq91889bgnn2inpj1rsl" deferrable="false"
+			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+			referencedColumnNames="id" referencedTableName="trading_region" />
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-68">
 		<addForeignKeyConstraint
 			baseColumnNames="dealer_id" baseTableName="trading_branch"
 			constraintName="fksuhx9m18tvkipt7mtgdfsrbyl" deferrable="false"
 			initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
 			referencedColumnNames="id" referencedTableName="trading_dealer" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-63">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-69">
 		<addUniqueConstraint columnNames="code"
 			constraintName="uk246fb2m52gws4rp5qmnrfbarr" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="trading_dealer" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-64">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-70">
 		<addUniqueConstraint
 			columnNames="trading_region_id, state_id"
 			constraintName="uk33qavghawxdg2je6g5nki713b" deferrable="false"
 			disabled="false" initiallyDeferred="false"
 			tableName="trading_province" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-65">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-71">
+		<addUniqueConstraint
+			columnNames="trading_state_id, city_id"
+			constraintName="uk48rln0pgck9jl6vjvxk6tgcuh" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="trading_town" />
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-72">
 		<addUniqueConstraint columnNames="code"
 			constraintName="uk7phcd1a9ay0ikasbo6ae29f4c" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="crm_agency" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-66">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-73">
 		<addUniqueConstraint
 			columnNames="category_id, code"
 			constraintName="ukahjk76nqus46253u2qncalqys" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="cat_product" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-67">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-74">
 		<addUniqueConstraint
 			columnNames="country_id, name"
 			constraintName="ukbsnulg4csff6lkubvp1bajd79" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="adm_state" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-68">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-75">
 		<addUniqueConstraint columnNames="code"
 			constraintName="ukbv5qsn4ukq8ksj7b6l75dqqwa" deferrable="false"
 			disabled="false" initiallyDeferred="false"
 			tableName="trading_dealer_group" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-69">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-76">
 		<addUniqueConstraint columnNames="code"
 			constraintName="ukc9alfma6oolv53un5swxeryc9" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="adm_country" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-70">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-77">
 		<addUniqueConstraint columnNames="email"
 			constraintName="ukcvt5h7e6dvxdmqpk06wn1l81d" deferrable="false"
 			disabled="false" initiallyDeferred="false"
 			tableName="adm_user_account" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-71">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-78">
 		<addUniqueConstraint
 			columnNames="state_id, name, district"
 			constraintName="ukf8qof7l043btnq41lm6abpsxk" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="adm_city" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-72">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-79">
 		<addUniqueConstraint
 			columnNames="country_id, name"
 			constraintName="ukg99tfqpahhfmywpwfp06n2syd" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="adm_region" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-73">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-80">
 		<addUniqueConstraint
 			columnNames="product_id, branch_id, serial_no"
 			constraintName="ukgb2jegbbia6asyrgcbylkaol1" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="cat_stock" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-74">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-81">
 		<addUniqueConstraint columnNames="region_id"
 			constraintName="ukm2bs8ed24k7vqvlhbp4uc0kq" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="trading_region" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-75">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-82">
 		<addUniqueConstraint columnNames="code"
 			constraintName="ukmoi0sgghya21l7w2me2mauvev" deferrable="false"
 			disabled="false" initiallyDeferred="false"
 			tableName="cat_manufacturer" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-76">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-83">
 		<addUniqueConstraint columnNames="code"
 			constraintName="ukn2o6i3t3f01jniafekb7vq7vv" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="cat_category" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-77">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-84">
 		<addUniqueConstraint
 			columnNames="dealer_id, trading_town_id, code"
 			constraintName="uknsjywgtstq0og1f1auiulonvo" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="trading_branch" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-78">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-85">
 		<addUniqueConstraint
-			columnNames="trading_province_id, city_id"
-			constraintName="uksnnhqh2rsapwwebmlgj6h30d4" deferrable="false"
-			disabled="false" initiallyDeferred="false" tableName="trading_town" />
+			columnNames="trading_region_id, state_id"
+			constraintName="ukrhkn40grisyxetj0uvnt81g9c" deferrable="false"
+			disabled="false" initiallyDeferred="false" tableName="trading_state" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-79">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-86">
+		<addUniqueConstraint columnNames="country_id"
+			constraintName="uks3orjeiecfsmmll21lqoku7d5" deferrable="false"
+			disabled="false" initiallyDeferred="false"
+			tableName="trading_country" />
+	</changeSet>
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-87">
 		<addUniqueConstraint columnNames="code"
 			constraintName="ukt8a8bslkpl1kl22kl9fpa5ad2" deferrable="false"
 			disabled="false" initiallyDeferred="false" tableName="cat_brand" />
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-80">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-88">
 		<createIndex indexName="idx7dsvr5mvctihxiaj6frffqcs5"
 			tableName="cat_stock" unique="false">
 			<column name="warranty_card_no" />
 		</createIndex>
 	</changeSet>
-	<changeSet author="czetsuya" id="1571623698124-81">
+	<changeSet author="czetsuya@gmail.com" id="1572157418207-89">
 		<createIndex indexName="idxw341gib5mj7kpoqrf7alapmw"
 			tableName="cat_stock" unique="false">
 			<column name="serial_no" />

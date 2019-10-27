@@ -17,11 +17,17 @@
  */
 package com.terawarehouse.data.mapper.trading;
 
+import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.broodcamp.data.mapper.GenericMapper;
+import com.broodcamp.data.repository.adm.RegionRepository;
 import com.terawarehouse.business.domain.trading.TradingRegionDto;
 import com.terawarehouse.data.entity.trading.TradingRegion;
+import com.terawarehouse.data.repository.trading.TradingCountryRepository;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
@@ -29,4 +35,25 @@ import com.terawarehouse.data.entity.trading.TradingRegion;
 @Mapper
 public abstract class TradingRegionMapper implements GenericMapper<TradingRegion, TradingRegionDto> {
 
+    @Autowired
+    private TradingCountryRepository tradingCountryRepository;
+
+    @Autowired
+    private RegionRepository regionRepository;
+
+    @Override
+    @Mapping(source = "tradingCountry.id", target = "tradingCountryId")
+    @Mapping(source = "region.id", target = "regionId")
+    public abstract TradingRegionDto toDto(TradingRegion source);
+
+    @AfterMapping
+    public void afterMapping(TradingRegionDto source, @MappingTarget TradingRegion target) {
+
+        if (source.getTradingCountryId() != null) {
+            tradingCountryRepository.findById(source.getTradingCountryId()).ifPresent(target::setTradingCountry);
+        }
+        if (source.getRegionId() != null) {
+            regionRepository.findById(source.getRegionId()).ifPresent(target::setRegion);
+        }
+    }
 }

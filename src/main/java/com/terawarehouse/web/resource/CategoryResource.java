@@ -20,6 +20,7 @@ package com.terawarehouse.web.resource;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+import javax.transaction.NotSupportedException;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.hateoas.RepresentationModel;
@@ -46,9 +47,14 @@ public class CategoryResource extends RepresentationModel {
     public CategoryResource(@NotNull final Category entity) {
 
         this.category = entity;
-        this.add(linkTo(methodOn(CategoryController.class).findById(entity.getId())).withSelfRel());
-        this.add(linkTo(methodOn(CategoryController.class).findAll(AbstractController.DEFAULT_PAGE_SIZE, 0)).withRel("categories"));
-        this.add(linkTo(methodOn(CategoryController.class).findByCode(entity.getCode())).withRel("findByCode"));
+        try {
+            this.add(linkTo(methodOn(CategoryController.class).findById(entity.getId())).withSelfRel());
+            this.add(linkTo(methodOn(CategoryController.class).findAll(AbstractController.DEFAULT_PAGE_SIZE, 0)).withRel("categories"));
+            this.add(linkTo(methodOn(CategoryController.class).findByCode(entity.getCode())).withRel("findByCode"));
+
+        } catch (NotSupportedException e) {
+
+        }
     }
 
     @JsonFilter(JSON_FILTER)

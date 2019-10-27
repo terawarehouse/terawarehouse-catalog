@@ -48,6 +48,11 @@ public class TradingRegion extends EnableEntity {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "trading_country_id")
+    private TradingCountry tradingCountry;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")
     private Region region;
 }

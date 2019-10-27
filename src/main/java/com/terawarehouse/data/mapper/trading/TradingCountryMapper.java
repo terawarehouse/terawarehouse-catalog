@@ -17,16 +17,35 @@
  */
 package com.terawarehouse.data.mapper.trading;
 
+import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.broodcamp.data.mapper.GenericMapper;
-import com.terawarehouse.business.domain.trading.TradingProvinceDto;
-import com.terawarehouse.data.entity.trading.TradingProvince;
+import com.broodcamp.data.repository.adm.CountryRepository;
+import com.terawarehouse.business.domain.trading.TradingCountryDto;
+import com.terawarehouse.data.entity.trading.TradingCountry;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Mapper
-public abstract class TradingProvinceMapper implements GenericMapper<TradingProvince, TradingProvinceDto> {
+public abstract class TradingCountryMapper implements GenericMapper<TradingCountry, TradingCountryDto> {
 
+    @Autowired
+    private CountryRepository countryRepository;
+
+    @Override
+    @Mapping(source = "country.id", target = "countryId")
+    public abstract TradingCountryDto toDto(TradingCountry source);
+
+    @AfterMapping
+    public void afterMapping(TradingCountryDto source, @MappingTarget TradingCountry target) {
+
+        if (source.getCountryId() != null) {
+            countryRepository.findById(source.getCountryId()).ifPresent(target::setCountry);
+        }
+    }
 }

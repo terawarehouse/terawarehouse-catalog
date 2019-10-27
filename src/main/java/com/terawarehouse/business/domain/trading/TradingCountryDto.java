@@ -15,24 +15,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.application.trading;
+package com.terawarehouse.business.domain.trading;
 
 import java.util.UUID;
 
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.broodcamp.data.dto.EnableEntityDto;
 
-import com.broodcamp.web.application.AbstractEnableController;
-import com.terawarehouse.business.domain.trading.TradingProvinceDto;
-import com.terawarehouse.data.entity.trading.TradingProvince;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@RestController
-@RequestMapping(path = "trading/states")
-@Validated
-public class TradingProvinceController extends AbstractEnableController<TradingProvince, TradingProvinceDto, UUID> {
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TradingCountryDto extends EnableEntityDto {
 
+    private UUID countryId;
 }

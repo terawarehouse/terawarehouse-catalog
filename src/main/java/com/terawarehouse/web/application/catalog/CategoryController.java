@@ -56,5 +56,4 @@ public class CategoryController extends AbstractBusinessController<Category, Cat
 
         return super.create(dto);
     }
-
 }

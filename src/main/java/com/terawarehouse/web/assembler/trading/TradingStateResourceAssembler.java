@@ -15,22 +15,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.business.domain.trading;
+package com.terawarehouse.web.assembler.trading;
 
-import java.util.UUID;
+import org.springframework.stereotype.Component;
 
-import com.broodcamp.data.dto.EnableEntityDto;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.broodcamp.web.assembler.AbstractEnableResourceAssember;
+import com.terawarehouse.business.domain.trading.TradingStateDto;
+import com.terawarehouse.web.application.trading.TradingStateController;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-public class TradingRegionDto extends EnableEntityDto {
+@Component
+public class TradingStateResourceAssembler extends AbstractEnableResourceAssember<TradingStateDto> {
 
-    private UUID tradingCountryId;
-    private UUID regionId;
+    public TradingStateResourceAssembler() {
+
+        super(TradingStateController.class);
+    }
 }
