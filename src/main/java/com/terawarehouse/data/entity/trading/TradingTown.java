@@ -27,6 +27,7 @@ import javax.validation.constraints.NotNull;
 
 import com.broodcamp.data.entity.EnableEntity;
 import com.broodcamp.data.entity.adm.City;
+import com.terawarehouse.business.domain.trading.TradingAddress;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -55,4 +56,18 @@ public class TradingTown extends EnableEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trading_state_id")
     private TradingState tradingState;
+
+    public TradingAddress getTradingAddress() {
+
+        TradingRegion tradingRegion = tradingState.getTradingRegion();
+        TradingCountry tradingCountry = tradingRegion.getTradingCountry();
+
+        TradingAddress ta = new TradingAddress();
+        ta.setCountry(tradingCountry.getCountry().getName());
+        ta.setRegion(tradingRegion.getRegion().getName());
+        ta.setState(tradingState.getState().getName());
+        ta.setCity(city.getName());
+
+        return ta;
+    }
 }

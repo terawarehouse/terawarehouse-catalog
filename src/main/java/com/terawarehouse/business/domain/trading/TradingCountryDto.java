@@ -19,7 +19,7 @@ package com.terawarehouse.business.domain.trading;
 
 import java.util.UUID;
 
-import com.broodcamp.data.dto.EnableEntityDto;
+import com.broodcamp.data.dto.NamedEntityDto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -29,8 +29,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TradingCountryDto extends EnableEntityDto {
+public class TradingCountryDto extends NamedEntityDto {
 
     private UUID countryId;
-    private String name;
 }

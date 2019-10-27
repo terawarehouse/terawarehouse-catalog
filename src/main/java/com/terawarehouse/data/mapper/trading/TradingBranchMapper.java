@@ -18,6 +18,7 @@
 package com.terawarehouse.data.mapper.trading;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import com.broodcamp.data.mapper.GenericMapper;
 import com.terawarehouse.business.domain.trading.TradingBranchDto;
@@ -29,4 +30,9 @@ import com.terawarehouse.data.entity.trading.TradingBranch;
 @Mapper
 public abstract class TradingBranchMapper implements GenericMapper<TradingBranch, TradingBranchDto> {
 
+    @Override
+    @Mapping(source = "dealer.id", target = "dealerId")
+    @Mapping(source = "tradingTown.id", target = "tradingTownId")
+    @Mapping(target = "tradingAddress", source = "tradingTown.tradingAddress")
+    public abstract TradingBranchDto toDto(TradingBranch source);
 }

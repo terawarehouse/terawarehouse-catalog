@@ -15,22 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.web.assembler.trading;
+package com.terawarehouse.business.domain.trading;
 
-import org.springframework.stereotype.Component;
-
-import com.broodcamp.web.assembler.AbstractBusinessResourceAssembler;
-import com.terawarehouse.business.domain.trading.TradingBranchDto;
-import com.terawarehouse.web.application.trading.TradingBranchController;
+import lombok.Data;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@Component
-public class TradingBranchResourceAssembler extends AbstractBusinessResourceAssembler<TradingBranchDto> {
+@Data
+public class TradingAddress {
 
-    public TradingBranchResourceAssembler() {
-
-        super(TradingBranchController.class);
-    }
+    private String city;
+    private String state;
+    private String region;
+    private String country;
 }
