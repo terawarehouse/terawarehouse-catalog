@@ -31,7 +31,7 @@ import com.terawarehouse.data.entity.trading.Dealer;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "trading/dealers")
+@RequestMapping(path = "/trading/dealers")
 @Validated
 public class DealerController extends AbstractBusinessController<Dealer, DealerDto, UUID> {
 

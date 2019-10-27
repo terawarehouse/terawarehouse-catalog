@@ -31,7 +31,7 @@ import com.terawarehouse.data.entity.trading.DealerGroup;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "trading/dealerGroups")
+@RequestMapping(path = "/trading/dealerGroups")
 @Validated
 public class DealerGroupController extends AbstractBusinessController<DealerGroup, DealerGroupDto, UUID>{
 

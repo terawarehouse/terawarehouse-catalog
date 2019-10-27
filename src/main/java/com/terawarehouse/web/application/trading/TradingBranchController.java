@@ -31,7 +31,7 @@ import com.terawarehouse.data.entity.trading.TradingBranch;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "trading/branches")
+@RequestMapping(path = "/trading/branches")
 @Validated
 public class TradingBranchController extends AbstractBusinessController<TradingBranch, TradingBranchDto, UUID> {
 
