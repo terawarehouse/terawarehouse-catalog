@@ -39,6 +39,7 @@ public abstract class TradingCountryMapper implements GenericMapper<TradingCount
 
     @Override
     @Mapping(source = "country.id", target = "countryId")
+    @Mapping(source = "country.name", target = "name")
     public abstract TradingCountryDto toDto(TradingCountry source);
 
     @AfterMapping

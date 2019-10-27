@@ -33,4 +33,5 @@ public class TradingStateDto extends EnableEntityDto {
 
     private UUID tradingRegionId;
     private UUID stateId;
+    private String name;
 }

@@ -23,7 +23,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.broodcamp.web.application.AbstractEnableController;
+import com.broodcamp.web.application.AbstractTradingController;
 import com.terawarehouse.business.domain.trading.TradingCountryDto;
 import com.terawarehouse.data.entity.trading.TradingCountry;
 
@@ -31,8 +31,8 @@ import com.terawarehouse.data.entity.trading.TradingCountry;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "trading/countries")
+@RequestMapping(path = "/trading/countries")
 @Validated
-public class TradingCountryController extends AbstractEnableController<TradingCountry, TradingCountryDto, UUID> {
+public class TradingCountryController extends AbstractTradingController<TradingCountry, TradingCountryDto, UUID> {
 
 }

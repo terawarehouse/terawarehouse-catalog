@@ -44,6 +44,7 @@ public abstract class TradingStateMapper implements GenericMapper<TradingState, 
     @Override
     @Mapping(source = "state.id", target = "stateId")
     @Mapping(source = "tradingRegion.id", target = "tradingRegionId")
+    @Mapping(source = "state.name", target = "name")
     public abstract TradingStateDto toDto(TradingState source);
 
     @AfterMapping

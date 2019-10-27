@@ -32,4 +32,5 @@ import lombok.EqualsAndHashCode;
 public class TradingCountryDto extends EnableEntityDto {
 
     private UUID countryId;
+    private String name;
 }

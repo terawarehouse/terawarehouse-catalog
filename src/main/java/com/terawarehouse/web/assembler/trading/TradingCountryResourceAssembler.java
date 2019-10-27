@@ -19,7 +19,7 @@ package com.terawarehouse.web.assembler.trading;
 
 import org.springframework.stereotype.Component;
 
-import com.broodcamp.web.assembler.AbstractEnableResourceAssember;
+import com.broodcamp.web.assembler.AbstractTradingResourceAssembler;
 import com.terawarehouse.business.domain.trading.TradingCountryDto;
 import com.terawarehouse.web.application.trading.TradingCountryController;
 
@@ -27,7 +27,7 @@ import com.terawarehouse.web.application.trading.TradingCountryController;
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Component
-public class TradingCountryResourceAssembler extends AbstractEnableResourceAssember<TradingCountryDto> {
+public class TradingCountryResourceAssembler extends AbstractTradingResourceAssembler<TradingCountryDto> {
 
     public TradingCountryResourceAssembler() {
 

@@ -44,6 +44,7 @@ public abstract class TradingRegionMapper implements GenericMapper<TradingRegion
     @Override
     @Mapping(source = "tradingCountry.id", target = "tradingCountryId")
     @Mapping(source = "region.id", target = "regionId")
+    @Mapping(source = "region.name", target = "name")
     public abstract TradingRegionDto toDto(TradingRegion source);
 
     @AfterMapping

@@ -44,6 +44,7 @@ public abstract class TradingTownMapper implements GenericMapper<TradingTown, Tr
     @Override
     @Mapping(source = "city.id", target = "cityId")
     @Mapping(source = "tradingState.id", target = "tradingStateId")
+    @Mapping(source = "city.name", target = "name")
     public abstract TradingTownDto toDto(TradingTown source);
 
     @AfterMapping
