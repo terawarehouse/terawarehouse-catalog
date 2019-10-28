@@ -19,6 +19,8 @@ package com.terawarehouse.business.domain.trading;
 
 import java.util.UUID;
 
+import javax.validation.constraints.NotNull;
+
 import com.broodcamp.data.dto.BusinessEntityDto;
 
 import lombok.Data;
@@ -31,7 +33,11 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class TradingBranchDto extends BusinessEntityDto {
 
+    @NotNull
     private UUID dealerId;
+
+    @NotNull
     private UUID tradingTownId;
+
     private TradingAddress tradingAddress;
 }

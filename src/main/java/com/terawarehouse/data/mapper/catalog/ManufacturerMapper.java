@@ -15,17 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.business.domain.catalog;
+package com.terawarehouse.data.mapper.catalog;
 
 import org.mapstruct.Mapper;
 
 import com.broodcamp.data.mapper.GenericMapper;
-import com.terawarehouse.data.entity.catalog.Brand;
+import com.terawarehouse.business.domain.catalog.ManufacturerDto;
+import com.terawarehouse.data.entity.catalog.Manufacturer;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Mapper
-public abstract class BrandMapper implements GenericMapper<Brand, BrandDto> {
+public abstract class ManufacturerMapper implements GenericMapper<Manufacturer , ManufacturerDto>{
 
 }

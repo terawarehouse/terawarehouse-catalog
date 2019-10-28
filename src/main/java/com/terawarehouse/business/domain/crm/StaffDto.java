@@ -22,6 +22,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.constraints.NotNull;
+
 import com.broodcamp.data.dto.EnableEntityDto;
 import com.terawarehouse.business.domain.trading.TradingStaffBranchDto;
 
@@ -35,8 +37,12 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class StaffDto extends EnableEntityDto {
 
+    @NotNull
     private UUID agencyId;
+
+    @NotNull
     private Date dateHired;
+
     private BigDecimal quota;
     private List<TradingStaffBranchDto> tradingStaffBraches;
 }

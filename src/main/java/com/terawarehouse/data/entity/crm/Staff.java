@@ -32,8 +32,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
 import com.broodcamp.data.entity.EnableEntity;
+import com.broodcamp.data.entity.adm.UserAccount;
 import com.terawarehouse.data.entity.trading.TradingStaffBranch;
 
 import lombok.Data;
@@ -53,6 +55,11 @@ import lombok.ToString;
 public class Staff extends EnableEntity {
 
     private static final long serialVersionUID = 2672925780493559557L;
+
+    @NotNull
+    @ManyToOne(optional = false, cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_account_id", nullable = false)
+    private UserAccount userAccount;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "staff")
     private List<TradingStaffBranch> tradingStaffBranches;

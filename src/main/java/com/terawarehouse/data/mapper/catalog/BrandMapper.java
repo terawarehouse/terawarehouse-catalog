@@ -15,36 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.business.domain.catalog;
+package com.terawarehouse.data.mapper.catalog;
 
-import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.broodcamp.data.mapper.GenericMapper;
-import com.terawarehouse.data.entity.catalog.Category;
-import com.terawarehouse.data.repository.catalog.CategoryRepository;
+import com.terawarehouse.business.domain.catalog.BrandDto;
+import com.terawarehouse.data.entity.catalog.Brand;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Mapper
-public abstract class CategoryMapper implements GenericMapper<Category, CategoryDto> {
+public abstract class BrandMapper implements GenericMapper<Brand, BrandDto> {
 
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    @Mapping(source = "parentCategory.id", target = "parentId")
-    @Override
-    public abstract CategoryDto toDto(Category source);
-
-    @AfterMapping
-    public void afterMapping(CategoryDto source, @MappingTarget Category target) {
-
-        if (source.getParentId() != null) {
-            categoryRepository.findById(source.getParentId()).ifPresent(target::setParentCategory);
-        }
-    }
 }

@@ -15,17 +15,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.business.domain.catalog;
+package com.terawarehouse.business.service.crm;
 
-import org.mapstruct.Mapper;
+import org.springframework.stereotype.Service;
 
-import com.broodcamp.data.mapper.GenericMapper;
-import com.terawarehouse.data.entity.catalog.Manufacturer;
+import com.terawarehouse.data.entity.crm.Staff;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-@Mapper
-public abstract class ManufacturerMapper implements GenericMapper<Manufacturer , ManufacturerDto>{
+@Service
+public class StaffService {
 
+    public void create(Staff entity) {
+
+    }
 }

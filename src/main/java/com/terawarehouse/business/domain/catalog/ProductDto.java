@@ -21,6 +21,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.validation.constraints.NotNull;
+
 import com.broodcamp.data.annotation.CustomDateSerializer;
 import com.broodcamp.data.dto.BusinessEntityDto;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -35,9 +37,14 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class ProductDto extends BusinessEntityDto {
 
+    @NotNull
     private UUID categoryId;
-    private UUID brandId;
+
+    @NotNull
     private BigDecimal srp;
+    
     @JsonSerialize(using = CustomDateSerializer.class)
     private Date releaseDate;
+
+    private UUID brandId;
 }

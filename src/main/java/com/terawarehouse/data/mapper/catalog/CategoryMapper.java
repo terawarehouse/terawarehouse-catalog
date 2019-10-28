@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.terawarehouse.business.domain.catalog;
+package com.terawarehouse.data.mapper.catalog;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -24,35 +24,28 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.broodcamp.data.mapper.GenericMapper;
-import com.terawarehouse.data.entity.catalog.Product;
-import com.terawarehouse.data.repository.catalog.BrandRepository;
+import com.terawarehouse.business.domain.catalog.CategoryDto;
+import com.terawarehouse.data.entity.catalog.Category;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @Mapper
-public abstract class ProductMapper implements GenericMapper<Product, ProductDto> {
+public abstract class CategoryMapper implements GenericMapper<Category, CategoryDto> {
 
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @Autowired
-    private BrandRepository brandRepository;
-
-    @Mapping(target = "categoryId", source = "category.id")
-    @Mapping(target = "brandId", source = "brand.id")
-    public abstract ProductDto toDto(Product source);
+    @Mapping(source = "parentCategory.id", target = "parentId")
+    @Override
+    public abstract CategoryDto toDto(Category source);
 
     @AfterMapping
-    public void afterMapping(ProductDto source, @MappingTarget Product target) {
+    public void afterMapping(CategoryDto source, @MappingTarget Category target) {
 
-        if (source.getCategoryId() != null) {
-            categoryRepository.findById(source.getCategoryId()).ifPresent(target::setCategory);
-        }
-
-        if (source.getBrandId() != null) {
-            brandRepository.findById(source.getBrandId()).ifPresent(target::setBrand);
+        if (source.getParentId() != null) {
+            categoryRepository.findById(source.getParentId()).ifPresent(target::setParentCategory);
         }
     }
 }
