@@ -42,7 +42,7 @@ public abstract class StaffMapper implements GenericMapper<Staff, StaffDto> {
     public abstract StaffDto toDto(Staff source);
 
     @AfterMapping
-    public void fillAgency(StaffDto source, @MappingTarget Staff target) {
+    public void afterMapping(StaffDto source, @MappingTarget Staff target) {
 
         if (source.getAgencyId() != null) {
             agencyRepository.findById(source.getAgencyId()).ifPresent(target::setAgency);

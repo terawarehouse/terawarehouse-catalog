@@ -17,15 +17,26 @@
  */
 package com.terawarehouse.web.application.crm;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+
 import java.util.UUID;
 
+import javax.transaction.NotSupportedException;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.web.application.AbstractEnableController;
 import com.terawarehouse.business.domain.crm.StaffDto;
+import com.terawarehouse.business.service.crm.StaffService;
 import com.terawarehouse.data.entity.crm.Staff;
 
 /**
@@ -36,4 +47,15 @@ import com.terawarehouse.data.entity.crm.Staff;
 @Validated
 public class StaffController extends AbstractEnableController<Staff, StaffDto, UUID> {
 
+    @Autowired
+    private StaffService staffService;
+
+    @Override
+    public ResponseEntity<EntityModel<StaffDto>> create(@RequestBody @NotNull @Valid StaffDto dto) throws NotSupportedException {
+
+        Staff entity = genericMapper.toModel(dto);
+
+        final EntityModel<StaffDto> resource = modelAssembler.toModel(genericMapper.toDto(staffService.save(entity)));
+        return ResponseEntity.created(linkTo(controllerClass).slash(entity.getId()).withSelfRel().toUri()).body(resource);
+    }
 }

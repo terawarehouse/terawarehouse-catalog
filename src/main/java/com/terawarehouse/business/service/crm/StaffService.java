@@ -17,9 +17,14 @@
  */
 package com.terawarehouse.business.service.crm;
 
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.broodcamp.data.repository.adm.UserAccountRepository;
 import com.terawarehouse.data.entity.crm.Staff;
+import com.terawarehouse.data.repository.crm.StaffRepository;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
@@ -27,7 +32,12 @@ import com.terawarehouse.data.entity.crm.Staff;
 @Service
 public class StaffService {
 
-    public void create(Staff entity) {
+    @Autowired
+    private StaffRepository staffRepository;
 
+    @Transactional
+    public Staff save(Staff entity) {
+
+        return staffRepository.save(entity);
     }
 }

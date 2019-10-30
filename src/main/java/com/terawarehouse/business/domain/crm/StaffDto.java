@@ -25,6 +25,7 @@ import java.util.UUID;
 import javax.validation.constraints.NotNull;
 
 import com.broodcamp.data.dto.EnableEntityDto;
+import com.broodcamp.data.dto.adm.UserAccountDto;
 import com.terawarehouse.business.domain.trading.TradingStaffBranchDto;
 
 import lombok.Data;
@@ -36,6 +37,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class StaffDto extends EnableEntityDto {
+
+    @NotNull
+    private UserAccountDto userAccount;
 
     @NotNull
     private UUID agencyId;
