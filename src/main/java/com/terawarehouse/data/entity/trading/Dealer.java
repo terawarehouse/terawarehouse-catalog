@@ -24,7 +24,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import com.broodcamp.data.entity.base.BusinessEntity;
+import com.broodcamp.data.entity.BusinessEntity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -25,22 +25,22 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.broodcamp.bean.ExtendedJPARepositoryFactoryBean;
-import com.broodcamp.data.repository.base.BaseRepositoryImpl;
+import com.broodcamp.data.repository.BaseRepositoryImpl;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @SpringBootApplication
 @EnableJpaRepositories( //
-		basePackages = { "com.broodcamp.data.repository", "com.terawarehouse.data.repository" } //
-		, repositoryBaseClass = BaseRepositoryImpl.class, repositoryFactoryBeanClass = ExtendedJPARepositoryFactoryBean.class)
-@EntityScan(basePackages = { "com.broodcamp.data.entity", "com.terawarehouse.data.entity" })
-@ComponentScan(basePackages = { "com.broodcamp", "com.terawarehouse" })
+        basePackages = { "com.broodcamp.data.repository", "adm.com.broodcamp.data.repository", "com.terawarehouse.data.repository" } //
+        , repositoryBaseClass = BaseRepositoryImpl.class, repositoryFactoryBeanClass = ExtendedJPARepositoryFactoryBean.class)
+@EntityScan(basePackages = { "com.broodcamp.data.entity", "adm.com.broodcamp.data.entity", "com.terawarehouse.data.entity" })
+@ComponentScan(basePackages = { "com.broodcamp", "adm.com.broodcamp", "com.terawarehouse" })
 @EnableDiscoveryClient
 public class TerawarehouseCatalogApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TerawarehouseCatalogApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TerawarehouseCatalogApplication.class, args);
+    }
 
 }

@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.broodcamp.data.entity.base.BaseEntity;
+import com.broodcamp.data.entity.BaseEntity;
 import com.terawarehouse.data.entity.crm.Staff;
 
 import lombok.Data;

@@ -32,7 +32,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 
-import com.broodcamp.data.entity.base.BusinessEntity;
+import com.broodcamp.data.entity.BusinessEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;

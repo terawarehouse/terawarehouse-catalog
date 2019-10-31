@@ -24,10 +24,11 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.broodcamp.data.mapper.GenericMapper;
-import com.broodcamp.data.repository.adm.StateRepository;
 import com.terawarehouse.business.domain.trading.TradingStateDto;
 import com.terawarehouse.data.entity.trading.TradingState;
 import com.terawarehouse.data.repository.trading.TradingRegionRepository;
+
+import adm.com.broodcamp.data.repository.StateRepository;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com

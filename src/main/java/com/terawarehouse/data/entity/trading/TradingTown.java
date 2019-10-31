@@ -25,10 +25,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
-import com.broodcamp.data.entity.adm.City;
-import com.broodcamp.data.entity.base.EnableEntity;
+import com.broodcamp.data.entity.EnableEntity;
 import com.terawarehouse.business.domain.trading.TradingAddress;
 
+import adm.com.broodcamp.data.entity.City;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

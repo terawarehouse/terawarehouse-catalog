@@ -29,7 +29,7 @@ import org.springframework.data.repository.core.RepositoryInformation;
 import org.springframework.data.repository.core.RepositoryMetadata;
 import org.springframework.data.repository.core.support.RepositoryFactorySupport;
 
-import com.broodcamp.data.repository.base.BaseRepositoryImpl;
+import com.broodcamp.data.repository.BaseRepositoryImpl;
 
 /**
  * Extend {@link JpaRepositoryFactoryBean} so that we can add custom features

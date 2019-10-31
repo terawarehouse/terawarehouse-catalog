@@ -22,7 +22,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.broodcamp.data.repository.adm.UserAccountRepository;
 import com.terawarehouse.data.entity.crm.Staff;
 import com.terawarehouse.data.repository.crm.StaffRepository;
 

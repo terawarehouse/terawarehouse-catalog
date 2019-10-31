@@ -15,17 +15,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package com.broodcamp.data.entity.base;
+package com.broodcamp.data.entity;
 
+import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
-import com.broodcamp.data.entity.base.EnableEntity;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.terawarehouse.data.view.catalog.CategoryView;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -34,22 +31,25 @@ import lombok.ToString;
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
+@MappedSuperclass
 @Data
 @EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
 @ToString(callSuper = true)
-public abstract class BusinessEntity extends EnableEntity {
+public abstract class AuditableEntity extends BaseEntity {
 
-	private static final long serialVersionUID = 6694541298135798276L;
+	private static final long serialVersionUID = 2522072952461930125L;
 
-	@JsonView(CategoryView.Public.class)
-	@NotEmpty(message = "{businessEntity.notEmpty}")
-	@Size(min = 2, max = 50)
-	private String code;
+	@Embedded
+	@JsonView(CategoryView.Internal.class)
+	private Auditable auditable;
 
-	@JsonView(CategoryView.Public.class)
-	private String description;
+	public void updateAudit(String userRef) {
+		if (auditable == null) {
+			auditable = new Auditable(userRef);
+		} else {
+			auditable.updateWith(userRef);
+		}
+	}
 
 }
