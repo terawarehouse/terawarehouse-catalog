@@ -21,7 +21,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
-import com.broodcamp.data.repository.BaseRepository;
+import com.broodcamp.data.repository.base.BaseRepository;
 import com.terawarehouse.data.entity.trading.TradingStaffBranch;
 
 /**

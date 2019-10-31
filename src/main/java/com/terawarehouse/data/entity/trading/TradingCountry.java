@@ -25,8 +25,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
-import com.broodcamp.data.entity.EnableEntity;
 import com.broodcamp.data.entity.adm.Country;
+import com.broodcamp.data.entity.base.EnableEntity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

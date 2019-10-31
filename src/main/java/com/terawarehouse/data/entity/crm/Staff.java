@@ -34,8 +34,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 
-import com.broodcamp.data.entity.EnableEntity;
 import com.broodcamp.data.entity.adm.UserAccount;
+import com.broodcamp.data.entity.base.EnableEntity;
 import com.terawarehouse.data.entity.trading.TradingStaffBranch;
 
 import lombok.Data;

@@ -25,7 +25,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.broodcamp.bean.ExtendedJPARepositoryFactoryBean;
-import com.broodcamp.data.repository.BaseRepositoryImpl;
+import com.broodcamp.data.repository.base.BaseRepositoryImpl;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
