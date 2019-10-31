@@ -33,6 +33,7 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import com.broodcamp.bean.CurrentUser;
 import com.broodcamp.data.entity.AuditableEntity;
 import com.broodcamp.data.entity.BaseEntity;
+import com.broodcamp.data.repository.BaseRepository;
 
 /**
  * Overriden base repository. Must not be abstract.

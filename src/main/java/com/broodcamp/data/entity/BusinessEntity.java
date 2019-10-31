@@ -21,6 +21,7 @@ import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.broodcamp.data.entity.EnableEntity;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.terawarehouse.data.view.catalog.CategoryView;
 

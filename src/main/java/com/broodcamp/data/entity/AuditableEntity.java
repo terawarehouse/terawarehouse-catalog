@@ -20,6 +20,8 @@ package com.broodcamp.data.entity;
 import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
 
+import com.broodcamp.data.entity.Auditable;
+import com.broodcamp.data.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.terawarehouse.data.view.catalog.CategoryView;
 
