@@ -72,6 +72,7 @@ Keywords: catalog and sales order management system, spring, microservice, rest 
  * https://github.com/terawarehouse/terawarehouse-sales
  * https://github.com/terawarehouse/terawarehouse-reporting
  * https://github.com/terawarehouse/terawarehouse-react
+ * https://github.com/terawarehouse/terawarehouse-gateway
 
 ## Liquibase Commands
 
