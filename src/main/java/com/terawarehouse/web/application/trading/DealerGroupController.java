@@ -33,6 +33,6 @@ import com.terawarehouse.data.entity.trading.DealerGroup;
 @RestController
 @RequestMapping(path = "/trading/dealerGroups")
 @Validated
-public class DealerGroupController extends AbstractBusinessController<DealerGroup, DealerGroupDto, UUID>{
+public class DealerGroupController extends AbstractBusinessController<DealerGroup, DealerGroupDto, UUID> {
 
 }

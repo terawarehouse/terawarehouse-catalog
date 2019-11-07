@@ -58,8 +58,12 @@ public class Product extends BusinessEntity {
 	private Category category;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "brand_id")
-	private Brand brand;
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manufacturer_id")
+    private Manufacturer manufacturer;
 
 	@NotNull
 	@Column(name = "srp", precision = NB_PRECISION, scale = NB_DECIMALS)

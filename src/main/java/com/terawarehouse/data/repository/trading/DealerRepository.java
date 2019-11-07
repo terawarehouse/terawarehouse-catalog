@@ -17,12 +17,15 @@
  */
 package com.terawarehouse.data.repository.trading;
 
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.broodcamp.data.repository.BusinessRepository;
 import com.terawarehouse.data.entity.trading.Dealer;
+import com.terawarehouse.data.entity.trading.DealerGroup;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
@@ -30,4 +33,5 @@ import com.terawarehouse.data.entity.trading.Dealer;
 @Repository
 public interface DealerRepository extends BusinessRepository<Dealer, UUID> {
 
+    List<Dealer> findByDealerGroup(DealerGroup dealerGroup, Pageable pageable);
 }

@@ -37,14 +37,15 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class ProductDto extends BusinessEntityDto {
 
-    @NotNull
     private UUID categoryId;
 
     @NotNull
     private BigDecimal srp;
-    
+
     @JsonSerialize(using = CustomDateSerializer.class)
     private Date releaseDate;
 
     private UUID brandId;
+
+    private UUID manufacturerId;
 }

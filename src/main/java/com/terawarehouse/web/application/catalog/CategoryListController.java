@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import javax.transaction.NotSupportedException;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -34,56 +33,43 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.business.exception.ResourceNotFoundException;
-import com.broodcamp.web.application.AbstractBusinessController;
+import com.broodcamp.data.mapper.GenericMapper;
 import com.broodcamp.web.application.AbstractController;
-import com.terawarehouse.business.domain.catalog.ProductDto;
+import com.terawarehouse.business.domain.catalog.CategoryDto;
 import com.terawarehouse.data.entity.catalog.Category;
-import com.terawarehouse.data.entity.catalog.Product;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
-import com.terawarehouse.data.repository.catalog.ProductRepository;
+import com.terawarehouse.web.assembler.catalog.CategoryResourceAssembler;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
+ * 
+ * @since 0.0.1
+ * @version 0.0.1
  */
 @RestController
-@RequestMapping(path = "/catalog/categories/{cid}/products", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-public class ProductController extends AbstractBusinessController<Product, ProductDto, UUID> {
+public class CategoryListController {
 
     @Autowired
     private CategoryRepository categoryRepository;
 
     @Autowired
-    private ProductRepository productRepository;
+    private CategoryResourceAssembler modelAssembler;
 
-    @Override
-    @PostMapping
-    public ResponseEntity<EntityModel<ProductDto>> create(@RequestBody @NotNull @Valid ProductDto dto) throws NotSupportedException {
+    @Autowired
+    private GenericMapper<Category, CategoryDto> genericMapper;
 
-        throw new NotSupportedException();
-    }
-
-    @PostMapping(path = "/create")
-    public ResponseEntity<EntityModel<ProductDto>> create(@PathVariable @NotNull UUID cid, @RequestBody @Valid ProductDto dto) throws NotSupportedException {
-
-        dto.setCategoryId(cid);
-
-        return super.create(dto);
-    }
-
-    @GetMapping(path = "/")
-    public CollectionModel<EntityModel<ProductDto>> findAll(@Valid @NotNull @PathVariable UUID parentId, @RequestParam(required = false) Integer size,
+    @GetMapping(path = "/catalog/categories/{parentCategoryId}/categories")
+    public CollectionModel<EntityModel<CategoryDto>> findAll(@Valid @NotNull @PathVariable UUID parentCategoryId, @RequestParam(required = false) Integer size,
             @RequestParam(required = false) Integer page) {
 
         if (size == null) {
@@ -95,11 +81,11 @@ public class ProductController extends AbstractBusinessController<Product, Produ
 
         Pageable pageable = PageRequest.of(page, size);
 
-        Category category = categoryRepository.findById(parentId).orElseThrow(() -> new ResourceNotFoundException(Category.class.getSimpleName(), parentId));
+        Category parentCategory = categoryRepository.findById(parentCategoryId).orElseThrow(() -> new ResourceNotFoundException(Category.class.getSimpleName(), parentCategoryId));
 
-        List<EntityModel<ProductDto>> entities = productRepository.findByCategory(category, pageable).stream().map(e -> modelAssembler.toModel(genericMapper.toDto(e)))
-                .collect(Collectors.toList());
+        List<EntityModel<CategoryDto>> entities = categoryRepository.findByParentCategory(parentCategory, pageable).stream()
+                .map(e -> modelAssembler.toModel(genericMapper.toDto(e))).collect(Collectors.toList());
 
-        return new CollectionModel<>(entities, linkTo(methodOn(ProductController.class).findAll(parentId, size, page)).withSelfRel());
+        return new CollectionModel<>(entities, linkTo(methodOn(CategoryListController.class).findAll(parentCategoryId, size, page)).withSelfRel());
     }
 }

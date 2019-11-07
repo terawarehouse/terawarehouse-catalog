@@ -17,11 +17,14 @@
  */
 package com.terawarehouse.data.repository.catalog;
 
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.broodcamp.data.repository.BusinessRepository;
+import com.terawarehouse.data.entity.catalog.Category;
 import com.terawarehouse.data.entity.catalog.Product;
 
 /**
@@ -30,4 +33,5 @@ import com.terawarehouse.data.entity.catalog.Product;
 @Repository
 public interface ProductRepository extends BusinessRepository<Product, UUID> {
 
+    List<Product> findByCategory(Category category, Pageable pageable);
 }

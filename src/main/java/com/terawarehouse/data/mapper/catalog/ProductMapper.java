@@ -28,6 +28,7 @@ import com.terawarehouse.business.domain.catalog.ProductDto;
 import com.terawarehouse.data.entity.catalog.Product;
 import com.terawarehouse.data.repository.catalog.BrandRepository;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
+import com.terawarehouse.data.repository.catalog.ManufacturerRepository;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
@@ -41,8 +42,12 @@ public abstract class ProductMapper implements GenericMapper<Product, ProductDto
     @Autowired
     private BrandRepository brandRepository;
 
+    @Autowired
+    private ManufacturerRepository manufacturerRepository;
+
     @Mapping(target = "categoryId", source = "category.id")
     @Mapping(target = "brandId", source = "brand.id")
+    @Mapping(target = "manufacturerId", source = "manufacturer.id")
     public abstract ProductDto toDto(Product source);
 
     @AfterMapping
@@ -54,6 +59,10 @@ public abstract class ProductMapper implements GenericMapper<Product, ProductDto
 
         if (source.getBrandId() != null) {
             brandRepository.findById(source.getBrandId()).ifPresent(target::setBrand);
+        }
+
+        if (source.getManufacturerId() != null) {
+            manufacturerRepository.findById(source.getManufacturerId()).ifPresent(target::setManufacturer);
         }
     }
 }
