@@ -27,8 +27,6 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -41,12 +39,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.business.exception.ResourceNotFoundException;
-import com.broodcamp.data.mapper.GenericMapper;
-import com.broodcamp.web.application.AbstractController;
+import com.broodcamp.web.application.AbstractBaseController;
 import com.terawarehouse.business.domain.catalog.CategoryDto;
 import com.terawarehouse.data.entity.catalog.Category;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
-import com.terawarehouse.web.assembler.catalog.CategoryResourceAssembler;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
@@ -55,35 +51,20 @@ import com.terawarehouse.web.assembler.catalog.CategoryResourceAssembler;
  * @version 0.0.1
  */
 @RestController
-@RequestMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-public class CategoryListController {
-
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    @Autowired
-    private CategoryResourceAssembler modelAssembler;
-
-    @Autowired
-    private GenericMapper<Category, CategoryDto> genericMapper;
+public class CategoryListController extends AbstractBaseController<Category, CategoryDto, UUID> {
 
     @GetMapping(path = "/catalog/categories/{parentCategoryId}/categories")
     public CollectionModel<EntityModel<CategoryDto>> findAll(@Valid @NotNull @PathVariable UUID parentCategoryId, @RequestParam(required = false) Integer size,
             @RequestParam(required = false) Integer page) {
 
-        if (size == null) {
-            size = AbstractController.DEFAULT_PAGE_SIZE;
-        }
-        if (page == null) {
-            page = 0;
-        }
+        Pageable pageable = initPage(page, size);
 
-        Pageable pageable = PageRequest.of(page, size);
+        Category parentCategory = ((CategoryRepository) repository).findById(parentCategoryId)
+                .orElseThrow(() -> new ResourceNotFoundException(Category.class.getSimpleName(), parentCategoryId));
 
-        Category parentCategory = categoryRepository.findById(parentCategoryId).orElseThrow(() -> new ResourceNotFoundException(Category.class.getSimpleName(), parentCategoryId));
-
-        List<EntityModel<CategoryDto>> entities = categoryRepository.findByParentCategory(parentCategory, pageable).stream()
+        List<EntityModel<CategoryDto>> entities = ((CategoryRepository) repository).findByParentCategory(parentCategory, pageable).stream()
                 .map(e -> modelAssembler.toModel(genericMapper.toDto(e))).collect(Collectors.toList());
 
         return new CollectionModel<>(entities, linkTo(methodOn(CategoryListController.class).findAll(parentCategoryId, size, page)).withSelfRel());

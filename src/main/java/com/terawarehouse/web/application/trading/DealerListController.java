@@ -28,7 +28,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -41,52 +40,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.business.exception.ResourceNotFoundException;
-import com.broodcamp.data.mapper.GenericMapper;
-import com.broodcamp.web.application.AbstractController;
+import com.broodcamp.web.application.AbstractBaseController;
 import com.terawarehouse.business.domain.trading.DealerDto;
 import com.terawarehouse.data.entity.trading.Dealer;
 import com.terawarehouse.data.entity.trading.DealerGroup;
 import com.terawarehouse.data.repository.trading.DealerGroupRepository;
 import com.terawarehouse.data.repository.trading.DealerRepository;
-import com.terawarehouse.web.assembler.trading.DealerResourceAssembler;
 
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
-@RequestMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-public class DealerListController {
-
-    @Autowired
-    private DealerRepository dealerRepository;
+public class DealerListController extends AbstractBaseController<Dealer, DealerDto, UUID> {
 
     @Autowired
     private DealerGroupRepository dealerGroupRepository;
-
-    @Autowired
-    private DealerResourceAssembler modelAssembler;
-
-    @Autowired
-    private GenericMapper<Dealer, DealerDto> genericMapper;
 
     @GetMapping(path = "/trading/dealerGroups/{dealerGroupId}/dealers")
     public CollectionModel<EntityModel<DealerDto>> findAll(@Valid @NotNull @PathVariable UUID dealerGroupId, @RequestParam(required = false) Integer size,
             @RequestParam(required = false) Integer page) {
 
-        if (size == null) {
-            size = AbstractController.DEFAULT_PAGE_SIZE;
-        }
-        if (page == null) {
-            page = 0;
-        }
-
-        Pageable pageable = PageRequest.of(page, size);
+        Pageable pageable = initPage(page, size);
 
         DealerGroup dealerGroup = dealerGroupRepository.findById(dealerGroupId).orElseThrow(() -> new ResourceNotFoundException(DealerGroup.class.getSimpleName(), dealerGroupId));
 
-        List<EntityModel<DealerDto>> entities = dealerRepository.findByDealerGroup(dealerGroup, pageable).stream().map(e -> modelAssembler.toModel(genericMapper.toDto(e)))
-                .collect(Collectors.toList());
+        List<EntityModel<DealerDto>> entities = ((DealerRepository) repository).findByDealerGroup(dealerGroup, pageable).stream()
+                .map(e -> modelAssembler.toModel(genericMapper.toDto(e))).collect(Collectors.toList());
 
         return new CollectionModel<>(entities, linkTo(methodOn(DealerListController.class).findAll(dealerGroupId, size, page)).withSelfRel());
     }
