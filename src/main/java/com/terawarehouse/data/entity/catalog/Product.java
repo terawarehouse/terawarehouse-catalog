@@ -32,6 +32,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 
+import com.broodcamp.data.annotation.EntityCode;
 import com.broodcamp.data.entity.BusinessEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -47,42 +48,43 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
+@EntityCode("PROD")
 public class Product extends BusinessEntity {
 
-	private static final long serialVersionUID = 28353879194705314L;
+    private static final long serialVersionUID = 28353879194705314L;
 
-	@JsonIgnore
-	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "category_id", nullable = false)
-	private Category category;
+    @JsonIgnore
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id")
     private Brand brand;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
-	@NotNull
-	@Column(name = "srp", precision = NB_PRECISION, scale = NB_DECIMALS)
-	@Digits(integer = NB_PRECISION, fraction = NB_DECIMALS)
-	private BigDecimal srp;
+    @NotNull
+    @Column(name = "srp", precision = NB_PRECISION, scale = NB_DECIMALS)
+    @Digits(integer = NB_PRECISION, fraction = NB_DECIMALS)
+    private BigDecimal srp;
 
-	@Column(name = "release_date")
-	@Temporal(TemporalType.DATE)
-	private Date releaseDate;
+    @Column(name = "release_date")
+    @Temporal(TemporalType.DATE)
+    private Date releaseDate;
 
-	public Product(Category category, String code, String description, BigDecimal srp) {
-		super(code, description);
-		this.category = category;
-		this.srp = srp;
-	}
+    public Product(Category category, String code, String description, BigDecimal srp) {
+        super(code, description);
+        this.category = category;
+        this.srp = srp;
+    }
 
-	@Override
-	public String toString() {
-		return "Product [category=" + category.getCode() + ", brand=" + brand + ", srp=" + srp + ", releaseDate=" + releaseDate + "]";
-	}
+    @Override
+    public String toString() {
+        return "Product [category=" + category.getCode() + ", brand=" + brand + ", srp=" + srp + ", releaseDate=" + releaseDate + "]";
+    }
 
 }

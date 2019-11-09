@@ -29,7 +29,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -46,8 +45,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.broodcamp.business.exception.ResourceNotFoundException;
 import com.broodcamp.web.application.AbstractBusinessController;
-import com.broodcamp.web.application.AbstractController;
 import com.terawarehouse.business.domain.catalog.ProductDto;
+import com.terawarehouse.business.service.catalog.ProductService;
 import com.terawarehouse.data.entity.catalog.Category;
 import com.terawarehouse.data.entity.catalog.Product;
 import com.terawarehouse.data.repository.catalog.CategoryRepository;
@@ -67,6 +66,9 @@ public class ProductController extends AbstractBusinessController<Product, Produ
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ProductService productService;
+
     @Override
     @PostMapping
     public ResponseEntity<EntityModel<ProductDto>> create(@RequestBody @NotNull @Valid ProductDto dto) throws NotSupportedException {
@@ -79,23 +81,19 @@ public class ProductController extends AbstractBusinessController<Product, Produ
 
         dto.setCategoryId(cid);
 
-        return super.create(dto);
+        Product entity = genericMapper.toModel(dto);
+
+        final EntityModel<ProductDto> resource = modelAssembler.toModel(genericMapper.toDto(productService.save(entity)));
+        return ResponseEntity.created(linkTo(controllerClass).slash(entity.getId()).withSelfRel().toUri()).body(resource);
     }
 
     @GetMapping(path = "/")
     public CollectionModel<EntityModel<ProductDto>> findAll(@Valid @NotNull @PathVariable UUID parentId, @RequestParam(required = false) Integer size,
             @RequestParam(required = false) Integer page) {
 
-        if (size == null) {
-            size = AbstractController.DEFAULT_PAGE_SIZE;
-        }
-        if (page == null) {
-            page = 0;
-        }
+        Pageable pageable = initPage(page, size);
 
-        Pageable pageable = PageRequest.of(page, size);
-
-        Category category = categoryRepository.findById(parentId).orElseThrow(() -> new ResourceNotFoundException(Category.class.getSimpleName(), parentId));
+        Category category = categoryRepository.findById(parentId).orElseThrow(() -> new ResourceNotFoundException("PROD-001", Category.class.getSimpleName(), parentId));
 
         List<EntityModel<ProductDto>> entities = productRepository.findByCategory(category, pageable).stream().map(e -> modelAssembler.toModel(genericMapper.toDto(e)))
                 .collect(Collectors.toList());
