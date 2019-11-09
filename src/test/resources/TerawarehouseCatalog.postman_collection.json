@@ -342,18 +342,18 @@
 							"response": []
 						},
 						{
-							"name": "List",
+							"name": "List by parent",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "6c8f027a-2639-4839-b52c-708eba5c2940",
+										"id": "5297edfb-9bde-4a18-9097-e80f3dfe849c",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
 											"});",
-											"pm.test(\"Has COMPUTER\", function () {",
-											"    pm.expect(pm.response.text()).to.include(\"COMPUTER\");",
+											"pm.test(\"Body matches LAPTOP\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"LAPTOP\");",
 											"});"
 										],
 										"type": "text/javascript"
@@ -374,12 +374,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{catalogApiUrl}}/catalog/categories",
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{uid}}/categories",
 									"host": [
 										"{{catalogApiUrl}}"
 									],
 									"path": [
 										"catalog",
+										"categories",
+										"{{uid}}",
 										"categories"
 									]
 								}
@@ -1353,6 +1355,72 @@
 											"pm.environment.set(\"uid\", pm.response.json().id);",
 											"pm.test(\"Status code is 201\", function () {",
 											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\",\n\t\"srp\": 80000,\n\t\"categoryId\": \"{{cid}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/create",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{cid}}",
+										"products",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AZUZ",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {",
+											"    pm.response.to.have.status(409);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -2531,6 +2599,81 @@
 							"response": []
 						},
 						{
+							"name": "ESEM",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"var str = pm.environment.get(\"request.label.0\");",
+											"pm.test(\"Body matches Updated\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Updated\");",
+											"});",
+											"pm.test(\"Body matches \" + str, function () {",
+											"    pm.expect(pm.response.text()).to.include(str);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/dealerGroups/{{pid}}/dealers",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"dealerGroups",
+										"{{pid}}",
+										"dealers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Delete",
 							"event": [
 								{
@@ -2811,15 +2954,15 @@
 											}
 										],
 										"url": {
-											"raw": "{{catalogApiUrl}}/adm/regions/country/{{countryId}}",
+											"raw": "{{catalogApiUrl}}/adm/countries/{{countryId}}/regions",
 											"host": [
 												"{{catalogApiUrl}}"
 											],
 											"path": [
 												"adm",
-												"regions",
-												"country",
-												"{{countryId}}"
+												"countries",
+												"{{countryId}}",
+												"regions"
 											]
 										}
 									},
@@ -2875,15 +3018,15 @@
 											}
 										],
 										"url": {
-											"raw": "{{catalogApiUrl}}/adm/states/country/{{countryId}}",
+											"raw": "{{catalogApiUrl}}/adm/countries/{{countryId}}/states",
 											"host": [
 												"{{catalogApiUrl}}"
 											],
 											"path": [
 												"adm",
-												"states",
-												"country",
-												"{{countryId}}"
+												"countries",
+												"{{countryId}}",
+												"states"
 											]
 										}
 									},
@@ -2947,15 +3090,15 @@
 											}
 										],
 										"url": {
-											"raw": "{{catalogApiUrl}}/adm/states/region/{{regionId}}",
+											"raw": "{{catalogApiUrl}}/adm/regions/{{regionId}}/states",
 											"host": [
 												"{{catalogApiUrl}}"
 											],
 											"path": [
 												"adm",
-												"states",
-												"region",
-												"{{regionId}}"
+												"regions",
+												"{{regionId}}",
+												"states"
 											]
 										}
 									},
@@ -3019,15 +3162,15 @@
 											}
 										],
 										"url": {
-											"raw": "{{catalogApiUrl}}/adm/cities/state/{{stateId}}",
+											"raw": "{{catalogApiUrl}}/adm/states/{{stateId}}/cities",
 											"host": [
 												"{{catalogApiUrl}}"
 											],
 											"path": [
 												"adm",
-												"cities",
-												"state",
-												"{{stateId}}"
+												"states",
+												"{{stateId}}",
+												"cities"
 											]
 										}
 									},
@@ -5264,6 +5407,2010 @@
 									""
 								]
 							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Catalog",
+					"item": [
+						{
+							"name": "TV",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"categoryId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SOMY",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"brandId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SOMY",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"manufacturerId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SOMY40",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"productId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\",\n\t\"brandId\": \"{{brandId}}\",\n\t\"manufacturerId\": \"{{manufacturerId}}\",\n\t\"srp\": 40000\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{categoryId}}/products/create",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{categoryId}}",
+										"products",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SONYA6000",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"productId2\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\",\n\t\"brandId\": \"{{brandId}}\",\n\t\"manufacturerId\": \"{{manufacturerId}}\",\n\t\"srp\": 44000\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{categoryId}}/products/create",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{categoryId}}",
+										"products",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MANILA",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"dealerGroupId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/dealerGroups",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"dealerGroups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ESEM",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"dealerId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\",\n\t\"dealerGroupId\": \"{{dealerGroupId}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/dealers",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"dealers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PH",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"countryId\", pm.response.json().id);",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body matches Philippines\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Philippines\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/adm/countries/code/PH",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"adm",
+										"countries",
+										"code",
+										"PH"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PH Region",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Length is 15\", function () {",
+											"    pm.expect(pm.response.json()._embedded.regionDtoes.length).to.equal(15);",
+											"});",
+											"_.each(pm.response.json()._embedded.regionDtoes, (item) => {",
+											"   if(item.name === 'NATIONAL CAPITAL REGION') {",
+											"       pm.environment.set(\"regionId\", item.id);",
+											"   } ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/adm/countries/{{countryId}}/regions?page=0&size=15",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"adm",
+										"countries",
+										"{{countryId}}",
+										"regions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NCR States by Region",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"_.each(pm.response.json()._embedded.stateDtoes, (item) => {",
+											"   if(item.name === 'Metro Manila') {",
+											"       pm.environment.set(\"stateId\", item.id);",
+											"   } ",
+											"});",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body matches Laguna\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Laguna\");",
+											"});",
+											"pm.test(\"Length is 10\", function () {",
+											"    pm.expect(pm.response.json()._embedded.stateDtoes.length).to.equal(5);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/adm/regions/{{regionId}}/states",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"adm",
+										"regions",
+										"{{regionId}}",
+										"states"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Laguna Cities",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"_.each(pm.response.json()._embedded.cityDtoes, (item) => {",
+											"   if(item.name === 'Alaminos') {",
+											"       pm.environment.set(\"cityId\", item.id);",
+											"   } ",
+											"});",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body matches Alaminos\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Alaminos\");",
+											"});",
+											"pm.test(\"Length is 10\", function () {",
+											"    pm.expect(pm.response.json()._embedded.cityDtoes.length).to.equal(10);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/adm/states/{{stateId}}/cities",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"adm",
+										"states",
+										"{{stateId}}",
+										"cities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading country",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"tradingCountryId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"countryId\": \"{{countryId}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/countries",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"countries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading region",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"tradingRegionId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"tradingCountryId\": \"{{tradingCountryId}}\",\n\t\"regionId\": \"{{regionId}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/regions",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"regions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading state",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"tradingStateId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"tradingRegionId\": \"{{tradingRegionId}}\",\n\t\"stateId\": \"{{stateId}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/states",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"states"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading town",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"tradingTownId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"tradingStateId\": \"{{tradingStateId}}\",\n\t\"cityId\": \"{{cityId}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/towns",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"towns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ESEM_NORTH",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.environment.set(\"tradingBranchId\", pm.response.json().id);",
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}\",\n\t\"dealerId\": \"{{dealerId}}\",\n\t\"tradingTownId\": \"{{tradingTownId}}\"\n}"
+								},
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/branches",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"branches"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Command",
+					"item": [
+						{
+							"name": "S0001|W0001",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e02ce765-e426-44e2-9cf3-124241702fb2",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"productStocks\": [\n\t\t{\n\t\t\t\"productId\": \"{{productId}}\",\n\t\t\t\"tradingBranchId\": \"{{tradingBranchId}}\" ,\n\t\t\t\"dealerId\": \"{{dealerId}}\",\n\t\t\t\"serialNo\":  \"{{request.label.0}}\",\n\t\t\t\"warrantyCardNo\": \"{{request.label.1}}\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{inventoryApiUrl}}/stocks",
+									"host": [
+										"{{inventoryApiUrl}}"
+									],
+									"path": [
+										"stocks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "S0002|W0002",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "72b99645-1c5c-4dbb-b25d-63f9f0f91610",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"productStocks\": [\n\t\t{\n\t\t\t\"productId\": \"{{productId}}\",\n\t\t\t\"tradingBranchId\": \"{{tradingBranchId}}\" ,\n\t\t\t\"dealerId\": \"{{dealerId}}\",\n\t\t\t\"serialNo\":  \"{{request.label.0}}\",\n\t\t\t\"warrantyCardNo\": \"{{request.label.1}}\"\n\t\t},\n\t\t{\n\t\t\t\"productId\": \"{{productId}}\",\n\t\t\t\"tradingBranchId\": \"{{tradingBranchId}}\" ,\n\t\t\t\"dealerId\": \"{{dealerId}}\",\n\t\t\t\"serialNo\":  \"{{request.label.0}}-1\",\n\t\t\t\"warrantyCardNo\": \"{{request.label.1}}-1\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{inventoryApiUrl}}/stocks",
+									"host": [
+										"{{inventoryApiUrl}}"
+									],
+									"path": [
+										"stocks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "S0003|W0003",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "557bd677-eab8-4b20-958c-85e50a694b36",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"productStocks\": [\n\t\t{\n\t\t\t\"productId\": \"{{productId2}}\",\n\t\t\t\"tradingBranchId\": \"{{tradingBranchId}}\" ,\n\t\t\t\"dealerId\": \"{{dealerId}}\",\n\t\t\t\"serialNo\":  \"{{request.label.0}}\",\n\t\t\t\"warrantyCardNo\": \"{{request.label.1}}\"\n\t\t},\n\t\t{\n\t\t\t\"productId\": \"{{productId2}}\",\n\t\t\t\"tradingBranchId\": \"{{tradingBranchId}}\" ,\n\t\t\t\"dealerId\": \"{{dealerId}}\",\n\t\t\t\"serialNo\":  \"{{request.label.0}}-1\",\n\t\t\t\"warrantyCardNo\": \"{{request.label.1}}-1\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{inventoryApiUrl}}/stocks",
+									"host": [
+										"{{inventoryApiUrl}}"
+									],
+									"path": [
+										"stocks"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Cleanup",
+					"item": [
+						{
+							"name": "Product",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{categoryId}}/products/{{productId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{categoryId}}",
+										"products",
+										"{{productId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Product",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{categoryId}}/products/{{productId2}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{categoryId}}",
+										"products",
+										"{{productId2}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Brand",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/brands/{{brandId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"brands",
+										"{{brandId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Manufacturer",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/manufacturers/{{manufacturerId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"manufacturers",
+										"{{manufacturerId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Category",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/catalog/categories/{{categoryId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"{{categoryId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading branch",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/branches/{{tradingBranchId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"branches",
+										"{{tradingBranchId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading dealer",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/dealers/{{dealerId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"dealers",
+										"{{dealerId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading dealer group",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/dealerGroups/{{dealerGroupId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"dealerGroups",
+										"{{dealerGroupId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading town",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/towns/{{tradingTownId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"towns",
+										"{{tradingTownId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading state",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/states/{{tradingStateId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"states",
+										"{{tradingStateId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading region",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/regions/{{tradingRegionId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"regions",
+										"{{tradingRegionId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trading country",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3b5f1f04-ce2e-4bc4-a36a-8d4685441b23",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "83a25196-638d-4137-b250-e43a18f6da8e",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{catalogApiUrl}}/trading/countries/{{tradingCountryId}}",
+									"host": [
+										"{{catalogApiUrl}}"
+									],
+									"path": [
+										"trading",
+										"countries",
+										"{{tradingCountryId}}"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"protocolProfileBehavior": {},
