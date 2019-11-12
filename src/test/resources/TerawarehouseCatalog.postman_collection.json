@@ -1508,14 +1508,12 @@
 									"raw": "{\n\t\"code\": \"{{request.label.0}}\",\n\t\"description\": \"{{request.label.0}}-Updated\"\n}"
 								},
 								"url": {
-									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/{{uid}}",
+									"raw": "{{catalogApiUrl}}/catalog/products/{{uid}}",
 									"host": [
 										"{{catalogApiUrl}}"
 									],
 									"path": [
 										"catalog",
-										"categories",
-										"{{cid}}",
 										"products",
 										"{{uid}}"
 									]
@@ -1560,14 +1558,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/{{uid}}",
+									"raw": "{{catalogApiUrl}}/catalog/products/{{uid}}",
 									"host": [
 										"{{catalogApiUrl}}"
 									],
 									"path": [
 										"catalog",
-										"categories",
-										"{{cid}}",
 										"products",
 										"{{uid}}"
 									]
@@ -1609,14 +1605,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/code/{{request.label.0}}",
+									"raw": "{{catalogApiUrl}}/catalog/products/code/{{request.label.0}}",
 									"host": [
 										"{{catalogApiUrl}}"
 									],
 									"path": [
 										"catalog",
-										"categories",
-										"{{cid}}",
 										"products",
 										"code",
 										"{{request.label.0}}"
@@ -1702,14 +1696,12 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/{{uid}}",
+									"raw": "{{catalogApiUrl}}/catalog/products/{{uid}}",
 									"host": [
 										"{{catalogApiUrl}}"
 									],
 									"path": [
 										"catalog",
-										"categories",
-										"{{cid}}",
 										"products",
 										"{{uid}}"
 									]
@@ -1747,14 +1739,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{catalogApiUrl}}/catalog/categories/{{cid}}/products/{{uid}}",
+									"raw": "{{catalogApiUrl}}/catalog/products/{{uid}}",
 									"host": [
 										"{{catalogApiUrl}}"
 									],
 									"path": [
 										"catalog",
-										"categories",
-										"{{cid}}",
 										"products",
 										"{{uid}}"
 									]
@@ -6680,6 +6670,122 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "S0003|W0003",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "557bd677-eab8-4b20-958c-85e50a694b36",
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {",
+											"    pm.response.to.have.status(409);",
+											"});",
+											"pm.test(\"Body matches PROD-ERR-002\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"PROD-ERR-002\");",
+											"});",
+											"pm.test(\"Body matches PROD-ERR-001\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"PROD-ERR-001\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"productStocks\": [\n\t\t{\n\t\t\t\"productId\": \"{{productId2}}\",\n\t\t\t\"tradingBranchId\": \"{{tradingBranchId}}\" ,\n\t\t\t\"dealerId\": \"{{dealerId}}\",\n\t\t\t\"serialNo\":  \"{{request.label.0}}\",\n\t\t\t\"warrantyCardNo\": \"{{request.label.1}}\"\n\t\t},\n\t\t{\n\t\t\t\"productId\": \"{{productId2}}\",\n\t\t\t\"tradingBranchId\": \"{{tradingBranchId}}\" ,\n\t\t\t\"dealerId\": \"{{dealerId}}\",\n\t\t\t\"serialNo\":  \"{{request.label.0}}-2\",\n\t\t\t\"warrantyCardNo\": \"{{request.label.1}}-1\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{inventoryApiUrl}}/stocks",
+									"host": [
+										"{{inventoryApiUrl}}"
+									],
+									"path": [
+										"stocks"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Gateway",
+					"item": [
+						{
+							"name": "Find stocks by productId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2478b4f7-efc4-48a6-9202-d58558ee10d8",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Contains 5 records\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.length).to.eql(5);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{gatewayApiUrl}}/stocks/{{productId}}",
+									"host": [
+										"{{gatewayApiUrl}}"
+									],
+									"path": [
+										"stocks",
+										"{{productId}}"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -6735,14 +6841,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{catalogApiUrl}}/catalog/categories/{{categoryId}}/products/{{productId}}",
+									"raw": "{{catalogApiUrl}}/catalog/products/{{productId}}",
 									"host": [
 										"{{catalogApiUrl}}"
 									],
 									"path": [
 										"catalog",
-										"categories",
-										"{{categoryId}}",
 										"products",
 										"{{productId}}"
 									]
@@ -6797,14 +6901,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{catalogApiUrl}}/catalog/categories/{{categoryId}}/products/{{productId2}}",
+									"raw": "{{catalogApiUrl}}/catalog/products/{{productId2}}",
 									"host": [
 										"{{catalogApiUrl}}"
 									],
 									"path": [
 										"catalog",
-										"categories",
-										"{{categoryId}}",
 										"products",
 										"{{productId2}}"
 									]
