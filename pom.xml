@@ -98,6 +98,18 @@
 							<goal>build-info</goal>
 						</goals>
 					</execution>
+					<execution>
+						<id>pre-integration-test</id>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-integration-test</id>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -110,6 +122,19 @@
 				<configuration>
 					<skipTests>true</skipTests>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-maven-plugin</artifactId>
+				<version>0.2</version>
+				<executions>
+					<execution>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -191,6 +216,11 @@
 		<dependency>
 			<groupId>com.broodcamp</groupId>
 			<artifactId>broodcamp-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
 		</dependency>
 
 		<dependency>
