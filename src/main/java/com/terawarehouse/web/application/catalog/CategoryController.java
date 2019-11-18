@@ -42,17 +42,22 @@ import com.broodcamp.web.application.IController;
 import com.terawarehouse.business.domain.catalog.CategoryDto;
 import com.terawarehouse.data.entity.catalog.Category;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
 @RestController
 @RequestMapping(path = "/catalog/categories", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
+@Slf4j
 public class CategoryController extends AbstractBusinessController<Category, CategoryDto, UUID> implements IController<CategoryDto> {
 
     @PostMapping(path = "/{pcid}")
     public ResponseEntity<EntityModel<CategoryDto>> create(@PathVariable @NotNull UUID pcid, @RequestBody @Valid CategoryDto dto) throws NotSupportedException {
 
+        log.debug("POST /catalog/categories/{} {}", pcid, dto);
+        
         if (!StringUtils.isBlank(pcid)) {
             dto.setParentId(pcid);
         }
@@ -64,6 +69,8 @@ public class CategoryController extends AbstractBusinessController<Category, Cat
     @GetMapping
     public CollectionModel<EntityModel<CategoryDto>> findAll(@RequestParam(required = false) Integer size, @RequestParam(required = false) Integer page)
             throws NotSupportedException {
+
+        log.debug("GET /catalog/categories");
 
         return super.findAll(size, page);
     }

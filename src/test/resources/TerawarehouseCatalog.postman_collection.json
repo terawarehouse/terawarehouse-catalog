@@ -6739,7 +6739,7 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Gateway",
+					"name": "Composer",
 					"item": [
 						{
 							"name": "Find stocks by productId",
@@ -6775,9 +6775,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{gatewayApiUrl}}/stocks/{{productId}}",
+									"raw": "{{businessApiUrl}}/stocks/{{productId}}",
 									"host": [
-										"{{gatewayApiUrl}}"
+										"{{businessApiUrl}}"
 									],
 									"path": [
 										"stocks",

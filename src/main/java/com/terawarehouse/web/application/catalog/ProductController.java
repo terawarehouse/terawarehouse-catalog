@@ -26,10 +26,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.sleuth.SpanName;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,12 +45,16 @@ import com.terawarehouse.business.service.catalog.ProductService;
 import com.terawarehouse.data.entity.catalog.Product;
 import com.terawarehouse.data.repository.catalog.ProductRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
+@SpanName("product")
 @RestController
 @RequestMapping(path = "/catalog/products", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
+@Slf4j
 public class ProductController extends AbstractBusinessController<Product, ProductDto, UUID> {
 
     @Autowired
@@ -65,5 +72,14 @@ public class ProductController extends AbstractBusinessController<Product, Produ
 
         final EntityModel<ProductDto> resource = modelAssembler.toModel(genericMapper.toDto(productService.save(entity)));
         return ResponseEntity.created(linkTo(controllerClass).slash(entity.getId()).withSelfRel().toUri()).body(resource);
+    }
+
+    @Override
+    @GetMapping(path = "/{uid}")
+    public EntityModel<ProductDto> findById(@PathVariable UUID uid) throws NotSupportedException {
+
+        log.debug("GET /catalog/products productId={}", uid);
+
+        return super.findById(uid);
     }
 }
