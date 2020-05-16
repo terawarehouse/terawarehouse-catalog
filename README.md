@@ -11,6 +11,15 @@ Is a microservice that is a part of the Catalog and Sellout Management System.
  - It is powered by and use Spring Cloud to fetch the configuration from a remote server and join a client server registration.
  - It saves the data in an SQL database.
 
+## Dockerized
+
+```
+docker build -t czetsuya/terawarehouse-catalog .
+docker run -d -p 8761:8761 czetsuya/terawarehouse-catalog
+```
+
+Catalog should be accessible at http://localhost:8001
+
 ## Repositories
 
  - https://github.com/terawarehouse

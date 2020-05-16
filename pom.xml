@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.4.RELEASE</version>
+		<version>2.3.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.terawarehouse</groupId>
@@ -22,28 +22,8 @@
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>jcenter-snapshots</id>
-			<name>jcenter</name>
-			<url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<build>
+		<finalName>terawarehouse-catalog</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -68,7 +48,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.10</version>
+							<version>1.18.12</version>
 						</path>
 					</annotationProcessorPaths>
 					<compilerArgs>
@@ -79,7 +59,7 @@
 			<plugin>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok-maven-plugin</artifactId>
-				<version>1.18.10.0</version>
+				<version>1.18.12.0</version>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
@@ -142,10 +122,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-hateoas</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
