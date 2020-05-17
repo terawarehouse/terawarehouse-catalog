@@ -34,11 +34,14 @@ import com.broodcamp.bean.CurrentUser;
 import com.broodcamp.data.entity.AuditableEntity;
 import com.broodcamp.data.entity.BaseEntity;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Overriden base repository. Must not be abstract.
  * 
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
+@Slf4j
 public class BaseRepositoryImpl<T extends BaseEntity, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID> {
 
     private EntityManager entityManager;
@@ -58,7 +61,9 @@ public class BaseRepositoryImpl<T extends BaseEntity, ID extends Serializable> e
     @Override
     public <S extends T> S save(S entity) {
 
-        if (entity instanceof AuditableEntity) {
+        log.debug("saving entity {}", entity);
+      
+        if (AuditableEntity.class.isAssignableFrom(entity.getClass())) {
             ((AuditableEntity) entity).updateAudit(currentUser.getName());
         }
 
