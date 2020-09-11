@@ -1,5 +1,6 @@
-[![patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/bePatron?u=12280211)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
+**Help me build more open-source projects by becoming my sponsor.*
 
 # Catalog Module
 
